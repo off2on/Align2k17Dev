@@ -143,7 +143,7 @@
         {
             $timeout(function () {
                 disableVisualStylingTime();
-            }, 100);
+            }, 500);
             
         }
     })
