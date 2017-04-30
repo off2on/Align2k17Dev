@@ -617,6 +617,11 @@ input:-ms-input-placeholder {
 {
     float:left;
 }
+
+.uib-datepicker
+{
+    background-color:#fff;
+}
 .inputField-time
 {
     width:40%;
