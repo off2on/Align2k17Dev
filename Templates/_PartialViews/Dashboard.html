@@ -1,0 +1,172 @@
+﻿<div class="col-sm-4 col-md-4 col-lg-4 fade-in-out " ng-show="signUpInfo1">
+
+    <div class="panel panel-default panel-company">
+        <div class="panel-body">
+            <div class="panel-header">
+                Company Information
+            </div>
+
+            <div class="panel-info" style="margin-top: 20px;">
+                <p>Company Name</p>
+                <h4>EVO</h4>
+                <br />
+                <p>Building Name</p>
+                <h4>EVO</h4>
+                <br />
+                <p>Building Address</p>
+                <address style=" font-size: 18px; font-family: inherit; font-weight: 500;">
+                    590 Chestnut Ave<br>
+                    Philadelphia, PA 19012<br>
+                </address>
+                <br />
+                <button class="btn btn-login btn-edit">Edit</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="col-sm-4 col-md-4 col-lg-4 fade-in-out" ng-show="signUpInfo1">
+    <div class="panel panel-default panel-company">
+        <div class="panel-body">
+            <div class="panel-header">
+                Company Contact
+            </div>
+            <!--<accordion>
+                <accordion-group is-open="true">
+                    <accordion-heading>
+                        <i ng-click="toggleMenuStatus(0)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[0].isOpen , 'glyphicon-plus-sign': !menuStatus[0].isOpen }"></i>
+                        <h4 ng-click="toggleMenuStatus(0)" style="font-style:italic;padding:1px 15px">Primary Contact</h4>
+                    </accordion-heading>
+
+                    <div class="panel-info" style="margin-top: 20px; word-wrap: break-word;">
+                        <p>Name</p>
+                        <h4>Mr. John Snow</h4>
+
+                        <p>Email</p>
+                        <h4>johnsnow@evo.com</h4>
+
+                        <p>Phone</p>
+                        <h4>267-123-2344</h4>
+
+                        <p>Fax</p>
+                        <h4>215-123-1233</h4>
+
+                        <button class="btn btn-login btn-edit" style="position:inherit">Edit</button>
+                    </div>
+                </accordion-group>
+                <accordion-group is-open="false">
+                    <accordion-heading>
+                        <i ng-click="toggleMenuStatus(0)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[1].isOpen , 'glyphicon-plus-sign': !menuStatus[1].isOpen }"></i>
+                        <h4 ng-click="toggleMenuStatus(1)" style="font-style:italic">Secondary Contact</h4>
+                    </accordion-heading>
+                    <div class="panel-info" style="margin-top:20px;">
+                        <p>Name</p>
+                        <h4>Mr. John Snow</h4>
+
+                        <p>Email</p>
+                        <h4>johnsnow@evo.com</h4>
+
+                        <p>Phone</p>
+                        <h4>267-123-2344</h4>
+
+                        <p>Fax</p>
+                        <h4>215-123-1233</h4>
+
+                        <button class="btn btn-login btn-edit" style="position:inherit">Edit</button>
+                    </div>
+                </accordion-group>
+            </accordion>-->
+
+            <uib-accordion close-others="true">
+                <div uib-accordion-group class="panel-default" is-open="true" is-disabled="false">
+
+                    <uib-accordion-heading>
+                        <i ng-click="toggleMenuStatus(0)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[0].isOpen , 'glyphicon-plus-sign': !menuStatus[0].isOpen }"></i>
+                        <h4 ng-click="toggleMenuStatus(0)" style="font-style:italic;padding:1px 15px">Primary Contact</h4>                        
+                    </uib-accordion-heading>
+                    <div class="panel-info" style="margin-top: 20px; word-wrap: break-word;">
+                        <p>Name</p>
+                        <h4>Mr. John Snow</h4>
+
+                        <p>Email</p>
+                        <h4>johnsnow@evo.com</h4>
+
+                        <p>Phone</p>
+                        <h4>267-123-2344</h4>
+
+                        <p>Fax</p>
+                        <h4>215-123-1233</h4>
+
+                        <button class="btn btn-login btn-edit" style="position:inherit">Edit</button>
+                    </div>
+                </div>
+
+                <div uib-accordion-group class="panel-default" is-open="false" is-disabled="false">
+                    <uib-accordion-heading>
+                        <i ng-click="toggleMenuStatus(1)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[1].isOpen , 'glyphicon-plus-sign': !menuStatus[1].isOpen }"></i>
+                        <h4 ng-click="toggleMenuStatus(1)" style="font-style:italic">Secondary Contact</h4>
+                    </uib-accordion-heading>
+                    <div class="panel-info" style="margin-top: 20px; word-wrap: break-word;">
+                        <p>Name</p>
+                        <h4>Mr. John Snow</h4>
+
+                        <p>Email</p>
+                        <h4>johnsnow@evo.com</h4>
+
+                        <p>Phone</p>
+                        <h4>267-123-2344</h4>
+
+                        <p>Fax</p>
+                        <h4>215-123-1233</h4>
+
+                        <button class="btn btn-login btn-edit" style="position:inherit">Edit</button>
+                    </div>
+                </div>
+            </uib-accordion>
+
+
+
+</div>
+    </div>
+    <span class="glyphicon glyphicon-chevron-right" style=" color: #ffc00e; position: absolute; right: 0; cursor: pointer; z-index: 1; margin-top: 56%;" ng-click="setSignUpInfo(2)"></span>
+</div>
+<div class="col-sm-4 col-md-4 col-lg-4 fade-in-out" ng-show="!signUpInfo1">
+    <span class="glyphicon glyphicon-chevron-left" style=" color: #ffc00e; position: absolute; left: 0; margin-top: 56%; cursor: pointer; z-index: 1;" ng-click="setSignUpInfo(1)"></span>
+    <div class="panel panel-default panel-company">
+        <div class="panel-body">
+            <div class="panel-header">
+                Company Account
+            </div>
+
+            <div class="panel-info" style="margin-top:20px;">
+                <p>Username</p>
+                <h4>evo@evo.com</h4>
+                <br />
+                <p>Password</p>
+                <h4>********</h4>
+                <br />
+
+                <button class="btn btn-login btn-edit">Edit</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="col-sm-4 col-md-4 col-lg-4 fade-in-out" ng-show="!signUpInfo1">
+    <div class="panel panel-default panel-company">
+        <div class="panel-body">
+            <div class="panel-header">
+                Payment
+            </div>
+
+            <div class="panel-info" style="margin-top:40px;">
+                <h4>Your subscription will automatically renew on 4/5/17 and you’ll be charged $3000.00 +tax</h4>
+                <br /><br />
+                <img class="img-responsive" style="float:left;margin-right:7px" src="../Images/visa.PNG" />
+                <h4>**** **** **** 1234</h4>
+                <button class="btn btn-login btn-edit">Edit</button>
+            </div>
+
+        </div>
+    </div>
+</div>

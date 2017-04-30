@@ -1,0 +1,169 @@
+﻿<div class="row" style="margin-bottom: 25px;">
+    <div class="col-sm-3 col-md-3 col-lg-3">
+
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-3">
+        <div class="contact" ng-click="contactType=0">
+            <span ng-class="{'contact-type':contactType==0,'contact-type-disabled':contactType!=0}">Primary Contact</span>
+        </div>
+        
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-3">
+        <div class="contact" ng-show="contactFlag==1" ng-click="contactType=1">
+            <span ng-class="{'contact-type':contactType==1,'contact-type-disabled':contactType!=1}">Secondary Contact</span>
+        </div>
+        
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-3">
+
+    </div>
+</div>
+<div class="contact-info" ng-show="contactType==0">
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="firstNameP">First Name*</label>
+                <input type="text" id="firstNameP"
+                       ng-model="user.firstNameP" class="form-control inputField" name="firstNameP"
+                       required>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="lastNameP">Last Name*</label>
+                <input type="text" id="lastNameP"
+                       ng-model="user.lastNameP" class="form-control inputField" name="lastNameP"
+                       required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="emailP">Email Address*</label>
+                <input type="email" id="emailP"
+                       ng-model="user.emailP" class="form-control inputField" name="emailP"
+                       required>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="phoneP">Phone Number*</label>
+                <input type="text" ui-mask="999-999-9999" id="phoneP" ui-mask-placeholder-char="_"
+                       ng-model="user.phoneP" class="form-control inputField" name="phoneP"
+                       required required-err-type="phoneMask" mask-err-type="phoneMask">
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="row">
+
+        <div class="col-sm-2 col-md-2 col-lg-2 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="titleP">Title or Position</label>
+                <input type="text" id="titleP"
+                       ng-model="user.titleP" class="form-control inputField" name="titleP">
+            </div>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="faxP">Fax Number</label>
+                <input type="number" id="faxP"
+                       ng-model="user.faxP" class="form-control inputField" name="faxP">
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+
+            <img ng-click="setContactType()" ng-show="contactFlag==0" style=" cursor: pointer; margin-left: auto; margin-right: auto;" class="img-responsive" src="../../Images/secondaryContact.PNG" />
+     
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="contact-info" ng-if="contactType==1">
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="firstNameS">First Name*</label>
+                <input type="text" id="firstNameS"
+                       ng-model="user.firstNameS" class="form-control inputField" name="firstNameS"
+                       required>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="lastNameS">Last Name*</label>
+                <input type="text" id="lastNameS"
+                       ng-model="user.lastNameS" class="form-control inputField" name="lastNameS"
+                       required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="emailS">Email Address*</label>
+                <input type="email" id="emailS"
+                       ng-model="user.emailS" class="form-control inputField" name="emailS"
+                       required>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="phoneS">Phone Number*</label>
+                <input type="text" ui-mask="999-999-9999" id="phoneP" ui-mask-placeholder-char="_"
+                       ng-model="user.phoneS" class="form-control inputField" name="phoneS"
+                       required required-err-type="phoneMask" mask-err-type="phoneMask">
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <div class="row">
+
+        <div class="col-sm-2 col-md-2 col-lg-2 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="titleS">Title or Position</label>
+                <input type="text" id="titleS"
+                       ng-model="user.titleS" class="form-control inputField" name="titleS">
+            </div>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpFormField">
+            <div class="form-group form-group-custom">
+                <label for="faxS">Fax Number</label>
+                <input type="number" id="faxS"
+                       ng-model="user.faxS" class="form-control inputField" name="faxS">
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-sm-10 col-md-10 col-lg-10"></div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <div class="form-group ">
+            <button type="submit" class="btn btn-login">Next</button>
+        </div>
+    </div>
+</div>
+
+
+
+  
+

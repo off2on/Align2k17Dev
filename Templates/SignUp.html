@@ -1,0 +1,49 @@
+﻿<div ng-include="'_PartialViews/_header.html'"></div>
+<div class="container">
+    
+    <div class="row" style=" margin-bottom: 25px;">
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpWiz" ng-click="setWizStep(1)">
+
+            <span ng-class="{'signUpWizStep':wizStep==1,'signUpWizStepDisabled':wizStep!=1}">
+                1
+            </span>
+            <span class="signUpWizText">
+                Company Information
+            </span>
+
+
+
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpWiz" ng-click="setWizStep(2)">
+
+            <span ng-class="{'signUpWizStep':wizStep==2,'signUpWizStepDisabled':wizStep!=2}">
+                2
+            </span>
+            <span class="signUpWizText">
+                Company Contact
+            </span>
+
+
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 signUpWiz" ng-click="setWizStep(3)">
+
+            <span ng-class="{'signUpWizStep':wizStep==3,'signUpWizStepDisabled':wizStep!=3}">
+                3
+            </span>
+            <span class="signUpWizText">
+                Company Account
+            </span>
+
+
+        </div>
+    </div>
+    <form ng-if="wizStep==1" class="form" ng-submit="submitCompanyInfoSignUpForm()" ng-submit-force="true" name="CompanyInfoSignUpForm" novalidate="novalidate">
+        <div ng-include="'_PartialViews/CompanyInfoSignUp.html'"></div>
+    </form>
+    <form ng-if="wizStep==2" class="form" ng-submit="submitCompanyContactSignUpForm()" ng-submit-force="true" name="CompanyContactSignUpForm" novalidate="novalidate">
+        <div ng-include="'_PartialViews/CompanyContactSignUp.html'"></div>
+    </form>
+    <form ng-if="wizStep==3" class="form" ng-submit="submitCompanyAccountSignUpForm()" ng-submit-force="true" name="CompanyAccountSignUpForm" novalidate="novalidate">
+        <div ng-include="'_PartialViews/CompanyAccountSignUp.html'"></div>
+    </form>
+</div>

@@ -1,0 +1,952 @@
+﻿
+html {
+  height: 100%;
+}
+body, ul, h1, h2, h3, a, checkbox, radio {
+	padding: 0;
+	margin: 0;
+    height:100%;
+}
+
+body
+{
+    font-family: 'Open Sans', sans-serif;
+-webkit-animation: AnimationName 30s ease infinite;
+-moz-animation: AnimationName 30s ease infinite;
+animation: AnimationName 30s ease infinite;
+font-family: 'Open Sans', sans-serif;
+}
+
+.body-bg-white
+{
+    background: #fff;
+}
+
+.jumbotron-custom
+{
+    background: #fff;
+    background-size: 0%;
+    color:#000;
+    padding-top: 0px;
+        margin-bottom: 0px;
+            padding-bottom: 0px;
+            border:0px;
+}
+
+.center-align
+{
+    text-align: center;
+}
+
+.no-padding
+{
+    padding:0px;
+}
+
+
+h1
+{
+    color:#000;
+}
+
+
+.text-muted
+{
+    color:#fff;
+}
+
+
+.page-wrap {
+  min-height: 100%;
+
+  /* equal to footer height */
+  margin-bottom: -50px; 
+
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+  height:50px;
+}
+
+.btn-custom
+{
+    width:20%;
+    margin-top: 10%; margin-bottom: 7px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paragraph
+{
+        text-align: left;
+}
+
+label
+{
+    float:left;
+}
+.form-control
+{
+    border: 1px solid #C7D3DE;
+}
+.validationMsg
+{
+    float:left;
+    font-size:16px !important;
+}
+.help-block
+{
+    float:left;
+}
+
+
+.checkbox-inline > span
+{
+    right:0px !important;
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+::-ms-clear { display: none; }
+
+/*********************************Login CSS***********************************/
+.logo
+{
+    margin:auto;
+}
+
+.inputField
+{
+    border-radius: 0px;
+    background-color: #e3e3e3;
+    height: 50px;
+        padding-bottom: 6px;
+}
+.form-group-custom
+{
+    padding-bottom:6px;
+}
+.btn-login
+{
+    border-radius: 0px;    
+    height: 50px;
+    background-color: #ffc00e; 
+    border-color: #ffc00e; 
+    width: 100%;
+    color:#fff;
+    outline:none !important;
+}
+.btn-login:hover
+{
+    color:#fff;
+    background-color: #ffc00e; 
+    border-color: #ffc00e; 
+}
+.btn-login:focus
+{
+    color:#fff;
+    background-color: #ffc00e; 
+    border-color: #ffc00e; 
+}
+
+.loginContainer
+{
+    margin-top:5%;
+}
+.logoPanel
+{
+        margin-bottom: 20px;
+}
+.cursor
+{
+    cursor:pointer;
+}
+.inline
+{
+    margin-right:5px;
+    color:#878787;
+}
+
+input::-webkit-input-placeholder {
+    
+    font-weight: bold;
+}
+input:-moz-placeholder {
+    
+    font-weight: bold;
+}
+input:-ms-input-placeholder {
+    
+    font-weight: bold;
+}
+.glyphicon-alert
+{
+    line-height:47px;
+}
+
+/*******************SignUp********************/
+
+@media only screen and (max-width: 767px) {
+    .signUpFormField
+    {
+        margin-bottom:29px;
+    }
+}
+
+.signUpWiz
+{
+    height: 50px;
+    cursor:pointer;
+}
+
+.signUpWizStep
+{
+        color: #fff;
+    margin-right: 3%;
+    border: 1px solid #ffc00e;
+    border-radius: 50%;
+    background-color: #ffc00e;
+    padding-left: 18px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    font-size: 30px;
+}
+.signUpWizStepDisabled
+{
+        color: #fff;
+    margin-right: 3%;
+    border: 1px solid #e3e3e3;
+    border-radius: 50%;
+    background-color: #e3e3e3;
+    padding-left: 18px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    font-size: 30px;
+}
+@media only screen and (min-width:768px)
+{
+   .signUpWizStep
+{
+        font-size: 30px;
+}
+      .signUpWizStepDisabled
+{
+        font-size: 30px;
+}
+}
+
+@media only screen and (max-width:767px)
+{
+    .signUpWizStep
+    {
+        font-size: 22px;
+    }
+      .signUpWizStepDisabled
+{
+        font-size: 22px;
+}
+}
+
+@media only screen and (max-width:320px)
+{
+   .signUpWizStep
+{
+        font-size: 22px;
+}
+      .signUpWizStepDisabled
+{
+        font-size: 22px;
+}
+}
+
+@media only screen and (min-width:993px)
+{
+   .signUpWizText
+{
+        font-size: 22px;
+}
+}
+
+@media only screen and (max-width:992px)
+{
+    .signUpWizText
+    {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width:320px)
+{
+   .signUpWizText
+{
+        font-size: 12px;
+}
+}
+
+.contact
+{
+            margin-bottom: 18px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    font-size: x-large;
+    cursor:pointer;
+    text-align: center;
+}
+.contact-type
+{
+    padding-bottom: 5px;
+    border-bottom: 4px solid #ffc00e;
+}
+
+.contact-type-disabled
+{
+    padding-bottom: 5px;
+    border-bottom: 4px solid #e3e3e3;
+}
+
+/*****************************Home*********************************************/
+.panel-header
+{
+    font-size: x-large;
+    border-bottom: 1px solid #eee;
+    text-align:center;
+    font-weight:bold;
+}
+.btn-edit
+{
+        margin-left: 2%;
+    margin-right: 4%;
+    width: 92%;
+    position: absolute;
+    border-radius: 20px;
+    font-size: large;
+    height: 40px;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 3%;
+    outline:none !important;
+}
+.panel-company
+{
+    background-color: #e3e3e3; height: 555px; border-radius: 20px;position:relative
+}
+.left-menu-nav
+{
+        border-left: 5px solid #e3e3e3;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    cursor:pointer;
+}
+
+.left-menu-nav > h3
+{
+    padding-top:20px;
+}
+
+.navbar-collapse.in
+{
+    overflow-y:inherit;
+}
+
+/*.panel-default > .panel-heading
+{
+    background-color: rgb(255, 192, 14);
+    color:#fff;
+
+        padding: 5px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    left: 0;
+    right: 0;
+}*/
+
+
+
+/*.panel-heading
+{
+    padding:1px 15px;
+}*/
+
+/*******************************Live Page CSS*************************************/
+.box-shad {
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    margin-bottom: 15px;
+}
+
+.userInfo
+{
+    text-align:center;
+}
+
+
+@media only screen and (max-width: 860px)
+{
+    .btn-live
+{
+        padding: 2px;
+    text-align: center;
+    font-size: xx-large;
+    height:auto;
+    cursor:pointer;
+    position:inherit;
+        margin-left: auto;
+    margin-right: auto;
+}
+}
+
+.btn-live
+{
+        padding: 2px;
+    text-align: center;
+    font-size: xx-large;
+    height:auto;
+    cursor:pointer;
+        margin-left: auto;
+    margin-right: auto;
+}
+
+.activeTile
+{
+        border-left: 5px solid #ffc00e;
+}
+.btn-login-inactive
+{
+    
+    border-radius: 0px;
+    height: 50px;
+    /* background-color: #ffc00e; */
+    border-color: #ffc00e;
+    width: 100%;
+    /* color: #fff; */
+    outline: none !important;
+}
+
+.alignA
+{
+    margin-top: 6%;
+    width:5%;
+    text-align: center;
+}
+
+.navbar-custom
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ffc00e;
+    z-index: 1;
+}
+
+@media only screen and (max-width:767px)
+{
+    .navbar-collapse
+{
+        width: 100%;
+}
+}
+
+@media only screen and (min-width:768px)
+{
+        .navbar-collapse
+{
+        width: 25%;
+}
+}
+
+
+
+
+/****Home Page Slider***/
+
+/*.ng-hide-add {
+    -webkit-animation: 0s slideInLeft ease;
+    animation: 0s slideInLeft ease;
+}*/
+
+/*when showing the thing*/
+/*.ng-hide-remove      {     
+  -webkit-animation:0.7s slideInRight ease; 
+  animation:0.7s slideInRight ease;   
+}*/
+
+/*.ng-hide-remove {
+    -webkit-animation: 0.7s slideInRight ease;
+    animation: 0.7s slideInRight ease;
+}*/
+
+
+/* ANIMATIONS (FROM ANIMATE.CSS) */
+
+@-webkit-keyframes slideInLeft {
+    from {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+}
+
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+    }
+
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInRight {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+}
+
+.fade-in-out {
+  transition: 2s linear all;  
+  opacity: 1;
+}
+
+.fade-in-out.ng-hide {
+  opacity: 0;
+  transition: 0s linear all;
+}
+
+/******************************************Event Page CSS*********************************************/
+
+.drop-image {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    /*width: 170px;*/
+    text-align: center;
+    padding: 50px 10px;
+    /*margin-left: 10px;*/
+    float: left;
+    /* position: relative; */
+    margin-bottom: 25px;   
+    height: auto;  
+    cursor:pointer;
+}
+
+#description
+{
+    resize:none;
+}
+
+.glyphicon-large
+{
+    color: #ffc00e;font-size: 50px;
+}
+
+.btn-event-type
+{
+    display:inline;
+    border-radius: 25px;
+    margin-right:5px;
+    font-size: large;
+    padding: 8px;
+}
+
+.input-btn-date
+{
+    float: left;
+    margin-top: -50px;
+    height: 50px;
+    margin-left: 100%;
+}
+.btn-date
+{
+    height:50px;
+}
+.input-group-btn
+{
+    position: relative;
+    /*left: 100%;*/
+}
+
+.uib-timepicker
+{
+    float:left;
+}
+.inputField-time
+{
+    width:40%;
+    float:left;
+    margin-right:10px;
+}
+.label-time
+{
+    width:100%;
+}
+
+.uib-time input
+{
+    width:100%;
+}
+a:active, a:hover
+{
+    outline:none !important;
+}
+a.btn.btn-link,.btn-link:hover, .btn-link:focus
+{
+    outline:none;
+}
+
+
+/******************************************MyEvents CSS************************************************/
+
+.fc-content
+{
+    background-color:#ffc00e;
+
+}
+.fc-event
+{
+    background-color:#ffc00e;
+    border-color:#ffc00e;
+}
+.fc-toolbar .fc-left
+{
+    /*margin-left:40%;*/
+}
+.fc-sun, .fc-sat
+{
+    background-color:#f1f1f1 !important;
+    border-color:#efefef;
+}
+.fc td, .fc th
+{
+    border-top-style: none
+}
+.fc .fc-row
+{
+    border-bottom:1px solid #ddd;
+}
+.fc-widget-header
+{
+    border-top:1px solid #ddd !important;
+}
+.fc-day-number
+{
+    font-size: x-large;
+}
+
+/*@media only screen and (min-width:768px)
+{
+   .fc-day-number
+{
+        font-size: 30px;
+}
+
+}
+
+@media only screen and (max-width:767px)
+{
+    .fc-day-number
+    {
+        font-size: 22px;
+    }
+
+}*/
+
+.fc-today .fc-day-number
+{
+    color:#ffc00e;
+}
+
+@media only screen and (max-width:320px)
+{
+   .fc-day-number
+{
+        font-size: 22px;
+}
+
+}
+
+@media only screen and (max-width:767px)
+{
+    .fc-left
+    {
+        margin-bottom:10px;
+    }
+    .fc-right
+    {
+        margin-bottom:10px;
+    }
+}
+
+.fc-widget-content
+{
+    height:100px;
+}
+
+/*************************MyEvents Pop Up*******************************/
+
+@media only screen and (max-width:445px)
+{
+    .EventTitle
+{
+    height: auto;
+    text-align: center;
+    /*background-color: #416272;*/
+    font-size: x-large;
+    color: #fff;
+    padding: 20px;
+    background-color:#ffc00e;
+}
+}
+
+@media only screen and (min-width:446px)
+{
+    .EventTitle
+{
+    height: auto;
+    text-align: center;
+    /*background-color: #416272;*/
+    font-size: xx-large;
+    color: #fff;
+    padding: 20px;
+    background-color:#ffc00e;
+}
+}
+
+@media only screen and (min-width:768px)
+{
+    .EventTitle
+{
+    height: auto;
+    text-align: center;
+    /*background-color: #416272;*/
+    font-size: -webkit-xxx-large;
+    color: #fff;
+    padding: 20px;
+    background-color:#ffc00e;
+}
+}
+
+.EventSubTitle
+{
+    text-align: center;
+    font-size: x-large;
+    padding: 12px;
+}
+.EventInfo
+{
+    /*text-align: center;*/
+    font-size: larger;
+    margin-left: 10%;
+    padding: 10px;
+}
+.EventEditBtn
+{
+        float: right;
+    padding: 10px;
+    font-style: italic;
+    font-size: large;
+    cursor:pointer;
+    color:#ffc00e;
+}
+
+.glyphicon-align-theme-color
+{
+    color:#ffc00e;
+}
+.ngdialog-custom
+{
+    height:auto;
+    background-color:#fff !important;
+}
+.ngdialog-content
+{
+    height: 475px;
+    background-color:#fff;
+}
+.ngdialog.ngdialog-theme-default
+{
+    padding-top:130px;
+}
+.ngdialog.ngdialog-theme-default .ngdialog-close
+{
+    background: transparent;
+    border: 0px;
+    outline:none;    
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-close:before
+{
+    color:#ffc00e;
+    position:initial;
+    font-size: 30px;
+}
+
+.ngdialog-overlay{
+
+  right: 15px;
+
+}
+/*.ngdialog.ngdialog-theme-default .ngdialog-content
+{
+    width:42% !important;
+}*/
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    width: 80% !important;
+    background-color:#fff !important;
+}
+
+/******************************************Reviews/Ratings CSS*****************************************/
+.event-date
+{
+    text-align:center;
+}
+.img-user-review
+{
+    height: 140px;
+}
+.userInfo-review
+{
+    /*float: left;
+    padding-left: 4%;*/
+}
+.review-text
+{
+    margin-top: 7%;
+    height: auto;
+    padding: 15px;
+    background-color: #e3e3e3;
+    font-size: larger;
+}
+.row-review
+{
+    margin-bottom:25px;
+}
+.glyphicon-medium
+{
+    color: #ffc00e;font-size: 40px;
+}
+
+/*******************************************Past Events CSS********************************************/
+
+.btn-event-download
+{
+    float: right;
+    width: 30%;
+    font-size: x-large;
+}
+.event-sub-past
+{
+    text-align:left;
+}
+.event-info-past
+{
+    margin-left:0px;
+}
+.event-place-address
+{
+    color:#c6c6c6;
+    margin-left:16px;
+    display:block;
+    padding:5px;
+}
+.row-event-past
+{
+    border-bottom: 2px solid #9e9e9e; padding-bottom: 10px;
+    margin-bottom:10px;
+}
+@media only screen and (min-width:768px)
+{
+.img-event-past
+{
+    padding-top:40%;
+}
+}
+
+
+/******************************************Custom Bootstrap Column Layout*****************************/
+
+@media (min-width: 768px){
+    .fivecolumns .col-md-2, .fivecolumns .col-sm-2, .fivecolumns .col-lg-2  {
+        width: 20%;
+        *width: 20%;
+    }
+}
+@media (min-width: 1200px) {
+    .fivecolumns .col-md-2, .fivecolumns .col-sm-2, .fivecolumns .col-lg-2 {
+        width: 20%;
+        *width: 20%;
+    }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+    .fivecolumns .col-md-2, .fivecolumns .col-sm-2, .fivecolumns .col-lg-2 {
+        width: 20%;
+        *width: 20%;
+    }
+}
+
+
+
+/*****************************************Custom Bootstrap Column Layout End*****************************/
+
+
+/*****************footer*********************/
+
+.custom-footer
+{
+        padding: 50px;
+  height: 50px;
+  text-align: center;
+      /*position: fixed;
+    left: 0;
+    right: 0;*/
+    background: #fff;
+
+}

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html ng-app="alignApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Align</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link href="../Content/AngularUICalender/fullcalendar.min.css" rel="stylesheet" />
+    <link href="../Content/Angular-Animate/animate.css" rel="stylesheet" />
+    <link href="../Content/ngDialog/ngDialog.min.css" rel="stylesheet" />
+    <link href="../Content/ngDialog/ngDialog-theme-default.min.css" rel="stylesheet" />
+    <link href="../Content/Bootstrap/bootstrap.css" rel="stylesheet" />
+
+
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);" rel="stylesheet">
+    <link href="../Content/CustomCss/Site.css" rel="stylesheet" />
+</head>
+<body ng-controller="pageLoadController" ng-show="pageLoadComplete" ng-cloak>
+    <div class="container-fluid page-wrap">
+        <!--<div ng-include="'_PartialViews/_header.html'" ng-show="headerCenter"></div>
+        <div ng-include="'_PartialViews/_headerLeft.html'" ng-show="!headerCenter"></div>-->
+        <div ng-view></div>
+        <div ng-include="'_PartialViews/_footer.html'"></div>
+    </div>
+
+
+
+    <script src="../Scripts/Jquery/jquery-1.9.1.min.js"></script>
+    <script src="../Scripts/AngularJS/AngularUICalender/moment.js"></script>
+    <script src="../Scripts/AngularJS/angular.min.js"></script>
+    <script src="../Scripts/AngularJS/AngularUICalender/calendar.js"></script>
+    <script src="../Scripts/AngularJS/AngularUICalender/fullcalendar.js"></script>
+    <script src="../Scripts/AngularJS/AngularUICalender/gcal.min.js"></script>
+    <script src="../Scripts/AngularJS/angular-route.min.js"></script>
+    <script src="../Scripts/AngularJS/angular-animate.min.js"></script>
+    
+    <script src="../Scripts/AngularJS/ngDialog/ngDialog.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <!--<script src="../Scripts/angular-ui/ui-bootstrap-tpls-0.13.3.js"></script>-->
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular-animate.min.js"></script>-->
+    <!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.3.js"></script>-->
+
+    <script src="../Scripts/BootstrapJS/bootstrap.min.js"></script>
+   
+    <!--<script src="../Scripts/angular-ui/ui-bootstrap.min.js"></script>-->
+   
+    <script src="../Scripts/angular-ui/mask.js"></script>
+    <script src="../Scripts/AngularJS/ngFileUpload/ng-file-upload-shim.min.js"></script>
+    <script src="../Scripts/AngularJS/ngFileUpload/ng-file-upload.min.js"></script>
+    <script src="../Scripts/AngularJS/jcs-auto-validate.js"></script>
+    <script src="../Scripts/Controllers/app.js"></script>
+    <script src="../Scripts/Controllers/loginController.js"></script>
+    <script src="../Scripts/Controllers/signUpController.js"></script>
+    <script src="../Scripts/Controllers/homeController.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<div ng-include="'_PartialViews/_header.html'"></div>
+<div class="container loginContainer">
+
+    <form class="form" ng-submit="submitLoginForm()" ng-submit-force="true" name="LoginForm" novalidate="novalidate">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                <div class="form-group form-group-custom">
+                    <input type="text" id="userName" placeholder="Username"
+                           ng-model="user.userName" class="form-control inputField" name="userName"
+                           required required-err-type="userNameRequired">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                <div class="form-group form-group-custom">
+                    <input type="password" id="password" ng-model="user.password" placeholder="Password"
+                           class="form-control inputField"                           
+                           required required-err-type="passwordRequired" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-login">Log In</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+                <div class="form-group" style="float:left">
+                    <label class="checkbox-inline inline" style="width:100%;text-align:left">
+                        <input type="checkbox" name="rememberMe" ng-model="user.rememberMe" value=""><span style="color: #878787 !important;">Remember Me</span>
+                    </label>
+                </div>
+                <div style="float:right;text-align:right">
+                    <span class="inline cursor" ng-click="redirectToSignUp()">Sign Up</span><span class="inline">|</span><span class="cursor inline">Forgot Password</span>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
