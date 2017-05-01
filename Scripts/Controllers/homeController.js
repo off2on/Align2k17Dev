@@ -65,8 +65,11 @@
 
 
     $scope.setLeftNavId = function (id, $event) {
-        $scope.startProgress($event);
-        $scope.leftNavId = id;        
+        if ($scope.leftNavId != id)
+        {
+            $scope.startProgress($event);
+            $scope.leftNavId = id;
+        }               
     }    
 
     //initialise scope variables
