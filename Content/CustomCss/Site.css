@@ -646,6 +646,11 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
     outline:none;
 }
 
+.glyphicon-chevron-up, .glyphicon-chevron-down
+{
+    color:#ffc00e;
+}
+
 
 /******************************************MyEvents CSS************************************************/
 
@@ -954,4 +959,9 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
     right: 0;*/
     background: #fff;
 
+}
+
+body
+{
+    margin-top:0px;
 }

@@ -1,4 +1,4 @@
-﻿alignApp.controller('homeController', function ($scope, defaultErrorMessageResolver, $timeout, ngDialog) {
+﻿alignApp.controller('homeController', function ($scope, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory) {
 
 
     $scope.$emit('adjustHeader', 1);
@@ -23,17 +23,29 @@
                 $scope.uiConfig.calendars[calendar].fullCalendar('render');
             }
         };
+        $scope.progressbar = ngProgressFactory.createInstance();
 
-        $timeout(function () {
-            //$scope.renderCalender('eventsCalender');
-        }, 1000);
-        
+        $scope.startProgress = function($event)
+        {
+            $event.preventDefault();
+            
+            $scope.progressbar.start();
+        }
+
+        $scope.endProgress = function ($event) {
+            
+            $scope.progressbar.complete();
+            
+            $event.preventDefault();
+        }
+
 
     }
 
 
-    $scope.setNavId = function (id) {
-        $scope.leftNavId = id;
+    $scope.setLeftNavId = function (id, $event) {
+        $scope.startProgress($event);
+        $scope.leftNavId = id;        
     }    
 
     //initialise scope variables

@@ -1,5 +1,5 @@
 ﻿
-var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog']);
+var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog','ngProgress',]);
 
 alignApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
