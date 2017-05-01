@@ -37,11 +37,23 @@ alignApp.run([
 
 ]);
 
-alignApp.controller("pageLoadController", function ($scope, $location, $rootScope) {
+alignApp.controller("pageLoadController", function ($scope, $location, $rootScope, ngProgressFactory) {
     $scope.pageLoadComplete = false;
     $scope.headerCenter = true;
+
+    $scope.progressbar = ngProgressFactory.createInstance();
+
+    $scope.startProgress = function () {
+        //$event.preventDefault();
+
+        $scope.progressbar.start();
+    }
+
+    //$scope.startProgress();
+
     angular.element(function () {
         $scope.pageLoadComplete = true;
+        //$scope.progressbar.complete();
         
     });
 

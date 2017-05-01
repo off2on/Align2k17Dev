@@ -1,6 +1,26 @@
 ﻿alignApp.controller('homeController', function ($scope, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory) {
 
+    $scope.progressbar = ngProgressFactory.createInstance();
+    $scope.progressbar.start();
 
+    var disableVisualStylingTime = function () {
+        $('#time :input').attr('disable-validation-message', '');
+        $('#time :input').attr('disable-invalid-styling', 'true');
+        $('#time :input').attr('disable-valid-styling', 'true');
+        $('#date').attr('disable-validation-message', '');
+    }
+
+    angular.element(function () {
+        $scope.progressbar.complete();
+            $scope.$watch('leftNavId', function () {
+        if ($scope.leftNavId == 2) {
+            $timeout(function () {
+                disableVisualStylingTime();
+            }, 500);
+
+        }
+    });
+    });
     $scope.$emit('adjustHeader', 1);
     //define scope variables
     $scope.initialise = function () {
@@ -23,7 +43,7 @@
                 $scope.uiConfig.calendars[calendar].fullCalendar('render');
             }
         };
-        $scope.progressbar = ngProgressFactory.createInstance();
+        
 
         $scope.startProgress = function($event)
         {
@@ -31,6 +51,7 @@
             
             $scope.progressbar.start();
         }
+        
 
         $scope.endProgress = function ($event) {
             
@@ -150,23 +171,8 @@
         $scope.popup1.opened = true;
     };
 
-    $scope.$watch('leftNavId', function () {
-        if($scope.leftNavId==2)
-        {
-            $timeout(function () {
-                disableVisualStylingTime();
-            }, 500);
-            
-        }
-    })
 
-    var disableVisualStylingTime = function()
-    {
-        $('#time :input').attr('disable-validation-message', '');
-        $('#time :input').attr('disable-invalid-styling', 'true');
-        $('#time :input').attr('disable-valid-styling', 'true');
-        $('#date').attr('disable-validation-message', '');
-    }
+
     
 });
 

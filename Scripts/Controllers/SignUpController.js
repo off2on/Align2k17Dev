@@ -1,5 +1,5 @@
 ﻿alignApp.controller('signUpController', function ($scope,$location) {
-
+   
     //define scope variables
     $scope.initialise = function () {
         $scope.wizStep = 1;
@@ -133,6 +133,20 @@
         }
 
     }
+
+    $scope.startProgress = function () {
+        //$event.preventDefault();
+
+        $scope.progressbar.start();
+    }
+
+    $scope.startProgress();
+
+    angular.element(function () {
+        
+        $scope.progressbar.complete();
+
+    });
 
 
 });

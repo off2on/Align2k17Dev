@@ -22,4 +22,18 @@
     $scope.redirectToSignUp = function () {
         $location.url('/SignUp');
     }
+
+    $scope.startProgress = function () {
+        //$event.preventDefault();
+
+        $scope.progressbar.start();
+    }
+
+    $scope.startProgress();
+
+    angular.element(function () {        
+        $scope.progressbar.complete();
+
+    });
+
 });
