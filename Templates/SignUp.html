@@ -37,13 +37,13 @@
 
         </div>
     </div>
-    <form ng-if="wizStep==1" class="form" ng-submit="submitCompanyInfoSignUpForm()" ng-submit-force="true" name="CompanyInfoSignUpForm" novalidate="novalidate">
+    <form ng-show="wizStep==1" class="form" ng-submit="submitCompanyInfoSignUpForm()" ng-submit-force="true" name="CompanyInfoSignUpForm" novalidate="novalidate">
         <div ng-include="'_PartialViews/CompanyInfoSignUp.html'"></div>
     </form>
-    <form ng-if="wizStep==2" class="form" ng-submit="submitCompanyContactSignUpForm()" ng-submit-force="true" name="CompanyContactSignUpForm" novalidate="novalidate">
+    <form ng-show="wizStep==2" class="form" ng-submit="submitCompanyContactSignUpForm()" ng-submit-force="true" name="CompanyContactSignUpForm" novalidate="novalidate">
         <div ng-include="'_PartialViews/CompanyContactSignUp.html'"></div>
     </form>
-    <form ng-if="wizStep==3" class="form" ng-submit="submitCompanyAccountSignUpForm()" ng-submit-force="true" name="CompanyAccountSignUpForm" novalidate="novalidate">
+    <form ng-show="wizStep==3" class="form" ng-submit="submitCompanyAccountSignUpForm()" ng-submit-force="true" name="CompanyAccountSignUpForm" novalidate="novalidate">
         <div ng-include="'_PartialViews/CompanyAccountSignUp.html'"></div>
     </form>
 </div>
