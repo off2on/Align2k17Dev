@@ -1,25 +1,28 @@
-﻿<div class="container-fluid">
-    <div class="row row-review">
-        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-responsive box-shad img-circle img-user-review" src="{{imgurl}}" />
-            <div class="row">
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 userInfo userInfo-review">
-                    <h3>{{name}}</h3>
-                    <p>{{designation}}</p>
+﻿<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="container-fluid">
+            <div class="row row-review">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                    <img class="img-responsive box-shad img-circle img-user-review" src="{{imgUrl}}" />
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 userInfo userInfo-review">
+                            <h3>{{name}}</h3>
+                            <p>{{designation}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                    <div>
+                        <span ng-repeat="n in [] | range:rating" class="glyphicon glyphicon-star glyphicon-medium"></span>
+                        <span ng-repeat="n in [] | range:(5-rating)" class="glyphicon glyphicon-star-empty glyphicon-medium"></span>
+                    </div>
+                    <div class="review-text">{{review}}</div>
                 </div>
             </div>
-            <!--<div class="userInfo userInfo-review">
-                
-            </div>-->
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-            <div>
-                <span ng-repeat="n in [] | range:rating" class="glyphicon glyphicon-star glyphicon-medium"></span>
-                <span ng-repeat="n in [] | range:(5-rating)" class="glyphicon glyphicon-star-empty glyphicon-medium"></span>
-            </div>
-            <div class="review-text">{{review}}</div>
         </div>
     </div>
+
 </div>
 
 

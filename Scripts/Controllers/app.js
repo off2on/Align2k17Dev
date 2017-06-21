@@ -1,5 +1,5 @@
 ﻿
-var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog','ngProgress',]);
+var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog', 'ngProgress', 'mentio']);
 
 alignApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -8,7 +8,7 @@ alignApp.config(function ($routeProvider, $locationProvider) {
         controller: "loginController"
 
     })
-        
+
     .when("/SignUp", {
         templateUrl: "SignUp.html",
         controller: "signUpController"
@@ -18,7 +18,8 @@ alignApp.config(function ($routeProvider, $locationProvider) {
         templateUrl: "Home.html",
         controller: "homeController"
     })
-    ;
+
+    .otherwise({ redirectTo: '/' });
     $locationProvider.html5Mode({
         enabled: false,        
         requireBase: false,

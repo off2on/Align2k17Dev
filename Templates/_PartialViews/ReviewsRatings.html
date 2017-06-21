@@ -1,19 +1,15 @@
-﻿<div class="col-sm-9 col-md-9 col-lg-9">
-    <div class="row">
-        <div class="col-sm-7 col-md-7 col-lg-7 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 EventSubTitle">
-            <h2>Technically Philly Meetup April 2017</h2>
-        </div>
-        <div class="col-sm-7 col-md-7 col-lg-7 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 event-date">
-            <h4>April 3, 2017 9AM - 5PM</h4>
+﻿<div class="col-sm-9 col-md-9 col-lg-9" >
+    <div ng-repeat="reviewRating in reviewRatingsData">
+        <event-reviews-ratings event-name="{{reviewRating.name}}"
+                               event-date-time="{{reviewRating.date}}">
+        </event-reviews-ratings>
+        <div ng-repeat="rev in reviewRating.ratings">
+            <reviews-ratings review="{{rev.review}}"
+                             name="{{rev.name}}"
+                             designation="{{rev.designation}}"
+                             rating=rev.rating
+                             img-url="{{rev.imgUrl}}">
+            </reviews-ratings>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12" reviews-ratings review="I met many good people and had really good food." name="Ashish Sharma" designation="Software Developer" rating="4" imgurl="../../Images/ashish.jpg">
-
-        </div>   
-        <div class="col-sm-12 col-md-12 col-lg-12" reviews-ratings review="Really enjoyed the talk today! Great job guys!" name="Paras Paul" designation="Software Developer" rating="4" imgurl="../../Images/paras.jpg">
-
-        </div>      
     </div>
-    
-</div>

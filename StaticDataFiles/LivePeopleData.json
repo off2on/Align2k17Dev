@@ -1,0 +1,149 @@
+﻿{
+	"all": [
+
+		{
+			"Id": 1,
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": 2
+		},
+		{
+			"Id": 2,
+			"name": "Paras Paul",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/paras.jpg",
+			"alignedTo": 1
+		},
+		{
+			"Id": 3,
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": 4
+		},
+
+		{
+			"Id": 4,
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": 3
+		},
+		{
+			"Id": 5,
+			"name": "Paras Paul",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/paras.jpg",
+			"alignedTo": 6
+		},
+		{
+			"Id": 6,
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": 5
+		},
+		{
+			"Id": 7,
+			"name": "Paras Paul",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/paras.jpg",
+			"alignedTo": 8
+		},
+		{
+			"Id": 8,
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": 7
+		},
+		{
+			"Id": 9,
+			"name": "Paras Paul",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/paras.jpg",
+			"alignedTo": 10
+		},
+		{
+			"Id": 10,
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": 9
+		},
+		{
+			"Id": 11,
+			"name": "Paras Paul",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/paras.jpg",
+			"alignedTo": 12
+		},
+		{
+			"Id": 12,
+			"name": "Paras Paul",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/paras.jpg",
+			"alignedTo": 11
+		}
+	],
+
+	"aligned": [{
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": "Paras Paul",
+			"alignedToDesignation": "Software Developer",
+			"alignedToImageUrl": "../../Images/paras.jpg"
+		},
+		{
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": "Paras Paul",
+			"alignedToDesignation": "Software Developer",
+			"alignedToImageUrl": "../../Images/paras.jpg"
+		},
+		{
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": "Paras Paul",
+			"alignedToDesignation": "Software Developer",
+			"alignedToImageUrl": "../../Images/paras.jpg"
+		},
+		{
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": "Paras Paul",
+			"alignedToDesignation": "Software Developer",
+			"alignedToImageUrl": "../../Images/paras.jpg"
+		},
+		{
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": "Paras Paul",
+			"alignedToDesignation": "Software Developer",
+			"alignedToImageUrl": "../../Images/paras.jpg"
+		},
+		{
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": "Paras Paul",
+			"alignedToDesignation": "Software Developer",
+			"alignedToImageUrl": "../../Images/paras.jpg"
+		},
+		{
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": "Paras Paul",
+			"alignedToDesignation": "Software Developer",
+			"alignedToImageUrl": "../../Images/paras.jpg"
+		}
+	]
+
+}

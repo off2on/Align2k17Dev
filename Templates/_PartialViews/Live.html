@@ -2,196 +2,37 @@
     <div class="row" style="margin-bottom: 5%;">
         <div class="col-sm-2 col-md-2 col-lg-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="padding-right:0px">
             <div class="btn-edit btn-live" ng-click="showAll=true" ng-class="{'btn-login':showAll,'btn-login-inactive':!showAll}" style="width:100%">All</div>
-            <!--<button class="btn btn-primary btn-l">All</button>-->
-
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="padding-right:0px">
             <div class="btn-edit btn-live" ng-click="showAll=false" ng-class="{'btn-login':!showAll,'btn-login-inactive':showAll}" style="width:100%">Aligned</div>
-            <!--<button class="btn btn-primary btn-l">Aligned</button>--> 
-
         </div>
     </div>
+
     <div class="row fivecolumns" ng-show="showAll">
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/ashish.jpg" />
-            <div class="userInfo">
-                <h3>Ashish Sharma</h3>
-                <p>Software Developer</p>
-            </div>            
-        </div>
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/paras.jpg" />
-            <div class="userInfo">
-                <h3>Paras Paul</h3>
-                <p>Software Developer</p>
-            </div> 
-        </div>
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/ashish.jpg" />
-            <div class="userInfo">
-                <h3>Ashish Sharma</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/paras.jpg" />
-            <div class="userInfo">
-                <h3>Paras Paul</h3>
-                <p>Software Developer</p>
-            </div> 
-        </div>
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/ashish.jpg" />
-            <div class="userInfo">
-                <h3>Ashish Sharma</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-    </div>
-    <div class="row fivecolumns" ng-show="showAll" style="margin-top:40px">
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/paras.jpg" />
-            <div class="userInfo">
-                <h3>Paras Paul</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/ashish.jpg" />
-            <div class="userInfo">
-                <h3>Ashish Sharma</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/paras.jpg" />
-            <div class="userInfo">
-                <h3>Paras Paul</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/ashish.jpg" />
-            <div class="userInfo">
-                <h3>Ashish Sharma</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/paras.jpg" />
-            <div class="userInfo">
-                <h3>Paras Paul</h3>
-                <p>Software Developer</p>
-            </div>
+        <div ng-repeat="person in people.all">
+            <div class="clearfix visible-lg visible-md visible-sm" ng-if="$index % 5 == 0"></div>  
+            <div class="clearfix visible-xs" ng-if="$index % 4 == 0"></div>          
+            <live-all 
+                      live-all-image-url="{{person.imageUrl}}" 
+                      live-all-name="{{person.name}}" 
+                      live-all-designation="{{person.designation}}">
+            </live-all>
+            
         </div>
     </div>
 
-
-    <div class="row fivecolumns" ng-show="!showAll">
-
-        <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/ashish.jpg" />
-            <div class="userInfo">
-                <h3>Ashish Sharma</h3>
-                <p>Software Developer</p>
-            </div>
+    <div class="row sevencolumns" ng-show="!showAll">
+        <div ng-repeat="person in people.aligned">
+            <div class="clearfix visible-lg visible-md visible-sm" ng-if="$index % 2 == 0"></div>
+            <div class="clearfix visible-xs" ng-if="$index % 1 == 0"></div> 
+            <live-align live-align-image-url="{{person.imageUrl}}"
+                        live-align-name="{{person.name}}"
+                        live-align-designation="{{person.designation}}"
+                        live-aligned-to-image-url="{{person.alignedToImageUrl}}"
+                        live-aligned-to-name="{{person.alignedTo}}"
+                        live-aligned-to-designation="{{person.alignedToDesignation}}">
+            </live-align>
         </div>
-        <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 alignA">
-            <img src="../../Images/alignA.PNG" />
-        </div>
-        <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/paras.jpg" />
-            <div class="userInfo">
-                <h3>Paras Paul</h3>
-                <p>Software Developer</p>
-            </div>
         </div>
 
-        <div class="col-xs-0 col-sm-1 col-md-1 col-lg-1 alignA"></div>
-
-        <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/paras.jpg" />
-            <div class="userInfo">
-                <h3>Paras Paul</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-        <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 alignA">
-            <img src="../../Images/alignA.PNG" />
-        </div>
-        <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/ashish.jpg" />
-            <div class="userInfo">
-                <h3>Ashish Sharma</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
     </div>
-    <div class="row fivecolumns" ng-show="!showAll" style="margin-top:40px">
-        <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/paras.jpg" />
-            <div class="userInfo">
-                <h3>Paras Paul</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-
-        <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 alignA">
-            <img src="../../Images/alignA.PNG" />
-        </div>
-
-        <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/ashish.jpg" />
-            <div class="userInfo">
-                <h3>Ashish Sharma</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-
-        <div class="col-xs-0 col-sm-1 col-md-1 col-lg-1 alignA"></div>
-
-        <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/ashish.jpg" />
-            <div class="userInfo">
-                <h3>Ashish Sharma</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-
-        <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 alignA">
-            <img src="../../Images/alignA.PNG" />
-        </div>
-
-        <div class="col-xs-5 col-sm-2 col-md-2 col-lg-2">
-
-            <img class="img-circle box-shad img-responsive" src="../../Images/paras.jpg" />
-            <div class="userInfo">
-                <h3>Paras Paul</h3>
-                <p>Software Developer</p>
-            </div>
-        </div>
-    </div>
-
-
-</div>

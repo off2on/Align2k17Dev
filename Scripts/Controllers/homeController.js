@@ -1,7 +1,50 @@
-﻿alignApp.controller('homeController', function ($scope, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory) {
+﻿alignApp.controller('homeController', function ($scope,$http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory) {
 
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.start();
+
+    $scope.selectedCategories = [];
+
+    $scope.categories = [
+                       {
+                           "label": "Meetup",
+                           "imageUrl": "https://avatars0.githubusercontent.com/u/3493285?s=460"
+                       },
+                       {
+                           "label": "Party",
+                           "imageUrl": "https://avatars0.githubusercontent.com/u/207585?s=460"
+                       },
+                       {
+                           "label": "Conference",
+                           "imageUrl": "http://educationalsoftware.wikispaces.com/file/view/manga_suzie.jpg/38030142/178x177/manga_suzie.jpg"
+                       },
+    ];
+
+    $scope.getLivePeopleData = function () {
+        $http.get('../StaticDataFiles/LivePeopleData.json').then(function (response) {
+            $scope.people = response.data;
+        })
+    }
+
+    $scope.getReviewRatingsData = function () {
+        $http.get('../StaticDataFiles/ReviewRatingsData.json').then(function (response) {
+            $scope.reviewRatingsData = response.data;
+        })
+    }
+
+    $scope.getLivePeopleData();
+    $scope.getReviewRatingsData();
+
+    $scope.getCategoriesTextRaw = function (item) {
+        //return '@' + item.name;
+        console.log(item.label);
+        if($scope.selectedCategories.indexOf(item)==-1)
+            $scope.selectedCategories.push(item);
+        else
+
+        return '+' + item.label;
+    };
+
 
     var disableVisualStylingTime = function () {
         $('#time :input').attr('disable-validation-message', '');
@@ -57,7 +100,7 @@
             
             $scope.progressbar.complete();
             
-            $event.preventDefault();
+            //$event.preventDefault();
         }
 
 
@@ -183,13 +226,13 @@
 
 function ReviewsRatingsDirective() {
     return {
-        restrict: 'A',
+        restrict: 'E',
         scope: {
             review: '@review',
             rating: '=rating',
             name: '@name',
             designation: '@designation',
-            imgurl: '@imgurl',
+            imgUrl: '@imgUrl',
         },
         templateUrl: '_PartialViews/ReviewTemplate.html',
         link: function (scope, element, attributes) {
@@ -215,6 +258,45 @@ function PastEventsDirective() {
     }
 }
 
+function LiveAllDirective() {
+    return {
+        restrict: 'E',
+        scope: {
+            liveAllImageUrl: '@liveAllImageUrl',
+            liveAllName: '@liveAllName',
+            liveAllDesignation: '@liveAllDesignation'
+        },
+        templateUrl: '_PartialViews/LiveAllTemplate.html',
+    }
+}
+
+function LiveAlignDirective() {
+    return {
+        restrict: 'E',
+        scope: {
+            liveAlignImageUrl: '@liveAlignImageUrl',
+            liveAlignName: '@liveAlignName',
+            liveAlignDesignation: '@liveAlignDesignation',
+            liveAlignedToImageUrl: '@liveAlignedToImageUrl',
+            liveAlignedToName: '@liveAlignedToName',
+            liveAlignedToDesignation: '@liveAlignedToDesignation'
+        },
+        templateUrl: '_PartialViews/LiveAlignTemplate.html',
+    }
+}
+
+function EventReviewsRatingsDirective() {
+    return {
+        restrict: 'E',
+        scope: {
+            eventName: '@eventName',
+            eventDateTime: '@eventDateTime',            
+        },
+        templateUrl: '_PartialViews/EventReviewTemplate.html',
+    }
+}
+
+
 function RangeFilter() {
     return function(arr,range)
     {
@@ -227,8 +309,16 @@ function RangeFilter() {
     }
 };
 
+alignApp.directive('eventReviewsRatings', EventReviewsRatingsDirective);
+
 alignApp.directive('reviewsRatings', ReviewsRatingsDirective);
 
 alignApp.directive('pastEvents', PastEventsDirective);
 
+alignApp.directive('liveAll', LiveAllDirective);
+
+alignApp.directive('liveAlign', LiveAlignDirective);
+
 alignApp.filter('range', RangeFilter);
+
+
