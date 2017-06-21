@@ -1,0 +1,54 @@
+﻿[{
+		"name": "Technically Philly Meetup April 2017",
+		"date": "April 3, 2017 9AM - 5PM",
+		"ratings": [{
+				"review": "I met many good people and had really good food.",
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"rating": 4,
+				"imgUrl": "../../Images/ashish.jpg"
+			},
+			{
+				"review": "Really enjoyed the talk today! Great job guys!",
+				"name": "Paras Paul",
+				"designation": "Software Developer",
+				"rating": 4,
+				"imgUrl": "../../Images/paras.jpg"
+			},
+			{
+				"review": "I met many good people and had really good food.",
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"rating": 4,
+				"imgUrl": "../../Images/ashish.jpg"
+			}
+		]
+	},
+	{
+		"name": "Technically Philly Meetup April 2017",
+		"date": "April 3, 2017 9AM - 5PM",
+		"ratings": [{
+				"review": "I met many good people and had really good food.",
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"rating": 4,
+				"imgUrl": "../../Images/ashish.jpg"
+			},
+			{
+				"review": "Really enjoyed the talk today! Great job guys!",
+				"name": "Paras Paul",
+				"designation": "Software Developer",
+				"rating": 4,
+				"imgUrl": "../../Images/paras.jpg"
+			},
+			{
+				"review": "I met many good people and had really good food.",
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"rating": 4,
+				"imgUrl": "../../Images/ashish.jpg"
+			}
+		]
+	}
+
+]
