@@ -16,20 +16,20 @@
 			"alignedTo": 1
 		},
 		{
-			"Id": 3,
-			"name": "Ashish Sharma",
-			"designation": "Software Developer",
-			"imageUrl": "../../Images/ashish.jpg",
-			"alignedTo": 4
-		},
-
-		{
 			"Id": 4,
 			"name": "Paras Paul",
 			"designation": "Software Developer",
 			"imageUrl": "../../Images/paras.jpg",
 			"alignedTo": 3
 		},
+		{
+			"Id": 3,
+			"name": "Ashish Sharma",
+			"designation": "Software Developer",
+			"imageUrl": "../../Images/ashish.jpg",
+			"alignedTo": 4
+		},
+		
 		{
 			"Id": 5,
 			"name": "Paras Paul",
