@@ -468,6 +468,14 @@ input:-ms-input-placeholder {
 }
 }
 
+@media only screen and (min-width:360px)
+{
+    .img-live-all-xs
+    {
+        min-height:265px;
+    }
+}
+
 
 
 
