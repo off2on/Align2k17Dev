@@ -33,7 +33,7 @@
     }
 
     $scope.getPastEventsData = function () {
-        $http.get('../StaticDataFiles/PastEventsData.json').then(function (response) {
+        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/PastEventsData.json').then(function (response) {
             $scope.pastEventsData = response.data;
         })
     }
