@@ -1,4 +1,4 @@
-﻿alignApp.controller('homeController', function ($scope,$http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory) {
+﻿alignApp.controller('homeController', function ($scope,$http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory,$compile) {
 
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.start();
@@ -45,8 +45,8 @@
     //}
 
     $scope.getMyEventsData = function () {
-        //$http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
-            $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/MyEventsData.json').then(function (response) {    
+        $http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
+            //$http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/MyEventsData.json').then(function (response) {    
             var myEventsData = response.data;
             
             angular.forEach(myEventsData, function (key, value) {
@@ -56,6 +56,22 @@
 
             $scope.events = myEventsData;
             $scope.eventSources = [$scope.events];
+            $scope.uiConfig = {
+                calendar: {
+                    height: 700,
+                    editable: false,
+                    header: {
+                        left: 'month basicWeek basicDay',
+                        center: 'title',
+                        right: 'today prev,next'
+                    },
+                    eventRender: $scope.eventRender,
+                    eventClick: $scope.alertEventOnClick,
+                    eventDrop: $scope.alertOnDrop,
+                    eventResize: $scope.alertOnResize,
+
+                }
+            };
         })
     }
 
@@ -116,8 +132,7 @@
             errorMessages['minutes'] = 'Invalid minutes.';
         });
         $scope.renderCalender = function (calendar) {
-            if ($scope.uiConfig.calendars[calendar]) {
-                console.log('.', $scope.uiConfig.calendars[calendar]);
+            if ($scope.uiConfig.calendars[calendar]) {                
                 $scope.uiConfig.calendars[calendar].fullCalendar('render');
             }
         };
@@ -188,32 +203,12 @@
 
     }
 
-    $scope.alertEventOnClick = function (date) {       
-        
-        $scope.selectedEvent = date;
-        
-        ngDialog.open({ template: '_PartialViews/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
-    }
     //-----------------------MyEvents--------------------------------------//
-    $scope.uiConfig = {
-        calendar: {
-            height: 700,
-            editable: false,
-            header: {
-                left: 'month basicWeek basicDay',
-                center: 'title',
-                right: 'today prev,next'
-            },
-            eventClick: $scope.alertEventOnClick,
-            eventDrop: $scope.alertOnDrop,
-            eventResize: $scope.alertOnResize,
-            eventRender: $scope.eventRender
-        }
-    };
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
+ 
+    //var date = new Date();
+    //var d = date.getDate();
+    //var m = date.getMonth();
+    //var y = date.getFullYear();
     /* event source that contains custom events on the scope */
     //$scope.events = [
     //  { id: '1', title: 'CocaHeads Meeting', 'start': new Date(y, m, 5, 20, 15), end: new Date(y, m, 6, 21, 15),allDay: false, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
@@ -229,11 +224,18 @@
 
     $scope.eventRender = function (event, element, view) {
         element.attr({
-            'tooltip': event.title,
+            'uib-tooltip': event.title,
             'tooltip-append-to-body': true
         });
         $compile(element)($scope);
     };
+
+    $scope.alertEventOnClick = function (date) {
+
+        $scope.selectedEvent = date;
+
+        ngDialog.open({ template: '_PartialViews/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
+    }
 
     $('.left-menu-nav').on('click', function () {
         if ($('#leftNavBtn').is(":visible"))
@@ -284,9 +286,7 @@ function ReviewsRatingsDirective() {
             imgUrl: '@imgUrl',
         },
         templateUrl: '_PartialViews/ReviewTemplate.html',
-        link: function (scope, element, attributes) {
-
-        }
+        
     };
 };
 
@@ -301,9 +301,7 @@ function PastEventsDirective() {
             eventImgUrl: '@eventImgUrl',
         },
         templateUrl: '_PartialViews/PastEventTemplate.html',
-        link: function (scope, element, attributes) {
-
-        }
+        
     }
 }
 
