@@ -38,13 +38,32 @@
         })
     }
 
+    //$scope.getMyEventsData = function () {
+    //    $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/MyEventsData.json').then(function (response) {
+    //        $scope.myEventsData = response.data;
+    //    })
+    //}
+
+    $scope.getMyEventsData = function () {
+        $http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
+            $scope.events = response.data;
+        })
+    }
+
+    //$scope.getPastEventsData = function () {
+    //    $http.get('../StaticDataFiles/PastEventsData.json').then(function (response) {
+    //        $scope.pastEventsData = response.data;
+    //    })
+    //}
+
     $scope.getLivePeopleData();
+    //$scope.getMyEventsData();
     $scope.getReviewRatingsData();
     $scope.getPastEventsData();
 
     $scope.getCategoriesTextRaw = function (item) {
         //return '@' + item.name;
-        console.log(item.label);
+        //console.log(item.label);
         if($scope.selectedCategories.indexOf(item)==-1)
             $scope.selectedCategories.push(item);
         else
@@ -160,14 +179,17 @@
 
     }
 
-    $scope.alertEventOnClick = function () {
-        ngDialog.open({ template: '_PartialViews/EventInfo.html', className: 'ngdialog-theme-default' });
+    $scope.alertEventOnClick = function (date) {       
+        
+        $scope.selectedEvent = date;
+        
+        ngDialog.open({ template: '_PartialViews/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
     }
     //-----------------------MyEvents--------------------------------------//
     $scope.uiConfig = {
         calendar: {
             height: 700,
-            editable: true,
+            editable: false,
             header: {
                 left: 'month basicWeek basicDay',
                 center: 'title',
@@ -175,7 +197,8 @@
             },
             eventClick: $scope.alertEventOnClick,
             eventDrop: $scope.alertOnDrop,
-            eventResize: $scope.alertOnResize
+            eventResize: $scope.alertOnResize,
+            eventRender: $scope.eventRender
         }
     };
     var date = new Date();
@@ -184,14 +207,22 @@
     var y = date.getFullYear();
     /* event source that contains custom events on the scope */
     $scope.events = [
-      { title: 'CocaHeads Meeting', start: new Date(y, m, 5,20,0) },
-      { title: 'CocaHeads Meeting', start: new Date(y, m, 10, 20, 0) },
-      { title: 'CocaHeads Meeting', start: new Date(y, m, 18, 20, 0) },
-      { title: 'CocaHeads Meeting', start: new Date(y, m, 28, 20, 0) },
-      { title: 'Techincally Philly Meeting', start: new Date(y, m, 13, 20, 0) },      
+      { id: '1', title: 'CocaHeads Meeting', 'start': new Date(y, m, 5, 20, 15), end: new Date(y, m, 6, 21, 15),allDay: false, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
+      { id: '2', title: 'Technically Philly', start: new Date(y, m, 10, 20, 15), end: new Date(y, m, 10, 20, 15), allDay: false, subTitle: 'Technically Philly Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
+      { id: '3', title: 'CocaHeads Meeting', start: new Date(y, m, 15, 20, 15), end: new Date(y, m, 15, 20, 15), allDay: true, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
+      { id: '4', title: 'Technically Philly', start: new Date(y, m, 20, 20, 15), end: new Date(y, m, 20, 20, 15), allDay: false, subTitle: 'Technically Philly Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
+      { id: '5', title: 'CocaHeads Meeting', start: new Date(y, m, 25, 20, 15), end: new Date(y, m, 25, 20, 15), allDay: false, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' }
     ];
 
     $scope.eventSources = [$scope.events];
+
+    $scope.eventRender = function (event, element, view) {
+        element.attr({
+            'tooltip': event.title,
+            'tooltip-append-to-body': true
+        });
+        $compile(element)($scope);
+    };
 
     $('.left-menu-nav').on('click', function () {
         if ($('#leftNavBtn').is(":visible"))
