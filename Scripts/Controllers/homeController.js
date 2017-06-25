@@ -45,8 +45,8 @@
     //}
 
     $scope.getMyEventsData = function () {
-        $http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
-            //$http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/MyEventsData.json').then(function (response) {    
+        //$http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
+            $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/MyEventsData.json').then(function (response) {    
             var myEventsData = response.data;
             
             angular.forEach(myEventsData, function (key, value) {
