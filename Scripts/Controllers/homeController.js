@@ -38,11 +38,11 @@
         })
     }
 
-    //$scope.getMyEventsData = function () {
-    //    $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/MyEventsData.json').then(function (response) {
-    //        $scope.myEventsData = response.data;
-    //    })
-    //}
+    $scope.getDashboardData = function () {
+        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/DashboardData.json').then(function (response) {
+            $scope.dashboardData = response.data;
+        })
+    }
 
     $scope.getMyEventsData = function () {
         //$http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
@@ -80,7 +80,7 @@
     //        $scope.pastEventsData = response.data;
     //    })
     //}
-
+    $scope.getDashboardData();
     $scope.getLivePeopleData();
     $scope.getMyEventsData();
     $scope.getReviewRatingsData();

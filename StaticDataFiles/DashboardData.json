@@ -1,0 +1,30 @@
+﻿{
+	"info":{			
+			"name": "EVO",
+			"building":"EVO",
+			"address":"590 Chestnut Ave Philadelphia, PA 19012"
+	},
+	"contact":{
+			"primary":{
+				"name" : "Mr. John Snow",
+				"mail" : "johnsnow@evo.com",
+				"phone":"267-123-2344",
+				"fax": "215-123-1233"
+			},
+			"secondary":{
+				"name" : "Mr. John Snow",
+				"mail" : "johnsnow@evo.com",
+				"phone":"267-123-2344",
+				"fax": "215-123-1233"
+			}
+	},
+	"account":{
+		"username" : "evo@evo.com"
+	},
+	"payment":{
+		"msg" : "Your subscription will automatically renew on 4/5/17 and you’ll be charged $3000.00 +tax",
+		"visa" : 1234
+	}
+
+
+}

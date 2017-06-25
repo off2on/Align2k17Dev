@@ -8,15 +8,14 @@
 
             <div class="panel-info" style="margin-top: 20px;">
                 <p>Company Name</p>
-                <h4>EVO</h4>
+                <h4>{{dashboardData.info.name}}</h4>
                 <br />
                 <p>Building Name</p>
-                <h4>EVO</h4>
+                <h4>{{dashboardData.info.building}}</h4>
                 <br />
                 <p>Building Address</p>
                 <address style=" font-size: 18px; font-family: inherit; font-weight: 500;">
-                    590 Chestnut Ave<br>
-                    Philadelphia, PA 19012<br>
+                    {{dashboardData.info.address}}
                 </address>
                 <br />
                 <button class="btn btn-login btn-edit">Edit</button>
@@ -31,51 +30,7 @@
             <div class="panel-header">
                 Company Contact
             </div>
-            <!--<accordion>
-                <accordion-group is-open="true">
-                    <accordion-heading>
-                        <i ng-click="toggleMenuStatus(0)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[0].isOpen , 'glyphicon-plus-sign': !menuStatus[0].isOpen }"></i>
-                        <h4 ng-click="toggleMenuStatus(0)" style="font-style:italic;padding:1px 15px">Primary Contact</h4>
-                    </accordion-heading>
-
-                    <div class="panel-info" style="margin-top: 20px; word-wrap: break-word;">
-                        <p>Name</p>
-                        <h4>Mr. John Snow</h4>
-
-                        <p>Email</p>
-                        <h4>johnsnow@evo.com</h4>
-
-                        <p>Phone</p>
-                        <h4>267-123-2344</h4>
-
-                        <p>Fax</p>
-                        <h4>215-123-1233</h4>
-
-                        <button class="btn btn-login btn-edit" style="position:inherit">Edit</button>
-                    </div>
-                </accordion-group>
-                <accordion-group is-open="false">
-                    <accordion-heading>
-                        <i ng-click="toggleMenuStatus(0)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[1].isOpen , 'glyphicon-plus-sign': !menuStatus[1].isOpen }"></i>
-                        <h4 ng-click="toggleMenuStatus(1)" style="font-style:italic">Secondary Contact</h4>
-                    </accordion-heading>
-                    <div class="panel-info" style="margin-top:20px;">
-                        <p>Name</p>
-                        <h4>Mr. John Snow</h4>
-
-                        <p>Email</p>
-                        <h4>johnsnow@evo.com</h4>
-
-                        <p>Phone</p>
-                        <h4>267-123-2344</h4>
-
-                        <p>Fax</p>
-                        <h4>215-123-1233</h4>
-
-                        <button class="btn btn-login btn-edit" style="position:inherit">Edit</button>
-                    </div>
-                </accordion-group>
-            </accordion>-->
+            
 
             <uib-accordion close-others="true">
                 <div uib-accordion-group class="panel-default" is-open="true" is-disabled="false">
@@ -86,38 +41,38 @@
                     </uib-accordion-heading>
                     <div class="panel-info" style="margin-top: 20px; word-wrap: break-word;">
                         <p>Name</p>
-                        <h4>Mr. John Snow</h4>
+                        <h4>{{dashboardData.contact.primary.name}}</h4>
 
                         <p>Email</p>
-                        <h4>johnsnow@evo.com</h4>
+                        <h4>{{dashboardData.contact.primary.mail}}</h4>
 
                         <p>Phone</p>
-                        <h4>267-123-2344</h4>
+                        <h4>{{dashboardData.contact.primary.phone}}</h4>
 
                         <p>Fax</p>
-                        <h4>215-123-1233</h4>
+                        <h4>{{dashboardData.contact.primary.fax}}</h4>
 
                         <button class="btn btn-login btn-edit" style="position:inherit">Edit</button>
                     </div>
                 </div>
 
-                <div uib-accordion-group class="panel-default" is-open="false" is-disabled="false">
+                <div uib-accordion-group class="panel-default" is-open="false" is-disabled="false" ng-if="dashboardData.contact.secondary!=undefined">
                     <uib-accordion-heading>
                         <i ng-click="toggleMenuStatus(1)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[1].isOpen , 'glyphicon-plus-sign': !menuStatus[1].isOpen }"></i>
                         <h4 ng-click="toggleMenuStatus(1)" style="font-style:italic">Secondary Contact</h4>
                     </uib-accordion-heading>
                     <div class="panel-info" style="margin-top: 20px; word-wrap: break-word;">
                         <p>Name</p>
-                        <h4>Mr. John Snow</h4>
+                        <h4>{{dashboardData.contact.secondary.name}}</h4>
 
                         <p>Email</p>
-                        <h4>johnsnow@evo.com</h4>
+                        <h4>{{dashboardData.contact.secondary.mail}}</h4>
 
                         <p>Phone</p>
-                        <h4>267-123-2344</h4>
+                        <h4>{{dashboardData.contact.secondary.phone}}</h4>
 
                         <p>Fax</p>
-                        <h4>215-123-1233</h4>
+                        <h4>{{dashboardData.contact.secondary.fax}}</h4>
 
                         <button class="btn btn-login btn-edit" style="position:inherit">Edit</button>
                     </div>
@@ -140,7 +95,7 @@
 
             <div class="panel-info" style="margin-top:20px;">
                 <p>Username</p>
-                <h4>evo@evo.com</h4>
+                <h4>{{dashboardData.account.username}}</h4>
                 <br />
                 <p>Password</p>
                 <h4>********</h4>
@@ -160,10 +115,10 @@
             </div>
 
             <div class="panel-info" style="margin-top:40px;">
-                <h4>Your subscription will automatically renew on 4/5/17 and you’ll be charged $3000.00 +tax</h4>
+                <h4>{{dashboardData.payment.msg}}</h4>
                 <br /><br />
                 <img class="img-responsive" style="float:left;margin-right:7px" src="../Images/visa.PNG" />
-                <h4>**** **** **** 1234</h4>
+                <h4>**** **** **** {{dashboardData.payment.visa}}</h4>
                 <button class="btn btn-login btn-edit">Edit</button>
             </div>
 
