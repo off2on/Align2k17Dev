@@ -21,13 +21,13 @@
     ];
 
     $scope.getLivePeopleData = function () {
-        $http.get('../StaticDataFiles/LivePeopleData.json').then(function (response) {
+        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/LivePeopleData.json').then(function (response) {
             $scope.people = response.data;
         })
     }
 
     $scope.getReviewRatingsData = function () {
-        $http.get('../StaticDataFiles/ReviewRatingsData.json').then(function (response) {
+        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/ReviewRatingsData.json').then(function (response) {
             $scope.reviewRatingsData = response.data;
         })
     }
