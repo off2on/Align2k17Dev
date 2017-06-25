@@ -45,8 +45,17 @@
     //}
 
     $scope.getMyEventsData = function () {
-        $http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
-            $scope.events = response.data;
+        //$http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
+            $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/MyEventsData.json').then(function (response) {    
+            var myEventsData = response.data;
+            
+            angular.forEach(myEventsData, function (key, value) {
+                key['start'] = new Date(key.start.y, key.start.m, key.start.d, key.start.hh, key.start.mm);
+                key['end'] = new Date(key.end.y, key.end.m, key.end.d, key.end.hh, key.end.mm);
+            });
+
+            $scope.events = myEventsData;
+            $scope.eventSources = [$scope.events];
         })
     }
 
@@ -57,7 +66,7 @@
     //}
 
     $scope.getLivePeopleData();
-    //$scope.getMyEventsData();
+    $scope.getMyEventsData();
     $scope.getReviewRatingsData();
     $scope.getPastEventsData();
 
@@ -206,15 +215,17 @@
     var m = date.getMonth();
     var y = date.getFullYear();
     /* event source that contains custom events on the scope */
-    $scope.events = [
-      { id: '1', title: 'CocaHeads Meeting', 'start': new Date(y, m, 5, 20, 15), end: new Date(y, m, 6, 21, 15),allDay: false, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
-      { id: '2', title: 'Technically Philly', start: new Date(y, m, 10, 20, 15), end: new Date(y, m, 10, 20, 15), allDay: false, subTitle: 'Technically Philly Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
-      { id: '3', title: 'CocaHeads Meeting', start: new Date(y, m, 15, 20, 15), end: new Date(y, m, 15, 20, 15), allDay: true, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
-      { id: '4', title: 'Technically Philly', start: new Date(y, m, 20, 20, 15), end: new Date(y, m, 20, 20, 15), allDay: false, subTitle: 'Technically Philly Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
-      { id: '5', title: 'CocaHeads Meeting', start: new Date(y, m, 25, 20, 15), end: new Date(y, m, 25, 20, 15), allDay: false, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' }
-    ];
+    //$scope.events = [
+    //  { id: '1', title: 'CocaHeads Meeting', 'start': new Date(y, m, 5, 20, 15), end: new Date(y, m, 6, 21, 15),allDay: false, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
+    //  { id: '2', title: 'Technically Philly', start: new Date(y, m, 10, 20, 15), end: new Date(y, m, 10, 20, 15), allDay: false, subTitle: 'Technically Philly Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
+    //  { id: '3', title: 'CocaHeads Meeting', start: new Date(y, m, 15, 20, 15), end: new Date(y, m, 15, 20, 15), allDay: true, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
+    //  { id: '4', title: 'Technically Philly', start: new Date(y, m, 20, 20, 15), end: new Date(y, m, 20, 20, 15), allDay: false, subTitle: 'Technically Philly Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
+    //  { id: '5', title: 'CocaHeads Meeting', start: new Date(y, m, 25, 20, 15), end: new Date(y, m, 25, 20, 15), allDay: false, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' }
+    //];
 
-    $scope.eventSources = [$scope.events];
+    
+
+    //$scope.eventSources = [$scope.events];
 
     $scope.eventRender = function (event, element, view) {
         element.attr({

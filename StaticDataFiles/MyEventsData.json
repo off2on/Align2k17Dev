@@ -1,0 +1,113 @@
+﻿[
+
+	{
+		"title": "CocaHeads Meeting",
+		"allDay": false,
+		"subTitle": "CocaHeads Meetup April 2017",
+		"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+		"place": "Apple Store",
+		"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+		"start" : {
+			"y": 2017,
+			"m": 5,
+			"d": 5,
+			"hh": 20,
+			"mm": 15
+		},
+		"end" : {
+			"y": 2017,
+			"m": 5,
+			"d": 6,
+			"hh": 20,
+			"mm": 15
+		}
+	},
+	{
+		"title": "Technically Philly",
+		"allDay": false,
+		"subTitle": "Technically Philly Meetup April 2017",
+		"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+		"place": "Apple Store",
+		"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+		"start" : {
+			"y": 2017,
+			"m": 5,
+			"d": 15,
+			"hh": 20,
+			"mm": 15
+		},
+		"end" : {
+			"y": 2017,
+			"m": 5,
+			"d": 15,
+			"hh": 21,
+			"mm": 15
+		}
+	},
+	{
+		"title": "CocaHeads Meeting",
+		"allDay": true,
+		"subTitle": "CocaHeads Meetup April 2017",
+		"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+		"place": "Apple Store",
+		"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+		"start" : {
+			"y": 2017,
+			"m": 5,
+			"d": 20,
+			"hh": 21,
+			"mm": 15
+		},
+		"end" : {
+			"y": 2017,
+			"m": 5,
+			"d": 20,
+			"hh": 21,
+			"mm": 15
+		}
+	},
+	{
+		"title": "Technically Philly",
+		"allDay": false,
+		"subTitle": "Technically Philly Meetup April 2017",
+		"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+		"place": "Apple Store",
+		"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+		"start" : {
+			"y": 2017,
+			"m": 5,
+			"d": 25,
+			"hh": 21,
+			"mm": 15
+		},
+		"end" : {
+			"y": 2017,
+			"m": 5,
+			"d": 25,
+			"hh": 21,
+			"mm": 15
+		}
+	},
+	{
+		"title": "CocaHeads Meeting",
+		"allDay": false,
+		"subTitle": "CocaHeads Meetup April 2017",
+		"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+		"place": "Apple Store",
+		"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+		"start" : {
+			"y": 2017,
+			"m": 6,
+			"d": 20,
+			"hh": 21,
+			"mm": 15
+		},
+		"end" : {
+			"y": 2017,
+			"m": 6,
+			"d": 21,
+			"hh": 21,
+			"mm": 15
+		}
+	}
+]
