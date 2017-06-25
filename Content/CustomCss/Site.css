@@ -692,6 +692,10 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
 {
     font-size: x-large;
 }
+.fc-event-container
+{
+    cursor:pointer;
+}
 
 /*@media only screen and (min-width:768px)
 {
