@@ -1,0 +1,380 @@
+﻿{
+	"company": {
+		"info": {
+			"name": "EVO",
+			"building": "EVO",
+			"address": "590 Chestnut Ave Philadelphia, PA 19012"
+		},
+		"contact": {
+			"primary": {
+				"name": "Mr. John Snow",
+				"mail": "johnsnow@evo.com",
+				"phone": "267-123-2344",
+				"fax": "215-123-1233"
+			},
+			"secondary": {
+				"name": "Mr. John Snow",
+				"mail": "johnsnow@evo.com",
+				"phone": "267-123-2344",
+				"fax": "215-123-1233"
+			}
+		},
+		"account": {
+			"username": "evo@evo.com"
+		},
+		"payment": {
+			"msg": "Your subscription will automatically renew on 4/5/17 and you’ll be charged $3000.00 +tax",
+			"visa": 1234
+		}
+
+
+	},
+
+	"live": {
+		"all": [
+
+			{
+				"Id": 1,
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": 2
+			},
+			{
+				"Id": 2,
+				"name": "Paras Paul",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/paras.jpg",
+				"alignedTo": 1
+			},
+			{
+				"Id": 3,
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": 4
+			},
+			{
+				"Id": 4,
+				"name": "Paras Paul",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/paras.jpg",
+				"alignedTo": 3
+			},
+
+			{
+				"Id": 5,
+				"name": "Paras Paul",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/paras.jpg",
+				"alignedTo": 6
+			},
+			{
+				"Id": 6,
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": 5
+			},
+			{
+				"Id": 7,
+				"name": "Paras Paul",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/paras.jpg",
+				"alignedTo": 8
+			},
+			{
+				"Id": 8,
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": 7
+			},
+			{
+				"Id": 9,
+				"name": "Paras Paul",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/paras.jpg",
+				"alignedTo": 10
+			},
+			{
+				"Id": 10,
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": 9
+			},
+			{
+				"Id": 11,
+				"name": "Paras Paul",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/paras.jpg",
+				"alignedTo": 12
+			},
+			{
+				"Id": 12,
+				"name": "Paras Paul",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/paras.jpg",
+				"alignedTo": 11
+			}
+		],
+
+		"aligned": [{
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": "Paras Paul",
+				"alignedToDesignation": "Software Developer",
+				"alignedToImageUrl": "../../Images/paras.jpg"
+			},
+			{
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": "Paras Paul",
+				"alignedToDesignation": "Software Developer",
+				"alignedToImageUrl": "../../Images/paras.jpg"
+			},
+			{
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": "Paras Paul",
+				"alignedToDesignation": "Software Developer",
+				"alignedToImageUrl": "../../Images/paras.jpg"
+			},
+			{
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": "Paras Paul",
+				"alignedToDesignation": "Software Developer",
+				"alignedToImageUrl": "../../Images/paras.jpg"
+			},
+			{
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": "Paras Paul",
+				"alignedToDesignation": "Software Developer",
+				"alignedToImageUrl": "../../Images/paras.jpg"
+			},
+			{
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": "Paras Paul",
+				"alignedToDesignation": "Software Developer",
+				"alignedToImageUrl": "../../Images/paras.jpg"
+			},
+			{
+				"name": "Ashish Sharma",
+				"designation": "Software Developer",
+				"imageUrl": "../../Images/ashish.jpg",
+				"alignedTo": "Paras Paul",
+				"alignedToDesignation": "Software Developer",
+				"alignedToImageUrl": "../../Images/paras.jpg"
+			}
+		]
+
+	},
+	"MyEvents": [
+
+		{
+			"title": "CocaHeads Meeting",
+			"allDay": false,
+			"subTitle": "CocaHeads Meetup April 2017",
+			"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+			"place": "Apple Store",
+			"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+			"start": {
+				"y": 2017,
+				"m": 5,
+				"d": 10,
+				"hh": 20,
+				"mm": 15
+			},
+			"end": {
+				"y": 2017,
+				"m": 5,
+				"d": 11,
+				"hh": 20,
+				"mm": 15
+			}
+		},
+		{
+			"title": "Technically Philly",
+			"allDay": false,
+			"subTitle": "Technically Philly Meetup April 2017",
+			"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+			"place": "Apple Store",
+			"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+			"start": {
+				"y": 2017,
+				"m": 5,
+				"d": 15,
+				"hh": 20,
+				"mm": 15
+			},
+			"end": {
+				"y": 2017,
+				"m": 5,
+				"d": 15,
+				"hh": 21,
+				"mm": 15
+			}
+		},
+		{
+			"title": "CocaHeads Meeting",
+			"allDay": true,
+			"subTitle": "CocaHeads Meetup April 2017",
+			"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+			"place": "Apple Store",
+			"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+			"start": {
+				"y": 2017,
+				"m": 5,
+				"d": 20,
+				"hh": 21,
+				"mm": 15
+			},
+			"end": {
+				"y": 2017,
+				"m": 5,
+				"d": 20,
+				"hh": 21,
+				"mm": 15
+			}
+		},
+		{
+			"title": "Technically Philly",
+			"allDay": false,
+			"subTitle": "Technically Philly Meetup April 2017",
+			"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+			"place": "Apple Store",
+			"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+			"start": {
+				"y": 2017,
+				"m": 5,
+				"d": 25,
+				"hh": 21,
+				"mm": 15
+			},
+			"end": {
+				"y": 2017,
+				"m": 5,
+				"d": 25,
+				"hh": 21,
+				"mm": 15
+			}
+		},
+		{
+			"title": "CocaHeads Meeting",
+			"allDay": false,
+			"subTitle": "CocaHeads Meetup April 2017",
+			"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+			"place": "Apple Store",
+			"desc": "This is a bi-weekly social event where you can meet others who have same passion as you!",
+			"start": {
+				"y": 2017,
+				"m": 6,
+				"d": 20,
+				"hh": 21,
+				"mm": 15
+			},
+			"end": {
+				"y": 2017,
+				"m": 6,
+				"d": 21,
+				"hh": 21,
+				"mm": 15
+			}
+		}
+	],
+
+	"PastEvents": [{
+			"title": "Technically Philly Meetup April 2017",
+			"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+			"place": "Apple Store",
+			"img": "../../Images/technically.PNG",
+			"address": "2125 Chestnut St, Philadelphia PA 19103"
+		},
+		{
+			"title": "Technically Philly Meetup April 2017",
+			"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+			"place": "Apple Store",
+			"img": "../Images/technically.PNG",
+			"address": "2125 Chestnut St, Philadelphia PA 19103"
+		},
+		{
+			"title": "Technically Philly Meetup April 2017",
+			"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+			"place": "Apple Store",
+			"img": "../../Images/technically.PNG",
+			"address": "2125 Chestnut St, Philadelphia PA 19103"
+		},
+		{
+			"title": "Technically Philly Meetup April 2017",
+			"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+			"place": "Apple Store",
+			"img": "../../Images/technically.PNG",
+			"address": "2125 Chestnut St, Philadelphia PA 19103"
+		}
+	],
+
+	"reviews": [{
+			"name": "Technically Philly Meetup April 2017",
+			"date": "April 3, 2017 9AM - 5PM",
+			"ratings": [{
+					"review": "I met many good people and had really good food.",
+					"name": "Ashish Sharma",
+					"designation": "Software Developer",
+					"rating": 4,
+					"imgUrl": "../../Images/ashish.jpg"
+				},
+				{
+					"review": "Really enjoyed the talk today! Great job guys!",
+					"name": "Paras Paul",
+					"designation": "Software Developer",
+					"rating": 4,
+					"imgUrl": "../../Images/paras.jpg"
+				},
+				{
+					"review": "I met many good people and had really good food.",
+					"name": "Ashish Sharma",
+					"designation": "Software Developer",
+					"rating": 4,
+					"imgUrl": "../../Images/ashish.jpg"
+				}
+			]
+		},
+		{
+			"name": "Technically Philly Meetup April 2017",
+			"date": "April 3, 2017 9AM - 5PM",
+			"ratings": [{
+					"review": "I met many good people and had really good food.",
+					"name": "Ashish Sharma",
+					"designation": "Software Developer",
+					"rating": 4,
+					"imgUrl": "../../Images/ashish.jpg"
+				},
+				{
+					"review": "Really enjoyed the talk today! Great job guys!",
+					"name": "Paras Paul",
+					"designation": "Software Developer",
+					"rating": 4,
+					"imgUrl": "../../Images/paras.jpg"
+				},
+				{
+					"review": "I met many good people and had really good food.",
+					"name": "Ashish Sharma",
+					"designation": "Software Developer",
+					"rating": 4,
+					"imgUrl": "../../Images/ashish.jpg"
+				}
+			]
+		}
+
+	]
+}
