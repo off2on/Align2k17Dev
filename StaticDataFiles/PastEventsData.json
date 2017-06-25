@@ -1,0 +1,29 @@
+﻿[{
+		"title": "Technically Philly Meetup April 2017",
+		"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+		"place": "Apple Store",
+		"img": "../../Images/technically.PNG",
+		"address": "2125 Chestnut St, Philadelphia PA 19103"
+	},
+	{
+		"title": "Technically Philly Meetup April 2017",
+		"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+		"place": "Apple Store",
+		"img": "../Images/technically.PNG",
+		"address": "2125 Chestnut St, Philadelphia PA 19103"
+	},
+	{
+		"title": "Technically Philly Meetup April 2017",
+		"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+		"place": "Apple Store",
+		"img": "../../Images/technically.PNG",
+		"address": "2125 Chestnut St, Philadelphia PA 19103"
+	},
+	{
+		"title": "Technically Philly Meetup April 2017",
+		"date": "Saturday, April 13 at 8:00 pm - 9:30 pm",
+		"place": "Apple Store",
+		"img": "../../Images/technically.PNG",
+		"address": "2125 Chestnut St, Philadelphia PA 19103"
+	}
+]

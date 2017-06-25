@@ -1,20 +1,13 @@
 ﻿<div class="col-sm-9 col-md-9 col-lg-9">
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12" past-events
-             event-sub-title="Technically Philly Meetup April 2017"
-             event-date-time="Saturday, April 13 at 8:00 pm - 9:30 pm"
-             event-place="Apple Store"
-             event-img-url="../../Images/technically.PNG"
-             event-place-address="2125 Chestnut St, Philadelphia PA 19103">
-
+        <div class="col-sm-12 col-md-12 col-lg-12" ng-repeat="pastevent in pastEventsData">           
+            <past-events event-sub-title="{{pastevent.title}}"
+                         event-date-time="{{pastevent.date}}"
+                         event-place="{{pastevent.place}}"
+                         event-img-url="{{pastevent.img}}"
+                         event-place-address="{{pastevent.address}}">
+            </past-events>
         </div>
-        <div class="col-sm-12 col-md-12 col-lg-12" past-events
-             event-sub-title="Technically Philly Meetup April 2017"
-             event-date-time="Saturday, April 13 at 8:00 pm - 9:30 pm"
-             event-place="Apple Store"
-             event-img-url="../../Images/technically.PNG"
-             event-place-address="2125 Chestnut St, Philadelphia PA 19103">
-
-        </div>
+       
     </div>
 </div>

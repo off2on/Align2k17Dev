@@ -32,8 +32,15 @@
         })
     }
 
+    $scope.getPastEventsData = function () {
+        $http.get('../StaticDataFiles/PastEventsData.json').then(function (response) {
+            $scope.pastEventsData = response.data;
+        })
+    }
+
     $scope.getLivePeopleData();
     $scope.getReviewRatingsData();
+    $scope.getPastEventsData();
 
     $scope.getCategoriesTextRaw = function (item) {
         //return '@' + item.name;
@@ -243,7 +250,7 @@ function ReviewsRatingsDirective() {
 
 function PastEventsDirective() {
     return {
-        restrict: 'A',
+        restrict: 'E',
         scope: {
             eventSubTitle: '@eventSubTitle',
             eventDateTime: '@eventDateTime',
