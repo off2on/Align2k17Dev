@@ -20,9 +20,18 @@
                        },
     ];
 
+    $scope.optionsList = [
+  { id: 1, name: "Meetup" },
+  { id: 2, name: "Party" },
+  { id: 3, name: "Conference" },
+   { id: 4, name: "Golf Match" },
+  { id: 5, name: "Lunch" },
+  { id: 6, name: "Dinner" }
+    ];
+
     $scope.getJsonData = function () {
-        //$http.get('../StaticDataFiles/StaticJsonData.json').then(function (response) {
-        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
+        $http.get('../StaticDataFiles/StaticJsonData.json').then(function (response) {
+            //$http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
             $scope.jsonData = response.data;
 
             initialiseCalender($scope.jsonData.MyEvents);

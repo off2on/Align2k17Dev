@@ -83,10 +83,10 @@ h1
         text-align: left;
 }
 
-label
+/*label
 {
     float:left;
-}
+}*/
 .form-control
 {
     border: 1px solid #C7D3DE;
@@ -660,6 +660,32 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
 .glyphicon-chevron-up, .glyphicon-chevron-down
 {
     color:#ffc00e;
+}
+
+.form-item-container
+{
+    border-radius: 0px;
+    background-color: #e3e3e3;
+    height: 50px;
+    padding-bottom: 6px;
+    overflow:auto;
+}
+
+.form-item-container .list-inline li span
+{
+    border: 1px solid #ffc00e;
+    border-radius: 14px;
+    padding: 5px;
+    background: #ffc00e;
+    color: #fff;
+}
+.autocomplete-list ul li.autocomplete-active
+{
+    background: #ffc00e;
+}
+.form-item-container .list-inline li
+{
+    margin-top:11px;
 }
 
 
