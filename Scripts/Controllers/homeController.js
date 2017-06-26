@@ -30,8 +30,8 @@
     ];
 
     $scope.getJsonData = function () {
-        $http.get('../StaticDataFiles/StaticJsonData.json').then(function (response) {
-            //$http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
+        //$http.get('../StaticDataFiles/StaticJsonData.json').then(function (response) {
+        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
             $scope.jsonData = response.data;
 
             initialiseCalender($scope.jsonData.MyEvents);
