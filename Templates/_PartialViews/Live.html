@@ -9,22 +9,21 @@
     </div>
 
     <div class="row fivecolumns" ng-show="showAll">
-        <div ng-repeat="person in people.all">
-            <div class="clearfix visible-lg visible-md visible-sm" ng-if="$index % 5 == 0"></div>  
-            <div class="clearfix visible-xs" ng-if="$index % 4 == 0"></div>          
-            <live-all 
-                      live-all-image-url="{{person.imageUrl}}" 
-                      live-all-name="{{person.name}}" 
+        <div ng-repeat="person in jsonData.live.all">            
+            <div class="clearfix visible-lg visible-md visible-sm" ng-if="$index % 5 == 0"></div>
+            <div class="clearfix visible-xs" ng-if="$index % 4 == 0"></div>
+            <live-all live-all-image-url="{{person.imageUrl}}"
+                      live-all-name="{{person.name}}"
                       live-all-designation="{{person.designation}}">
             </live-all>
-            
+
         </div>
     </div>
 
     <div class="row sevencolumns" ng-show="!showAll">
-        <div ng-repeat="person in people.aligned">
+        <div ng-repeat="person in jsonData.live.aligned">
             <div class="clearfix visible-lg visible-md visible-sm" ng-if="$index % 2 == 0"></div>
-            <div class="clearfix visible-xs" ng-if="$index % 1 == 0"></div> 
+            <div class="clearfix visible-xs" ng-if="$index % 1 == 0"></div>
             <live-align live-align-image-url="{{person.imageUrl}}"
                         live-align-name="{{person.name}}"
                         live-align-designation="{{person.designation}}"

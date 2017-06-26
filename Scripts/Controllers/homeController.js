@@ -20,35 +20,20 @@
                        },
     ];
 
-    $scope.getLivePeopleData = function () {
-        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/LivePeopleData.json').then(function (response) {
-            $scope.people = response.data;
+    $scope.getJsonData = function () {
+        $http.get('../StaticDataFiles/StaticJsonData.json').then(function (response) {
+            //$http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
+            $scope.jsonData = response.data;
+
+            initialiseCalender($scope.jsonData.MyEvents);
         })
     }
 
-    $scope.getReviewRatingsData = function () {
-        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/ReviewRatingsData.json').then(function (response) {
-            $scope.reviewRatingsData = response.data;
-        })
-    }
-
-    $scope.getPastEventsData = function () {
-        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/PastEventsData.json').then(function (response) {
-            $scope.pastEventsData = response.data;
-        })
-    }
-
-    $scope.getDashboardData = function () {
-        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/DashboardData.json').then(function (response) {
-            $scope.dashboardData = response.data;
-        })
-    }
-
-    $scope.getMyEventsData = function () {
+    var initialiseCalender = function (myEvents) {
         //$http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
-            $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/MyEventsData.json').then(function (response) {    
-            var myEventsData = response.data;
-            
+        
+        var myEventsData = myEvents;
+
             angular.forEach(myEventsData, function (key, value) {
                 key['start'] = new Date(key.start.y, key.start.m, key.start.d, key.start.hh, key.start.mm);
                 key['end'] = new Date(key.end.y, key.end.m, key.end.d, key.end.hh, key.end.mm);
@@ -72,19 +57,12 @@
 
                 }
             };
-        })
+        
     }
 
-    //$scope.getPastEventsData = function () {
-    //    $http.get('../StaticDataFiles/PastEventsData.json').then(function (response) {
-    //        $scope.pastEventsData = response.data;
-    //    })
-    //}
-    $scope.getDashboardData();
-    $scope.getLivePeopleData();
-    $scope.getMyEventsData();
-    $scope.getReviewRatingsData();
-    $scope.getPastEventsData();
+    
+    $scope.getJsonData();
+
 
     $scope.getCategoriesTextRaw = function (item) {
         //return '@' + item.name;
