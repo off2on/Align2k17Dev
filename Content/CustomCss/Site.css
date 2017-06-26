@@ -679,6 +679,12 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
     background: #ffc00e;
     color: #fff;
 }
+
+.form-item-container .list-inline li:last-child span
+{
+    display:none;
+}
+
 .autocomplete-list ul li.autocomplete-active
 {
     background: #ffc00e;
