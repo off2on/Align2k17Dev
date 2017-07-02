@@ -2,7 +2,8 @@
 
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.start();    
-
+    $scope.eventForm = {};
+    $scope.invalid = false;
 
     $transitions.onStart({ },function (trans) {
         $scope.progressbar.start();
@@ -234,9 +235,14 @@
     }
 
     //function to be called on form submit
-    $scope.submitLoginForm = function () {
-
-
+    $scope.submitEventForm = function () {
+        var obj = $scope.eventForm.createEventForm.multipleSelect;
+        
+        if(obj.$invalid==true)
+        {
+            $scope.invalid = true;
+        }
+        
 
     }
 

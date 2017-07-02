@@ -683,6 +683,10 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
 
 .form-item-container .list-inline li:last-child span
 {
+    /*color: #ef4136;
+    border: 0px;
+    background: #e3e3e3;
+    margin-top: 0px;*/
     display:none;
 }
 
@@ -704,6 +708,10 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
 .event-img-upload
 {
     overflow:hidden;
+}
+.form-group-category
+{
+    margin-bottom:0px;
 }
 
 
