@@ -250,14 +250,6 @@
         ngDialog.open({ template: '_PartialViews/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
     }
 
-    $('.left-menu-nav').on('click', function () {
-        if ($('#leftNavBtn').is(":visible"))
-        {
-            $('#leftNavBtn').click();
-        }
-        
-    });
-
     $scope.dateOptions = {
         dateDisabled: false,
         formatYear: 'yy',
@@ -297,7 +289,15 @@ function NavigationDirective() {
             name: '@name',            
             selectedTile:'@selectedTile'
         },        
-        templateUrl: '_PartialViews/Navigation.html'        
+        templateUrl: '_PartialViews/Navigation.html',
+        link: function (scope, elem, attr) {
+            $('.left-menu-nav').on('click', function () {
+                if ($('#leftNavBtn').is(":visible")) {
+                    $('#leftNavBtn').click();
+                }
+
+            });
+        }
     }
 }
 
