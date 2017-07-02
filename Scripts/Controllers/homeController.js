@@ -4,10 +4,15 @@
     $scope.progressbar.start();    
     $scope.eventForm = {};
     $scope.invalid = false;
-
-    $transitions.onStart({ },function (trans) {
+    $scope.selectedList = [];
+    $transitions.onStart({}, function (trans) {
         $scope.progressbar.start();
+    });
+
+    $scope.$watch('selectedList', function (newValue,oldValue) {
+        console.log(newValue);
     })
+   
 
     $rootScope.$on('$viewContentLoaded', function () {        
         var route = $state.$current.name;
@@ -241,6 +246,12 @@
         if(obj.$invalid==true)
         {
             $scope.invalid = true;
+            $('.ng-ms').addClass('event-has-error');
+            $('.ng-ms').removeClass('event-has-success');
+        }
+        else {
+            $('.ng-ms').removeClass('event-has-error');
+            $('.ng-ms').addClass('event-has-success');
         }
         
 

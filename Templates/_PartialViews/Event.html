@@ -4,8 +4,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 signUpFormField">
                     <div class="form-group form-group-custom form-group-category">
-                        <label>Category*</label>
-
+                        <label>Category*</label>                        
                         <!--<input type="text" id="category"
                                ng-model="user.category" class="form-control inputField" name="category"
                                required>-->
@@ -67,18 +66,23 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 signUpFormField event-img-upload">
                     <div class="form-group form-group-custom">
-                        <label for="uploadPicture">Upload Picture</label>
-
-                        <div ngf-select="" ngf-drop="" ng-model="user.uploadPicture" ngf-model-invalid="errorFile"
-                             ngf-multiple="multiple" ngf-pattern="'image/*'"
-                             ngf-enable-firefox-paste="true" ngf-drop-available="true"
-                             ngf-fix-orientation="true" ngf-max-files="1" ngf-max-size="2MB"
-                             ngf-run-all-validations="true" ngf-allow-dir="true" class="drop-image form-control inputField">
+                        <label for="uploadPicture">Upload Picture</label>                       
+                            
+                        <button ngf-select="" ngf-drop="" ng-model="user.uploadPicture" ngf-model-invalid="errorFile"
+                                ngf-multiple="multiple" ngf-pattern="'image/*'" ng-required="true" name="uploadPicture"
+                                ngf-enable-firefox-paste="true" ngf-drop-available="true" ngf-select="checkImg($file)"
+                                ngf-fix-orientation="true" ngf-max-files="1" ngf-max-size="2MB"
+                                ngf-run-all-validations="true" ngf-allow-dir="true" class="drop-image form-control inputField">
                             <img class="img-responsive img-event" ngf-src="!user.uploadPicture.$error && user.uploadPicture">
                             <span class="glyphicon glyphicon-upload glyphicon-large"></span>
-                            <span ng-show="user.uploadPicture.$error" class="glyphicon glyphicon-alert form-control-feedback"></span>
-                            <span ng-show="user.uploadPicture.$error" class="help-block has-error error-msg">This field is required</span>
-                        </div>
+                            <div ng-show="eventForm.createEventForm.uploadPicture.$error.maxSize" class="help-block has-error error-msg">File too large : max 2MB allowed</div>
+                        </button>
+                         
+                        
+                            <!--<span ng-show="eventForm.createEventForm.uploadPicture.$error.required" class="glyphicon glyphicon-alert form-control-feedback"></span>
+                            <span ng-show="eventForm.createEventForm.uploadPicture.$error.required" class="help-block has-error error-msg">This field is required</span>-->
+                            
+                        <!--</input>-->
                     </div>
                 </div>
 

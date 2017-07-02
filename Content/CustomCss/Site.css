@@ -713,6 +713,14 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
 {
     margin-bottom:0px;
 }
+.event-has-error
+{
+    border-color: #a94442;
+}
+.event-has-success
+{
+        border-color: #3c763d;
+}
 
 
 /******************************************MyEvents CSS************************************************/
