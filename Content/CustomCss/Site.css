@@ -421,6 +421,7 @@ input:-ms-input-placeholder {
 {
         border-left: 5px solid #ffc00e;
 }
+
 .btn-login-inactive
 {
     
@@ -692,6 +693,17 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
 .form-item-container .list-inline li
 {
     margin-top:11px;
+}
+.img-event
+{
+    max-width: 50%;
+    /* max-height: 101px; */
+    margin-left: auto;
+    margin-right: auto;
+}
+.event-img-upload
+{
+    overflow:hidden;
 }
 
 
