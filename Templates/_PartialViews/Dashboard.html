@@ -50,13 +50,13 @@
                         <h4>{{jsonData.company.contact.primary.phone}}</h4>
 
                         <p>Fax</p>
-                        <h4>{{dashboardData.contact.primary.fax}}</h4>
+                        <h4>{{jsonData.company.contact.primary.fax}}</h4>
 
                         <button class="btn btn-login btn-edit" style="position:inherit">Edit</button>
                     </div>
                 </div>
-
-                <div uib-accordion-group class="panel-default" is-open="false" is-disabled="false" ng-if="dashboardData.contact.secondary!=undefined">
+               
+                <div uib-accordion-group class="panel-default" is-open="false" is-disabled="false" ng-if="jsonData.company.contact.secondary!=undefined">
                     <uib-accordion-heading>
                         <i ng-click="toggleMenuStatus(1)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[1].isOpen , 'glyphicon-plus-sign': !menuStatus[1].isOpen }"></i>
                         <h4 ng-click="toggleMenuStatus(1)" style="font-style:italic">Secondary Contact</h4>

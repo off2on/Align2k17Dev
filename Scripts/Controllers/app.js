@@ -1,32 +1,122 @@
 ﻿
-var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog', 'ngProgress', 'mentio', 'multipleSelect']);
+var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog', 'ngProgress', 'mentio', 'multipleSelect','ui.router']);
 
-alignApp.config(function ($routeProvider, $locationProvider) {
-    $routeProvider
-    .when("/", {
+alignApp.config(function ($stateProvider, $urlRouterProvider) {
+    var loginState = {
+        name: 'login',
+        url: '/login',
         templateUrl: "Login.html",
         controller: "loginController"
+    }
 
-    })
-
-    .when("/SignUp", {
+    var signUpState = {
+        name: 'signup',
+        url: '/signup',
         templateUrl: "SignUp.html",
         controller: "signUpController"
-    })
+    }    
 
-    .when("/Home", {
+    var homeState = {
+        name: 'home',
+        url: '/home',
         templateUrl: "Home.html",
         controller: "homeController"
-    })
+    }
 
-    .otherwise({ redirectTo: '/' });
-    $locationProvider.html5Mode({
-        enabled: false,        
-        requireBase: false,
+    var homeDashboardState = {
+        name: 'home.dashboard',
+        url: '/dashboard',
+        templateUrl: "_PartialViews/Dashboard.html",
+        
+    }
 
-    })
-    $locationProvider.hashPrefix('');
+    var homeLiveState = {
+        name: 'home.live',
+        url: '/live',
+        templateUrl: "_PartialViews/Live.html",
+        
+    }
+
+    var homeEventPlusState = {
+        name: 'home.event',
+        url: '/event',
+        templateUrl: "_PartialViews/Event.html",
+        
+    }
+
+    var homeMyEventsState = {
+        name: 'home.myevents',
+        url: '/myevents',
+        templateUrl: "_PartialViews/MyEvents.html",
+        
+    }
+
+    var homeReviewsState = {
+        name: 'home.reviews',
+        url: '/reviews',
+        templateUrl: "_PartialViews/ReviewsRatings.html",
+        
+    }
+
+    var homePastEventsState = {
+        name: 'home.pastevents',
+        url: '/pastevents',
+        templateUrl: "_PartialViews/PastEvents.html",
+        
+    }
+
+
+    var otherwiseState = {
+        name: 'otherwise',
+        url: '/',
+        templateUrl: "Login.html",
+        
+    }
+
+    $urlRouterProvider.when("", "/login");
+
+
+    $stateProvider.state(loginState);
+    $stateProvider.state(signUpState);
+    $stateProvider.state(homeState);
+    $stateProvider.state(homeLiveState);
+    $stateProvider.state(homeDashboardState);
+    $stateProvider.state(homeEventPlusState);
+    $stateProvider.state(homeMyEventsState);
+    $stateProvider.state(homeReviewsState);
+    $stateProvider.state(homePastEventsState);    
+    
+    $stateProvider.state(otherwiseState);
+
 });
+
+
+//alignApp.config(function ($routeProvider, $locationProvider) {
+//    $routeProvider
+//    .when("/", {
+//        templateUrl: "Login.html",
+//        controller: "loginController"
+
+//    })
+
+//    .when("/SignUp", {
+//        templateUrl: "SignUp.html",
+//        controller: "signUpController"
+//    })
+
+//    .when("/Home", {
+//        templateUrl: "Home.html",
+//        controller: "homeController"
+//    })
+
+//    .otherwise({ redirectTo: '/' });
+//    $locationProvider.html5Mode({
+//        enabled: false,        
+//        requireBase: false,
+
+//    })
+//    $locationProvider.hashPrefix('');
+//});
     
 
 //configuration required for jcs auto validate

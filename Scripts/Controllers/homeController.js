@@ -1,24 +1,62 @@
-﻿alignApp.controller('homeController', function ($scope,$http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory,$compile) {
+﻿alignApp.controller('homeController', function ($rootScope, $scope, $http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory, $compile, $state, uiCalendarConfig) {
 
     $scope.progressbar = ngProgressFactory.createInstance();
-    $scope.progressbar.start();
+    $scope.progressbar.start();    
+  
+    $rootScope.$on('$viewContentLoaded', function () {
+        $scope.endProgress();       
+        var route = $state.$current.name;
+        route = route.substr(5, route.length);
+        for (var i = 0; i < $scope.navigation.home.length; i++)
+        {
+            if($scope.navigation.home[i].tile==route)
+            {
+                $scope.leftNavId = $scope.navigation.home[i].id;
+                break;
+            }
+            else
+            {
+                $scope.leftNavId = 0;                
+                //$state.$current.name = "home.dashboard";
+            }
+        }
+        if ($scope.leftNavId == 0) {
+            $state.go("home.dashboard");
+        }
+        //$scope.leftNavId = $scope.navigation.home[route.substr(5,route.length)];
+    });
 
-    $scope.selectedCategories = [];
+    $scope.navigation = {
+        "home":[ 
+        {
+            "id": 1,
+            "name":"Live",
+            "tile": "live"
+        },
+        {
+            "id": 2,
+            "name": "Event+",
+            "tile": "event"
+        },
+        {
+            "id": 3,
+            "name": "My Events",
+            "tile": "myevents"
+        },
+         {
+             "id": 4,
+             "name": "Reviews/Ratings",
+             "tile": "reviews"
+         },
+        {
+            "id": 5,
+            "name": "Past Events",
+            "tile": "pastevents"
+        },
+         ]      
+    }
 
-    $scope.categories = [
-                       {
-                           "label": "Meetup",
-                           "imageUrl": "https://avatars0.githubusercontent.com/u/3493285?s=460"
-                       },
-                       {
-                           "label": "Party",
-                           "imageUrl": "https://avatars0.githubusercontent.com/u/207585?s=460"
-                       },
-                       {
-                           "label": "Conference",
-                           "imageUrl": "http://educationalsoftware.wikispaces.com/file/view/manga_suzie.jpg/38030142/178x177/manga_suzie.jpg"
-                       },
-    ];
+    
 
     $scope.optionsList = [
   { id: 1, name: "Meetup" },
@@ -34,11 +72,15 @@
         $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
             $scope.jsonData = response.data;
 
-            initialiseCalender($scope.jsonData.MyEvents);
+            $scope.initialiseCalender($scope.jsonData.MyEvents);
+            //$timeout(function () {
+            //    uiCalendarConfig.calendars['calendar'].fullCalendar('rerenderEvents');
+            //});
+            
         })
     }
 
-    var initialiseCalender = function (myEvents) {
+    $scope.initialiseCalender = function (myEvents) {
         //$http.get('../StaticDataFiles/MyEventsData.json').then(function (response) {
         
         var myEventsData = myEvents;
@@ -119,8 +161,8 @@
             errorMessages['minutes'] = 'Invalid minutes.';
         });
         $scope.renderCalender = function (calendar) {
-            if ($scope.uiConfig.calendars[calendar]) {                
-                $scope.uiConfig.calendars[calendar].fullCalendar('render');
+            if ($scope.uiConfig.calendar) {                
+                $scope.uiConfig.calendar.fullCalendar('render');
             }
         };
         
@@ -144,11 +186,11 @@
     }
 
 
-    $scope.setLeftNavId = function (id, $event) {
+    $scope.setLeftNavId = function (id) {
         if ($scope.leftNavId != id)
         {
-            $scope.startProgress($event);
-            $scope.leftNavId = id;
+            //$scope.startProgress($event);
+            $scope.leftNavId = id;            
         }               
     }    
 
@@ -192,22 +234,6 @@
 
     //-----------------------MyEvents--------------------------------------//
  
-    //var date = new Date();
-    //var d = date.getDate();
-    //var m = date.getMonth();
-    //var y = date.getFullYear();
-    /* event source that contains custom events on the scope */
-    //$scope.events = [
-    //  { id: '1', title: 'CocaHeads Meeting', 'start': new Date(y, m, 5, 20, 15), end: new Date(y, m, 6, 21, 15),allDay: false, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
-    //  { id: '2', title: 'Technically Philly', start: new Date(y, m, 10, 20, 15), end: new Date(y, m, 10, 20, 15), allDay: false, subTitle: 'Technically Philly Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
-    //  { id: '3', title: 'CocaHeads Meeting', start: new Date(y, m, 15, 20, 15), end: new Date(y, m, 15, 20, 15), allDay: true, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
-    //  { id: '4', title: 'Technically Philly', start: new Date(y, m, 20, 20, 15), end: new Date(y, m, 20, 20, 15), allDay: false, subTitle: 'Technically Philly Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' },
-    //  { id: '5', title: 'CocaHeads Meeting', start: new Date(y, m, 25, 20, 15), end: new Date(y, m, 25, 20, 15), allDay: false, subTitle: 'CocaHeads Meetup April 2017', date: 'Saturday, April 13 at 8:00 pm - 9:30 pm', place: 'Apple Store', desc: 'This is a bi-weekly social event where you can meet others who have same passion as you!' }
-    //];
-
-    
-
-    //$scope.eventSources = [$scope.events];
 
     $scope.eventRender = function (event, element, view) {
         element.attr({
@@ -260,7 +286,20 @@
     
 });
 
+//--------------------Directives-------------------------------------------------//
 
+function NavigationDirective() {
+    return {
+        restrict: 'E',
+        scope: {
+            nav: '@nav',
+            id: '@id',
+            name: '@name',            
+            selectedTile:'@selectedTile'
+        },        
+        templateUrl: '_PartialViews/Navigation.html'        
+    }
+}
 
 function ReviewsRatingsDirective() {
     return {
@@ -342,6 +381,8 @@ function RangeFilter() {
         return arr;
     }
 };
+
+alignApp.directive('navigation', NavigationDirective);
 
 alignApp.directive('eventReviewsRatings', EventReviewsRatingsDirective);
 
