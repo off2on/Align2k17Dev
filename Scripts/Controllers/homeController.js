@@ -1,4 +1,4 @@
-﻿alignApp.controller('homeController', function ($rootScope,$transitions, $scope, $http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory, $compile, $state, uiCalendarConfig) {
+﻿alignApp.controller('homeController', function ($rootScope, $scope, $http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory, $compile, $state, uiCalendarConfig, $transitions) {
 
     $scope.progressbar = ngProgressFactory.createInstance();
     $scope.progressbar.start();    
@@ -28,7 +28,10 @@
             $state.go("home.dashboard");
         }
         //$scope.leftNavId = $scope.navigation.home[route.substr(5,route.length)];
-        $scope.endProgress();
+        $timeout(function () {
+            $scope.endProgress();
+        }, 0);
+        
     });
 
     $scope.navigation = {
