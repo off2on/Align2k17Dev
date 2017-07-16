@@ -1,31 +1,38 @@
-﻿<form class="form" ng-submit="submitEventForm()" ng-submit-force="true" name="eventForm.createEventForm" novalidate="novalidate">
+﻿<form class="form" ng-submit="submitEvtForm()" ng-submit-force="true" name="form.createEvtForm" novalidate="novalidate">
     <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 signUpFormField">
                     <div class="form-group form-group-custom form-group-category">
-                        <label>Category*</label>                        
+                        <label>Category*</label>
                         <!--<input type="text" id="category"
                                ng-model="user.category" class="form-control inputField" name="category"
                                required>-->
-                        <multiple-autocomplete ng-model="selectedList"
+                        <multiple-autocomplete ng-model="evtForm.evtCategory"
                                                required="true"
                                                name="multipleSelect"
-                                               object-property="name"
-                                               suggestions-arr="optionsList">
+                                               object-property="name"                                               
+                                               suggestions-arr="categoryList">
                         </multiple-autocomplete>
+                        <span ng-show="form.createEvtForm.multipleSelect.$dirty || evtCategoryError">
+                            <p class="help-block has-error error-msg" ng-show="form.createEvtForm.multipleSelect.$error.required">This field is required</p>
+                        </span>
                     </div>
-                    <span ng-show="invalid || eventForm.createEventForm.multipleSelect.$dirty" class="ng-hide">
-                        <p class="help-block has-error error-msg" ng-show="eventForm.createEventForm.multipleSelect.$error.required">This field is required</p>
-                    </span>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 signUpFormField">
+                        <div class="form-item-container" style="overflow:hidden">
+                            <input type="text" ng-model="category.name" placeholder="Input Category to add" disable-valid-styling="true" disable-invalid-styling="true" class="form-control input-new-category" name="newCategory">
+                            <div class="btn-add-category" ng-click="addCategory()">+ New Category</div>
+                        </div>                        
 
-                </div>
+                    </div>
+                    
 
                 <div class="col-sm-12 col-md-12 col-lg-12 signUpFormField">
                     <div class="form-group form-group-custom">
                         <label for="eventName">Event Name*</label>
                         <input type="text" id="eventName"
-                               ng-model="user.eventName" class="form-control inputField" name="eventName"
+                               ng-model="evtForm.evtName" class="form-control inputField" name="eventName"
                                required>
                     </div>
                 </div>
@@ -33,7 +40,7 @@
                     <div class="form-group form-group-custom">
                         <label for="location">Location*</label>
                         <input type="text" id="location"
-                               ng-model="user.location" class="form-control inputField" name="location"
+                               ng-model="evtForm.evtLoc" class="form-control inputField" name="location"
                                required>
                     </div>
                 </div>
@@ -41,8 +48,8 @@
                     <div class="form-group form-group-custom" style="width:91%">
                         <label for="date">Date*</label>
 
-                        <input type="text" id="date" uib-datepicker-popup="{{format}}" is-open="popup1.opened"
-                               ng-model="dt" class="form-control inputField" name="date"
+                        <input type="text" id="date" uib-datepicker-popup="{{format}}" ng-change="datetimeChanged('date')" is-open="popup1.opened"
+                               ng-model="obj.date" readonly class="form-control inputField" name="date"
                                datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats"
                                ng-required="true">
                         <span class="input-group-btn input-btn-date">
@@ -56,9 +63,10 @@
                     <div class="form-group form-group-custom">
                         <label for="time" class="label-time">Time*</label>
 
-                        <div uib-timepicker id="time" ng-model="mytime" ng-change="changed()" hour-step="1" minute-step="15" show-meridian="true"></div>
-
+                        <div uib-timepicker arrowkeys="true" ng-required="true" id="time" ng-model="obj.time" ng-change="datetimeChanged('time')" hour-step="1" minute-step="15" second-step="0" show-meridian="true"></div>
+                        
                     </div>
+                    <span ng-show="!obj.time" class="help-block has-error error-msg">Invalid Time Input</span>
                 </div>
             </div>
         </div>
@@ -66,22 +74,20 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 signUpFormField event-img-upload">
                     <div class="form-group form-group-custom">
-                        <label for="uploadPicture">Upload Picture</label>                       
-                            
-                        <button ngf-select="" ngf-drop="" ng-model="user.uploadPicture" ngf-model-invalid="errorFile"
+                        <label for="uploadPicture">Upload Picture</label>
+                        <button ngf-select="" ngf-drop="" ng-model="obj.picture" ngf-model-invalid="errorFile"
                                 ngf-multiple="multiple" ngf-pattern="'image/*'" ng-required="true" name="uploadPicture"
                                 ngf-enable-firefox-paste="true" ngf-drop-available="true" ngf-select="checkImg($file)"
-                                ngf-fix-orientation="true" ngf-max-files="1" ngf-max-size="2MB"
+                                ngf-fix-orientation="true" ngf-max-files="1" ngf-max-size="2MB" ngf-default-src="obj.defaultPicture"
                                 ngf-run-all-validations="true" ngf-allow-dir="true" class="drop-image form-control inputField">
-                            <img class="img-responsive img-event" ngf-src="!user.uploadPicture.$error && user.uploadPicture">
+                            <img class="img-responsive img-event" ngf-background="obj.picture" ngf-src=" !obj.picture.$error && obj.picture">
                             <span class="glyphicon glyphicon-upload glyphicon-large"></span>
-                            <div ng-show="eventForm.createEventForm.uploadPicture.$error.maxSize" class="help-block has-error error-msg">File too large : max 2MB allowed</div>
+                            <div ng-show="evtForm.createEvtForm.uploadPicture.$error.maxSize" class="help-block has-error error-msg">File too large : max 2MB allowed</div>
                         </button>
-                         
-                        
-                            <!--<span ng-show="eventForm.createEventForm.uploadPicture.$error.required" class="glyphicon glyphicon-alert form-control-feedback"></span>
-                            <span ng-show="eventForm.createEventForm.uploadPicture.$error.required" class="help-block has-error error-msg">This field is required</span>-->
-                            
+
+
+                        <!--<span ng-show="evtForm.createEvtForm.uploadPicture.$error.required" class="glyphicon glyphicon-alert form-control-feedback"></span>
+                        <span ng-show="evtForm.createEvtForm.uploadPicture.$error.required" class="help-block has-error error-msg">This field is required</span>-->
                         <!--</input>-->
                     </div>
                 </div>
@@ -90,7 +96,7 @@
                     <div class="form-group form-group-custom">
                         <label for="description">Description*</label>
                         <textarea id="description" rows="5"
-                                  ng-model="user.description" class="form-control inputField" name="description"
+                                  ng-model="evtForm.evtDesc" class="form-control inputField" name="description"
                                   required></textarea>
                     </div>
                 </div>
@@ -103,7 +109,7 @@
         <div class="col-sm-10 col-md-10 col-lg-10"></div>
         <div class="col-sm-2 col-md-2 col-lg-2">
             <div class="form-group ">
-                <button type="submit" class="btn btn-login">Create</button>
+                <button type="submit" ng-disabled="evtBtnDisabled" class="btn btn-login">{{createBtnText}}</button>
             </div>
         </div>
     </div>

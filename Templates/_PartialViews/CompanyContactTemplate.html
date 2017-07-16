@@ -1,0 +1,35 @@
+﻿<uib-accordion-heading>
+    <i ng-click="toggleMenuStatus(0)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[0].isOpen , 'glyphicon-plus-sign': !menuStatus[0].isOpen }"></i>
+    <h4 ng-click="toggleMenuStatus(0)" style="font-style:italic;padding:1px 15px">{{type}} Contact</h4>
+</uib-accordion-heading>
+<div class="panel-info" style="margin-top: 20px; word-wrap: break-word;" ng-show="!edit">
+    <p>Name</p>
+    <h4>{{name}}</h4>
+
+    <p>Email</p>
+    <h4>{{mail}}</h4>
+
+    <p>Phone</p>
+    <h4>{{phone}}</h4>
+
+    <p>Fax</p>
+    <h4>{{fax}}</h4>
+
+    <button class="btn btn-login btn-edit" ng-click="editMode()" style="position:inherit">{{btntext}}</button>
+</div>
+
+<div class="panel-info" style="margin-top: 20px; word-wrap: break-word;" ng-show="edit">
+    <p>Name</p>
+    <input type="text" ng-model="name" class="form-control inputField inputField-dashboard" name="name{{type}}" />
+
+    <p>Email</p>
+    <input type="text" ng-model="mail" class="form-control inputField inputField-dashboard" name="mail{{type}}" />
+
+    <p>Phone</p>
+    <input type="text" ng-model="phone" class="form-control inputField inputField-dashboard" name="phone{{type}}" />
+
+    <p>Fax</p>
+    <input type="text" ng-model="fax" class="form-control inputField inputField-dashboard" name="fax{{type}}" />
+
+    <button class="btn btn-login btn-edit" ng-click="editMode()" style="position:inherit">{{btntext}}</button>
+</div>

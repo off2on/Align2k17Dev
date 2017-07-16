@@ -1,44 +1,150 @@
-﻿alignApp.controller('homeController', function ($rootScope, $scope, $http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory, $compile, $state, uiCalendarConfig, $transitions) {
+﻿alignApp.controller('homeController', function ($rootScope, $scope,$stateParams, $http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory, $compile, $state, uiCalendarConfig, $transitions,Upload) {
 
     $scope.progressbar = ngProgressFactory.createInstance();
-    $scope.progressbar.start();    
-    $scope.eventForm = {};
+    $scope.progressbar.start();
+    $scope.form = {};
+    $scope.evtForm = {};
+    $scope.evtForm.evtId = 0;
+    $scope.evtForm.evtImgUrl = "";
+    $scope.obj = {};
+    $scope.obj.time = $scope.obj.date = new Date();
+    $scope.evtBtnDisabled = false;
+    $scope.eventSources = [];
+    $scope.events = [];
+    $scope.category = {};
+
+    $scope.createBtnText = "Create";
+    
     $scope.invalid = false;
     $scope.selectedList = [];
     $transitions.onStart({}, function (trans) {
         $scope.progressbar.start();
     });
 
-    $scope.$watch('selectedList', function (newValue,oldValue) {
-        console.log(newValue);
-    })
+    $scope.$watch('evtForm.evtCategory', function (newValue, oldValue) {
+        if ($scope.form.createEvtForm != undefined) {
+            if ($scope.form.createEvtForm.multipleSelect.$touched) {
+                validateCategory(newValue);
+            }
+        }  
+    }, true);
+
+    var validateCategory = function (categories) {
+        if (categories.length == 0) {
+            $scope.evtCategoryError = true;
+            $('.ng-ms').addClass('event-has-error');
+            $('.ng-ms').removeClass('event-has-success');
+            return 0;
+        }
+        else {
+            $scope.evtCategoryError = false;
+            $('.ng-ms').addClass('event-has-success');
+            $('.ng-ms').removeClass('event-has-error');
+            return 1;
+        }
+    }
+
+    $scope.datetimeChanged = function (item) {
+        if ($scope.obj[item] == undefined) {
+            $('#'+item).addClass('has-error');
+            $('#' + item).removeClass('event-has-success');
+            if ($('#' + item + ' :input').length!=0)
+            $('#' + item+' :input').removeClass('event-has-success');
+        }
+        else {
+            if ($('#' + item + ' :input').length != 0)
+            $('#' + item + ' :input').addClass('event-has-success');
+            $('#' + item).addClass('event-has-success');
+            $('#' + item).removeClass('has-error');
+        }
+    }
+
+    $scope.addCategory = function () {
+        var categoryExists = false;
+        if ($scope.category.name != undefined)
+        {
+            Object.keys($scope.categoryList).forEach(function (key) {
+                if ($scope.categoryList[key].name == $scope.category.name) {
+                    categoryExists = true;
+                }
+            });
+            if (!categoryExists)
+            {
+                $scope.category.id = $scope.categoryList.length + 1;
+                $scope.categoryList.push($scope.category);
+            }            
+        }
+            
+    }
+
+    $scope.uploadPic = function (file) {       
+        $scope.progressbar.start();
+        $scope.evtBtnDisabled = true;
+        $scope.createBtnText = "Saving...";
+        file.upload = Upload.upload({
+            url: 'http://alignwebapi.apphb.com/api/upload',
+            //url: 'http://localhost:44456/api/upload',
+            method: 'POST',
+            data: { evtData: angular.toJson($scope.evtForm),evtPicture: file },
+        });
+
+        file.upload.then(function (resp) {
+            // file is uploaded successfully
+            $timeout(function () {
+                $scope.endProgress();
+                $scope.createBtnText = "Saved Successfully...";                
+            }, 1000);
+
+            $timeout(function () {
+                $state.reload();                
+            }, 1500);
+            
+            //console.log('file ' + resp.config.data.evtPicture.name + 'is uploaded successfully. Response: ' + resp.data);
+            //ngDialog.open({ template: '_PartialViews/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
+        }, function (resp) {
+            // handle error
+            
+        }, function (evt) {
+            // progress notify
+            //console.log('progress: ' + parseInt(100.0 * evt.loaded / evt.total) + '% file :' + evt.config.data.file.name);
+        });
+
+        
+
+        //file.upload = Upload.http({
+        //    url: 'http://localhost:44456/api/upload',
+        //    headers: {
+        //        'Content-Type': file.type
+        //    },
+        //    method: 'POST',
+        //    data: { evtData: angular.toJson($scope.evtForm), evtPicture: file },
+        //});
+    }
    
 
     $rootScope.$on('$viewContentLoaded', function () {        
-        var route = $state.$current.name;
+        var route = $state.$current.name;        
         route = route.substr(5, route.length);
         for (var i = 0; i < $scope.navigation.home.length; i++)
         {
             if($scope.navigation.home[i].tile==route)
             {
-                $scope.leftNavId = $scope.navigation.home[i].id;
+                $scope.leftNavId = $scope.navigation.home[i].id;                
                 break;
             }
             else
             {
-                $scope.leftNavId = 0;                
-                //$state.$current.name = "home.dashboard";
+                $scope.leftNavId = 0;                                
             }
         }
         if ($scope.leftNavId == 0) {
             $state.go("home.dashboard");
-        }
-        //$scope.leftNavId = $scope.navigation.home[route.substr(5,route.length)];
+        }        
         $timeout(function () {
             $scope.endProgress();
-        }, 0);
-        
+        }, 0);        
     });
+
 
     $scope.navigation = {
         "home":[ 
@@ -59,7 +165,7 @@
         },
          {
              "id": 4,
-             "name": "Reviews/Ratings",
+             "name": "Reviews/ Ratings",
              "tile": "reviews"
          },
         {
@@ -70,9 +176,8 @@
          ]      
     }
 
-    
 
-    $scope.optionsList = [
+    $scope.categoryList = [
   { id: 1, name: "Meetup" },
   { id: 2, name: "Party" },
   { id: 3, name: "Conference" },
@@ -84,13 +189,34 @@
     $scope.getJsonData = function () {
         //$http.get('../StaticDataFiles/StaticJsonData.json').then(function (response) {
         $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
-            $scope.jsonData = response.data;
-
+            $scope.jsonData = response.data; 
             $scope.initialiseCalender($scope.jsonData.MyEvents);
-            //$timeout(function () {
-            //    uiCalendarConfig.calendars['calendar'].fullCalendar('rerenderEvents');
-            //});
+            if ($scope.leftNavId == 3) {
+                
+                $timeout(function () {
+                    refreshCalendar($scope.jsonData.MyEvents);
+                });
+            }
+        })
+    }
+
+    $scope.setCalendar = function () {       
+        refreshCalendar($scope.jsonData.MyEvents);
+    }
+
+    function refreshCalendar(events) {        
+        uiCalendarConfig.calendars.calendar.fullCalendar('removeEvents');
+        uiCalendarConfig.calendars.calendar.fullCalendar('addEventSource', events);
+    }
+
+    $scope.getEventData = function () {
+        $http.get('../StaticDataFiles/EventData.json').then(function (response) {
+        //$http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/EventData.json').then(function (response) {
+            $scope.evtForm = response.data;
+            var momentDate = moment($scope.evtForm.evtDt +' '+ $scope.evtForm.evtTime);
+            $scope.obj.date = $scope.obj.time = momentDate.toDate();
             
+            $scope.obj.picture = $scope.evtForm.evtImgUrl;
         })
     }
 
@@ -125,8 +251,9 @@
         
     }
 
-    
+    $scope.getEventData();
     $scope.getJsonData();
+    
 
 
     $scope.getCategoriesTextRaw = function (item) {
@@ -199,6 +326,10 @@
 
     }
 
+    $scope.editEvent = function (id) {        
+        $state.go('home.event');
+        ngDialog.close();
+    }
 
     $scope.setLeftNavId = function (id) {
         if ($scope.leftNavId != id)
@@ -239,20 +370,40 @@
 
     }
 
+    var validateTime = function () {
+        $scope.datetimeChanged('time');        
+    }
+
     //function to be called on form submit
-    $scope.submitEventForm = function () {
-        var obj = $scope.eventForm.createEventForm.multipleSelect;
+    $scope.submitEvtForm = function () {
+        console.log($scope.inputValue);
+        validateTime();
+        var categories = $scope.evtForm.evtCategory;
+        var IsFormValid = false;
+        if (validateCategory(categories)) {
+            IsFormValid = $scope.form.createEvtForm.$valid;
+        }
         
-        if(obj.$invalid==true)
-        {
-            $scope.invalid = true;
-            $('.ng-ms').addClass('event-has-error');
-            $('.ng-ms').removeClass('event-has-success');
+        if (IsFormValid)
+        {            
+            $scope.evtForm.evtTime = $scope.obj.time.toLocaleTimeString();
+            $scope.evtForm.evtDt = $scope.obj.date.toDateString();
+            $scope.uploadPic($scope.obj.picture);
         }
-        else {
-            $('.ng-ms').removeClass('event-has-error');
-            $('.ng-ms').addClass('event-has-success');
-        }
+        
+        
+        //if(obj.$invalid==true)
+        //{
+        //    $scope.invalid = true;
+        //    $('.ng-ms').addClass('event-has-error');
+        //    $('.ng-ms').removeClass('event-has-success');
+        //}
+        //else {
+        //    $('.ng-ms').removeClass('event-has-error');
+        //    $('.ng-ms').addClass('event-has-success');
+        //}
+
+        //console.log($scope.evtForm);
         
 
     }
@@ -296,12 +447,11 @@
 
     $scope.openDatePicker = function () {
         $scope.popup1.opened = true;
-    };
-
-
-
+    };    
     
 });
+
+
 
 //--------------------Directives-------------------------------------------------//
 
@@ -315,13 +465,71 @@ function NavigationDirective() {
             selectedTile:'@selectedTile'
         },        
         templateUrl: '_PartialViews/Navigation.html',
-        link: function (scope, elem, attr) {
+        link: function (scope, elem, attr) {            
             $('.left-menu-nav').on('click', function () {
                 if ($('#leftNavBtn').is(":visible")) {
                     $('#leftNavBtn').click();
                 }
 
             });
+
+
+        }
+    }
+}
+
+function CompanyInfoDirective() {
+    return {
+        restrict: 'E',
+        scope: {
+            name: '@name',
+            building: '@building',
+            address: '@address',
+            btntext: '@btntext',
+            edit:'=edit',
+        },
+        templateUrl: '_PartialViews/CompanyInfoTemplate.html',
+        link: function (scope, attr, elem) {
+            scope.editMode = function (tile) {
+                if (scope.edit) {
+                    scope.edit = false;
+                    scope.btntext = "Edit";
+                }
+                else {
+                    scope.edit = true;
+                    scope.btntext = "Save";
+                }
+
+            }
+        }
+    }
+}
+
+function CompanyContactDirective() {
+    return {
+        restrict: 'E',
+        scope: {
+            name: '@name',
+            mail: '@mail',
+            phone: '@phone',
+            fax: '@fax',
+            type:'@type',
+            btntext: '@btntext',
+            edit: '=edit',
+        },
+        templateUrl: '_PartialViews/CompanyContactTemplate.html',
+        link: function (scope, attr, elem) {
+            scope.editMode = function (tile) {
+                if (scope.edit) {
+                    scope.edit = false;
+                    scope.btntext = "Edit";
+                }
+                else {
+                    scope.edit = true;
+                    scope.btntext = "Save";
+                }
+
+            }
         }
     }
 }
@@ -407,6 +615,12 @@ function RangeFilter() {
     }
 };
 
+//--------------------directives----------------------------------//
+
+alignApp.directive('companyInfo', CompanyInfoDirective);
+
+alignApp.directive('companyContact', CompanyContactDirective);
+
 alignApp.directive('navigation', NavigationDirective);
 
 alignApp.directive('eventReviewsRatings', EventReviewsRatingsDirective);
@@ -419,6 +633,9 @@ alignApp.directive('liveAll', LiveAllDirective);
 
 alignApp.directive('liveAlign', LiveAlignDirective);
 
+//----------------------filters-----------------------------------//
+
 alignApp.filter('range', RangeFilter);
+
 
 

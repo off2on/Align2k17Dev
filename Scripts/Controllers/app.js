@@ -18,7 +18,7 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
 
     var homeState = {
         name: 'home',
-        url: '/home',
+        url: '/home',        
         templateUrl: "Home.html",
         controller: "homeController"
     }
@@ -40,6 +40,7 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
     var homeEventPlusState = {
         name: 'home.event',
         url: '/event',
+        
         templateUrl: "_PartialViews/Event.html",
         
     }

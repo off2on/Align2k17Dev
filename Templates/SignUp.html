@@ -37,8 +37,12 @@
 
         </div>
     </div>
+    
+
+    
     <form ng-show="wizStep==1" class="form" ng-submit="submitCompanyInfoSignUpForm()" ng-submit-force="true" name="CompanyInfoSignUpForm" novalidate="novalidate">
         <div ng-include="'_PartialViews/CompanyInfoSignUp.html'"></div>
+        
     </form>
     <form ng-show="wizStep==2" class="form" ng-submit="submitCompanyContactSignUpForm()" ng-submit-force="true" name="CompanyContactSignUpForm" novalidate="novalidate">
         <div ng-include="'_PartialViews/CompanyContactSignUp.html'"></div>

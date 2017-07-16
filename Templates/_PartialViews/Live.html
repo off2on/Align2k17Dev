@@ -11,7 +11,11 @@
     <div class="row fivecolumns" ng-show="showAll">
         <div ng-repeat="person in jsonData.live.all">            
             <div class="clearfix visible-lg visible-md visible-sm" ng-if="$index % 5 == 0"></div>
-            <div class="clearfix visible-xs" ng-if="$index % 4 == 0"></div>
+
+            <div class="clearfix visible-xs" ng-if="$index % 3 == 0"></div>
+
+            <div class="clearfix visible-xxs" ng-if="$index % 2 == 0"></div>
+
             <live-all live-all-image-url="{{person.imageUrl}}"
                       live-all-name="{{person.name}}"
                       live-all-designation="{{person.designation}}">

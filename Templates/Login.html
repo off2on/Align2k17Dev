@@ -6,7 +6,7 @@
             <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                 <div class="form-group form-group-custom">
                     <input type="text" id="userName" placeholder="Username"
-                           ng-model="user.userName" class="form-control inputField" name="userName"
+                           ng-model="login.userName" class="form-control inputField" name="userName"
                            required required-err-type="userNameRequired">
                 </div>
             </div>
@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                 <div class="form-group form-group-custom">
-                    <input type="password" id="password" ng-model="user.password" placeholder="Password"
+                    <input type="password" id="password" ng-model="login.password" placeholder="Password"
                            class="form-control inputField"                           
                            required required-err-type="passwordRequired" />
                 </div>
@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                 <div class="form-group ">
-                    <button type="submit" ui-sref="home.dashboard" ui-sref-active="active" class="btn btn-login">Log In</button>
+                    <button type="submit" class="btn btn-login">Log In</button>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     </label>
                 </div>
                 <div style="float:right;text-align:right">
-                    <span class="inline cursor" ng-click="redirectToSignUp()">Sign Up</span><span class="inline">|</span><span class="cursor inline">Forgot Password</span>
+                    <span class="inline cursor" ui-sref="signup">Sign Up</span><span class="inline">|</span><span class="cursor inline">Forgot Password</span>
                 </div>
             </div>
         </div>

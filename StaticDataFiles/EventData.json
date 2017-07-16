@@ -1,0 +1,17 @@
+﻿{
+	"evtCategory": [{
+		"id": 1,
+		"name": "Meetup"
+	}, {
+		"id": 3,
+		"name": "Conference"
+	}],
+	"evtId": 0,
+	"evtLoc": "Texas",
+	"evtName": "Meetup",
+	"evtDesc": "An Enterpreneur Meetup",
+	"evtTime": "12:21:21 PM",
+	"evtDt": "Mon Jul 10 2017",
+	"evtImgUrl":"../../Images/technically.PNG"
+}
+

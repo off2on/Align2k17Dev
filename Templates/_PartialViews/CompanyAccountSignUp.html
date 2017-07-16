@@ -4,7 +4,7 @@
             <div class="form-group form-group-custom">
                 <label for="email3">Email Address*</label>
                 <input type="email" id="email3"
-                       ng-model="user.email3" class="form-control inputField" name="email3"
+                       ng-model="signUpForm.companyAccount.mail" class="form-control inputField" name="email3"
                        required>
             </div>
         </div>
@@ -13,7 +13,7 @@
         <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
             <div class="form-group form-group-custom">
                 <label for="password">Password</label>
-                <input type="password" id="password" ng-model="user.password"
+                <input type="password" id="password" ng-model="signUpForm.companyAccount.pwd"
                        ng-minlength="8"
                        ng-maxlength="24" class="form-control inputField"
                        ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/"
@@ -28,7 +28,7 @@
                 <label for="confirmPassword">Confirm Password</label>
                 <input type="password" id="confirmPassword" ng-model="user.confirmPassword"
                        class="form-control inputField"
-                       confirm-password="user.password"
+                       confirm-password="signUpForm.companyAccount.pwd"
                        required />
             </div>
         </div>

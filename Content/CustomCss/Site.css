@@ -377,6 +377,9 @@ input:-ms-input-placeholder {
     padding:1px 15px;
 }*/
 
+.inputField-dashboard{
+    background-color:#fff;
+}
 /*******************************Live Page CSS*************************************/
 .box-shad {
     -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
@@ -573,6 +576,12 @@ input:-ms-input-placeholder {
   transition: 0s linear all;
 }
 
+.navbar-toggle{
+        padding: 7px 7px;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
 /******************************************Event Page CSS*********************************************/
 
 .drop-image {
@@ -715,11 +724,35 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
 }
 .event-has-error
 {
-    border-color: #a94442;
+    border-color: #a94442 !important;
 }
 .event-has-success
 {
-        border-color: #3c763d;
+   border-color: #3c763d;
+   background-color:#cce5cc !important;
+}
+
+.btn-add-category{   
+    cursor: pointer;
+    margin-right: 2%;
+    position: absolute;
+    /* font-size: large; */
+    height: 30px;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 2%;
+    outline: none !important;
+    border: 1px solid #ffc00e;
+    border-radius: 14px;
+    padding: 5px;
+    /* padding-bottom: 10px; */
+    background: #ffc00e;
+    color: #fff;
+}
+.input-new-category{
+    width: 70%;
+    height: 38px;
+    background-color: #fff;
 }
 
 
@@ -987,13 +1020,36 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
     border-bottom: 2px solid #9e9e9e; padding-bottom: 10px;
     margin-bottom:10px;
 }
-@media only screen and (min-width:768px)
-{
+
 .img-event-past
 {
-    padding-top:40%;
+    /*display: inline-block;
+    vertical-align: middle;*/
+}
+
+@media only screen and (min-width:768px){
+.img-event-past-div
+{
+    padding-top: 55px;
+    display: table;
+    height: 125px;
+    width: 125px;
+    margin: 0 auto;
+    text-align: center;   
 }
 }
+
+@media only screen and (max-width:767px){
+    .img-event-past-div
+{    
+    display: table;
+    height: 125px;
+    width: 125px;
+    margin: 0 auto;
+    text-align: center;   
+}
+}
+
 
 
 /******************************************Custom Bootstrap Column Layout*****************************/
@@ -1040,6 +1096,69 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
 
 /*****************************************Custom Bootstrap Column Layout End*****************************/
 
+/*******************************************Flip Card Effect********************************/
+
+.card.flipped {
+  -webkit-transform: rotatex(-180deg);
+}
+.card {
+  
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+}
+.card .face {
+  
+  position: absolute;
+  -webkit-backface-visibility: hidden ;
+  z-index: 2;
+    
+}
+.card .front {
+  position: absolute;
+  z-index: 1;
+    
+}
+.card .back {
+  -webkit-transform: rotatex(-180deg);
+    
+}
+
+.visible-xxs
+ {
+  display: none !important;
+}
+
+.visible-xs {
+        display: none !important;
+    }
+
+@media (min-width: 401px) and (max-width: 767px) {
+    .visible-xs {
+        display: block !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .visible-xxs {
+        display: block !important;
+    }
+
+    .col-xxs-6{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.col-xxs-6{
+  float: left;
+}
+.col-xxs-6 {
+  width: 50%;
+}
+}
+
+
+
 
 /*****************footer*********************/
 
@@ -1059,3 +1178,4 @@ body
 {
     margin-top:0px;
 }
+

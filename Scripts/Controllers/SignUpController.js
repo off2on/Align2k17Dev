@@ -4,7 +4,26 @@
     $scope.initialise = function () {
         $scope.wizStep = 1;
         $scope.contactType = 0;
-        $scope.selectedState = $scope.statesUSA[0];
+
+        $scope.signUpForm = {
+            "companyInfo": {},
+            "companyContact":{
+                "prim": {},
+                "sec": {}
+            },
+            "companyAccount": {}
+        };
+
+        $scope.companyInfo = {};
+
+        $scope.companyContact = {
+            "prim": {},
+            "sec": {}
+        };
+
+        $scope.companyAccount = {};
+        
+        $scope.companyInfo.selectedState = $scope.statesUSA[0];
         $scope.$emit('adjustHeader', 0);
         var IsFormValid1 = false;
         var IsFormValid2 = false;
@@ -94,7 +113,7 @@
 
     $scope.setSelectedIndex = function(index)
     {
-        $scope.selectedState = $scope.statesUSA[index];
+        $scope.companyInfo.selectedState = $scope.statesUSA[index];
     }
 
     $scope.showContactType = function (type) {
@@ -113,7 +132,9 @@
     $scope.submitCompanyInfoSignUpForm = function () {
         var IsFormValid1 = $scope.CompanyInfoSignUpForm.$valid;
         if (IsFormValid1) {
-            $scope.wizStep=2;
+            $scope.wizStep = 2;
+            console.log($scope.companyInfo);
+
         }
 
     }
@@ -122,6 +143,7 @@
         var IsFormValid2 = $scope.CompanyInfoSignUpForm.$valid && $scope.CompanyContactSignUpForm.$valid;
         if (IsFormValid2) {
             $scope.wizStep = 3;
+            console.log($scope.companyContact);
         }
 
     }
@@ -129,7 +151,8 @@
     $scope.submitCompanyAccountSignUpForm = function () {
         var IsFormValid3 = $scope.CompanyInfoSignUpForm.$valid && $scope.CompanyContactSignUpForm.$valid && $scope.CompanyAccountSignUpForm.$valid;
         if (IsFormValid3) {
-            $location.url('/');
+            console.log($scope.signUpForm);
+            //$location.url('/');
         }
 
     }
@@ -146,7 +169,7 @@
         
         $scope.progressbar.complete();
 
-    });
+    });   
 
 
 });

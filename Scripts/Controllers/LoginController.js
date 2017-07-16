@@ -1,4 +1,4 @@
-﻿alignApp.controller('loginController', function ($scope, $location) {
+﻿alignApp.controller('loginController', function ($scope, $location, $state) {
 
     //define scope variables
     $scope.initialise = function () {
@@ -8,19 +8,15 @@
     //initialise scope variables
     $scope.initialise();
 
+    $scope.login = {};
+
 
     //function to be called on form submit
-    $scope.submitLoginForm = function () {
-        
+    $scope.submitLoginForm = function () {        
         if ($scope.LoginForm.$valid) {
-            $location.url('/Home');
-        }
-        
-        //alert($location.path);
-    }
-
-    $scope.redirectToSignUp = function () {
-        $location.url('/SignUp');
+            console.log($scope.login);
+            $state.go('home.dashboard');
+        }                
     }
 
     $scope.startProgress = function () {

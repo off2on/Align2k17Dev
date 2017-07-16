@@ -1,0 +1,44 @@
+﻿
+    <div class="panel panel-default panel-company">
+        <div class="panel-body">
+            <div class="panel-header">
+                Company Information
+            </div>            
+            <div class="panel-info" style="margin-top: 20px;" ng-show="!edit">
+                <p>Company Name</p>
+                <h4>{{name}}</h4>
+
+                <br />
+                <p>Building Name</p>
+                <h4>{{building}}</h4>
+
+                <br />
+                <p>Building Address</p>
+                <address style=" font-size: 18px; font-family: inherit; font-weight: 500;">
+                    {{address}}
+                </address>
+
+                <br />
+                <button ng-click="editMode()" class="btn btn-login btn-edit">{{btntext}}</button>
+
+            </div>
+
+            <div class="panel-info" style="margin-top: 20px;" ng-show="edit">
+                <p>Company Name</p>
+
+                <input type="text" ng-model="name" class="form-control inputField inputField-dashboard" name="companyName" />
+                <br />
+                <p>Building Name</p>
+
+                <input type="text" ng-model="building" class="form-control inputField inputField-dashboard" name="companyBdg" />
+                <br />
+                <p>Building Address</p>
+                <input type="text" ng-model="address" class="form-control inputField inputField-dashboard" name="companyAdr" />
+                <br />
+                <button ng-click="editMode()" class="btn btn-login btn-edit">{{btntext}}</button>
+
+            </div>
+
+
+        </div>
+    </div>

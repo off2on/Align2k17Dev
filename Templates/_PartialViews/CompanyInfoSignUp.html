@@ -4,7 +4,7 @@
             <div class="form-group form-group-custom">
                 <label for="companyName">Company Name*</label>
                 <input type="text" id="companyName"
-                       ng-model="user.companyName" class="form-control inputField" name="companyName"
+                       ng-model="signUpForm.companyInfo.companyName" class="form-control inputField" name="companyName"
                        required>
             </div>
         </div>
@@ -12,7 +12,7 @@
             <div class="form-group form-group-custom">
                 <label for="address">Address*</label>
                 <input type="text" id="address"
-                       ng-model="user.address" class="form-control inputField" name="address"
+                       ng-model="signUpForm.companyInfo.address" class="form-control inputField" name="address"
                        required>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div class="form-group form-group-custom">
                 <label for="buildingName">Building Name*</label>
                 <input type="text" id="buildingName"
-                       ng-model="user.buildingName" class="form-control inputField" name="buildingName"
+                       ng-model="signUpForm.companyInfo.buildingName" class="form-control inputField" name="buildingName"
                        required>
             </div>
         </div>
@@ -31,7 +31,7 @@
             <div class="form-group form-group-custom">
                 <label for="address2">Address 2*</label>
                 <input type="text" id="address2"
-                       ng-model="user.address2" class="form-control inputField" name="address2"
+                       ng-model="signUpForm.companyInfo.address2" class="form-control inputField" name="address2"
                        required>
             </div>
         </div>
@@ -48,7 +48,7 @@
             <div class="form-group form-group-custom">
                 <label for="city">City*</label>
                 <input type="text" id="city"
-                       ng-model="user.city" class="form-control inputField" name="city"
+                       ng-model="signUpForm.companyInfo.city" class="form-control inputField" name="city"
                        required>
             </div>
         </div>
@@ -58,7 +58,7 @@
                 <!--<input type="text" id="State"
                        ng-model="user.State" class="form-control inputField" name="State"
                        required>-->
-                <select class="form-control inputField" style="padding-right: 0px;" ng-change="setSelectedIndex($index)" ng-options="state as state.alpha2 for state in statesUSA track by state.alpha2" ng-model="selectedState"></select>
+                <select class="form-control inputField" style="padding-right: 0px;" ng-change="setSelectedIndex($index)" ng-options="state as state.alpha2 for state in statesUSA track by state.alpha2" ng-model="signUpForm.companyInfo.selectedState"></select>
             </div>
         </div>
 
@@ -66,7 +66,7 @@
             <div class="form-group form-group-custom">
                 <label for="zipCode">Zip Code*</label>
                 <input type="number" id="zipCode"
-                       ng-model="user.zipCode" ng-maxlength="5" ng-minlength="5" class="form-control inputField" name="zipCode"
+                       ng-model="signUpForm.companyInfo.zipCode" ng-maxlength="5" ng-minlength="5" class="form-control inputField" name="zipCode"
                        required>
             </div>
         </div>
@@ -76,7 +76,7 @@
         <div class="col-sm-2 col-md-2 col-lg-2">
             <div class="form-group ">
                 <!--<button type="submit" ng-click="setWizStep(2)" class="btn btn-login">Next</button>-->
-                <button type="submit" ng-click="submitCompanyInfoSignUpForm();" class="btn btn-login">Next</button>
+                <button type="submit" ng-click="submitsignUpForm.companyInfoSignUpForm();" class="btn btn-login">Next</button>
             </div>
         </div>
     </div>
