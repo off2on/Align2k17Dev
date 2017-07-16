@@ -72,6 +72,7 @@
             {
                 $scope.category.id = $scope.categoryList.length + 1;
                 $scope.categoryList.push($scope.category);
+                $scope.evtForm.evtCategory.push($scope.category);
             }            
         }
             
