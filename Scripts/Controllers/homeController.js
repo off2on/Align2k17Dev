@@ -210,8 +210,8 @@
     }
 
     $scope.getEventData = function () {
-        $http.get('../StaticDataFiles/EventData.json').then(function (response) {
-        //$http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/EventData.json').then(function (response) {
+        //$http.get('../StaticDataFiles/EventData.json').then(function (response) {
+        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/EventData.json').then(function (response) {
             $scope.evtForm = response.data;
             var momentDate = moment($scope.evtForm.evtDt +' '+ $scope.evtForm.evtTime);
             $scope.obj.date = $scope.obj.time = momentDate.toDate();
