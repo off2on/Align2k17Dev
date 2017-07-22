@@ -60,7 +60,7 @@
     }
 
     $scope.addCategory = function () {
-        var categoryExists = false;
+        var categoryExists = false;        
         if ($scope.category.name != undefined)
         {
             Object.keys($scope.categoryList).forEach(function (key) {
@@ -73,6 +73,7 @@
                 $scope.category.id = $scope.categoryList.length + 1;
                 $scope.categoryList.push($scope.category);
                 $scope.evtForm.evtCategory.push($scope.category);
+                $scope.category = {};
             }            
         }
             
