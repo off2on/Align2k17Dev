@@ -734,18 +734,18 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
     cursor: pointer;
     margin-right: 2%;
     position: absolute;
-    /* font-size: large; */
+    font-size: xx-large;
     height: 30px;
     right: 0;
     bottom: 0;
     margin-bottom: 2%;
     outline: none !important;
-    border: 1px solid #ffc00e;
+    /* border: 1px solid #ffc00e; */
     border-radius: 14px;
     padding: 5px;
     /* padding-bottom: 10px; */
-    background: #ffc00e;
-    color: #fff;
+    /* background: #ffc00e; */
+    color: #ffc00e;
 }
 .input-new-category{
     width: 70%;
