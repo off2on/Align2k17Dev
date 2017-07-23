@@ -305,7 +305,7 @@
             { isOpen: true },
             { isOpen: false },
         ];
-        $scope.leftNavId = 0    ;
+        $scope.leftNavId = undefined;
         $scope.showAll = true;
         defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
             errorMessages['maxSize'] = 'File too large. Maximum allowed size is 2MB.';
@@ -413,7 +413,7 @@
             }
         }
         if ($scope.leftNavId == 0) {
-            $state.go("home.dashboard");
+            //$state.go("home.dashboard");
         }
         $timeout(function () {
             $scope.endProgress();
