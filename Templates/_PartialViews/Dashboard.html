@@ -36,7 +36,7 @@
                         <div uib-accordion-group class="panel-default" is-open="false" is-disabled="false" ng-if="jsonData.company.contact.secondary!=undefined">
                             <uib-accordion-heading>
                                 <i ng-click="toggleMenuStatus(1)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[1].isOpen , 'glyphicon-plus-sign': !menuStatus[1].isOpen }"></i>
-                                <h4 ng-click="toggleMenuStatus(1)" style="font-style:italic;padding:1px 15px">Secondry Contact</h4>
+                                <h4 ng-click="toggleMenuStatus(1)" style="font-style:italic;padding:1px 15px">Secondary Contact</h4>
                             </uib-accordion-heading>
                             <company-contact name="{{jsonData.company.contact.secondary.name}}"
                                              mail="{{jsonData.company.contact.secondary.mail}}"
