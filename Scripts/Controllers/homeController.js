@@ -343,7 +343,10 @@
         if ($scope.leftNavId != id)
         {
             //$scope.startProgress($event);
-            $scope.leftNavId = id;            
+            $scope.leftNavId = id;
+            if ($('#leftNavBtn').is(":visible")) {
+                $('#leftNavBtn').click();
+            }
         }               
     }
 

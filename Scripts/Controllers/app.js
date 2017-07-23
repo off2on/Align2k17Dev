@@ -1,5 +1,5 @@
 ﻿
-var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog', 'ngProgress', 'mentio', 'multipleSelect','ui.router']);
+var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog', 'ngProgress', 'multipleSelect','ui.router']);
 
 alignApp.config(function ($stateProvider, $urlRouterProvider) {
     var loginState = {
