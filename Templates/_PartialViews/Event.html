@@ -23,7 +23,7 @@
                         <div class="form-group form-item-container" style="overflow:hidden">
                             <input type="text" ng-model="category.name" placeholder="Input Category to add" disable-valid-styling="true" disable-invalid-styling="true" class="form-control input-new-category" name="newCategory">
                             <!--<div class="btn-add-category" ng-click="addCategory()">+</div>-->
-                            <div class=" btn-add-category glyphicon glyphicon-plus-sign" ng-click="addCategory()"></div>
+                            <button style="border: 0px;" ng-disabled="addCatgryDis" ng-class="btnAddCategory" class="glyphicon glyphicon-plus-sign" ng-click="addCategory()"></button>
                         </div>                        
                     </div>                    
 

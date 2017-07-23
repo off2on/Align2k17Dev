@@ -18,6 +18,7 @@
         $scope.invalid = false;
         $scope.createBtnText = "Create";
         $scope.selectedList = [];
+        $scope.addCatgryDis = true;
     }
 
     $scope.initialiseObjects = function () {
@@ -194,8 +195,8 @@
 
     //------------------------------function to get Json Data for Align-------------------------------------------//
     $scope.getJsonData = function () {
-        //$http.get('../StaticDataFiles/StaticJsonData.json').then(function (response) {
-        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
+        $http.get('../StaticDataFiles/StaticJsonData.json').then(function (response) {
+        //$http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
             $scope.jsonData = response.data; 
             $scope.initialiseCalender($scope.jsonData.MyEvents);
             if ($scope.leftNavId == 3) {
@@ -383,6 +384,17 @@
             $scope.uploadPic($scope.obj.picture);
         }
     }
+
+    $scope.$watch('category.name', function (newValue, oldValue) {
+        if(newValue==""||newValue==undefined){
+            $scope.addCatgryDis = true;
+            $scope.btnAddCategory = 'btn-add-category-dis';
+        }
+        else {
+            $scope.addCatgryDis = false;
+            $scope.btnAddCategory = 'btn-add-category';
+        }
+    })
 
     //---------------------------------Events to run on DOM ready---------------------------------------//
     $transitions.onStart({}, function (trans) {
