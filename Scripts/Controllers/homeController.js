@@ -509,6 +509,16 @@ function CompanyContactDirective() {
                 }
 
             }
+            //scope.menuStatus =
+            //{
+            //    Primary: true,
+            //    Secondary: false,
+            //};
+
+            //scope.toggleMenuStatus = function (type) {                
+            //    scope.menuStatus[type] = !scope.menuStatus[type];
+            //    scope.menuStatus.Primary = false;                              
+            //}
         }
     }
 }

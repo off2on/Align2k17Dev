@@ -19,6 +19,11 @@
 
                     <uib-accordion close-others="true">
                         <div uib-accordion-group class="panel-default" is-open="true" is-disabled="false">
+                            <uib-accordion-heading>
+                                <i ng-click="toggleMenuStatus(0)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[0].isOpen , 'glyphicon-plus-sign': !menuStatus[0].isOpen }"></i>
+                                <h4 ng-click="toggleMenuStatus(0)" style="font-style:italic;padding:1px 15px">Primary Contact</h4>
+                                
+                            </uib-accordion-heading>
                             <company-contact name="{{jsonData.company.contact.primary.name}}"
                                              mail="{{jsonData.company.contact.primary.mail}}"
                                              phone="{{jsonData.company.contact.primary.phone}}"
@@ -29,6 +34,10 @@
                         </div>
 
                         <div uib-accordion-group class="panel-default" is-open="false" is-disabled="false" ng-if="jsonData.company.contact.secondary!=undefined">
+                            <uib-accordion-heading>
+                                <i ng-click="toggleMenuStatus(1)" class="pull-right glyphicon" style=" color: #ffc00e;" ng-class="{'glyphicon-minus-sign': menuStatus[1].isOpen , 'glyphicon-plus-sign': !menuStatus[1].isOpen }"></i>
+                                <h4 ng-click="toggleMenuStatus(1)" style="font-style:italic;padding:1px 15px">Secondry Contact</h4>
+                            </uib-accordion-heading>
                             <company-contact name="{{jsonData.company.contact.secondary.name}}"
                                              mail="{{jsonData.company.contact.secondary.mail}}"
                                              phone="{{jsonData.company.contact.secondary.phone}}"
