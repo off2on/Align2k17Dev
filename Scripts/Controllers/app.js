@@ -27,22 +27,18 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
         name: 'home.dashboard',
         url: '/dashboard',
         templateUrl: "_PartialViews/Dashboard.html",
-        
     }
 
     var homeLiveState = {
         name: 'home.live',
         url: '/live',
         templateUrl: "_PartialViews/Live.html",
-        
     }
 
     var homeEventPlusState = {
         name: 'home.event',
         url: '/event',
-        
         templateUrl: "_PartialViews/Event.html",
-        
     }
 
     var homeMyEventsState = {
@@ -63,25 +59,22 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
         name: 'home.pastevents',
         url: '/pastevents',
         templateUrl: "_PartialViews/PastEvents.html",
-        
     }
 
     var homeLogOutState = {
         name: 'home.logout',
         url: '/logout',
         templateUrl: "_PartialViews/LogOut.html",
-
     }
 
     var otherwiseState = {
         name: 'otherwise',
         url: '/',
         templateUrl: "Login.html",
-        
+        controller: "loginController"        
     }
 
     $urlRouterProvider.when("", "/login");
-
     
     $stateProvider.state(signUpState);
     $stateProvider.state(homeState);
