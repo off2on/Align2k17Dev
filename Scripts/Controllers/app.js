@@ -67,6 +67,12 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: "_PartialViews/LogOut.html",
     }
 
+    var forgotPwdState = {
+        name: 'forgotpwd',
+        url: '/passwordrecovery',
+        templateUrl: "ForgotPassword.html",
+    }
+
     var otherwiseState = {
         name: 'otherwise',
         url: '/',
@@ -86,6 +92,7 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state(homePastEventsState);    
     $stateProvider.state(loginState);
     $stateProvider.state(homeLogOutState);
+    $stateProvider.state(forgotPwdState);
     $stateProvider.state(otherwiseState);
 
 });
