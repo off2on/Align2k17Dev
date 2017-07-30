@@ -351,7 +351,7 @@
             //$scope.startProgress($event);
             $scope.leftNavId = id;
             if ($('#leftNavBtn').is(":visible")) {
-                $('#leftNavBtn').click();
+                $('#leftNav').collapse('hide');
             }
         }               
     }
