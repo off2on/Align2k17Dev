@@ -1,5 +1,5 @@
 ﻿
-var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog', 'ngProgress', 'multipleSelect','ui.router']);
+var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog', 'ngProgress', 'multipleSelect', 'ui.router', 'ngStorage']);
 
 alignApp.config(function ($stateProvider, $urlRouterProvider) {
     var loginState = {
@@ -134,6 +134,18 @@ alignApp.run([
         }
 
 ]);
+
+alignApp
+  .run(function ($rootScope, $state, authFactory, $transitions) {
+      $transitions.onStart({}, function () {
+          if (!authFactory.isAuthed()) {
+              $state.go('login');
+          }
+      });
+  });
+
+
+
 
 alignApp.controller("pageLoadController", function ($scope, $location, $rootScope, ngProgressFactory) {
     $scope.pageLoadComplete = false;

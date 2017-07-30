@@ -1,4 +1,4 @@
-﻿alignApp.controller('homeController', function ($rootScope, $scope, $stateParams, $http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory, $compile, $state, uiCalendarConfig, $transitions, Upload, dataFactory) {
+﻿alignApp.controller('homeController', function ($rootScope, $scope, $stateParams, $http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory, $compile, $state, uiCalendarConfig, $transitions, Upload, dataFactory, $localStorage, authFactory) {
 
 
     //---------------------------initialise scope variables------------------------------------//
@@ -18,8 +18,10 @@
         $scope.invalid = false;
         $scope.createBtnText = "Create";
         $scope.selectedList = [];
-        $scope.addCatgryDis = true;
+        $scope.addCatgryDis = true;        
     }
+
+    $scope.userName = $localStorage.userName;
 
     $scope.initialiseObjects = function () {
         $scope.navigation = {
@@ -404,6 +406,8 @@
 
     //------------------------logout----------------------------------------------//
     $scope.logout = function () {
+        delete $localStorage.userName;
+        authFactory.setAuth();
         $state.go('login');
     }
 
