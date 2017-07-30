@@ -137,10 +137,14 @@ alignApp.run([
 
 alignApp
   .run(function ($rootScope, $state, authFactory, $transitions) {
-      $transitions.onStart({}, function () {
-          if (!authFactory.isAuthed()) {
-              $state.go('login');
+      $transitions.onStart({}, function (trans) {
+          var route = trans.to();
+          if (route.name != "signup" && route.name != "forgotpwd") {
+              if (!authFactory.isAuthed()) {
+                  $state.go('login');
+              }
           }
+          
       });
   });
 
