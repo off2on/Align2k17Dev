@@ -1,4 +1,4 @@
-﻿alignApp.controller('homeController', function ($rootScope, $scope,$stateParams, $http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory, $compile, $state, uiCalendarConfig, $transitions,Upload) {
+﻿alignApp.controller('homeController', function ($rootScope, $scope, $stateParams, $http, defaultErrorMessageResolver, $timeout, ngDialog, ngProgressFactory, $compile, $state, uiCalendarConfig, $transitions, Upload, dataFactory) {
 
 
     //---------------------------initialise scope variables------------------------------------//
@@ -49,6 +49,11 @@
                 "name": "Past Events",
                 "tile": "pastevents"
             },
+            {
+                "id": 6,
+                "name": "Log Out",
+                "tile": "logout"
+            }           
             ]
         };
 
@@ -206,27 +211,28 @@
 
     //------------------------------function to get Json Data for Align-------------------------------------------//
     $scope.getJsonData = function () {
-        //$http.get('../StaticDataFiles/StaticJsonData.json').then(function (response) {
-        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticJsonData.json').then(function (response) {
+        dataFactory.getAlignData('StaticJsonData').then(function (response) {            
             $scope.jsonData = response.data; 
             $scope.initialiseCalender($scope.jsonData.MyEvents);
             if ($scope.leftNavId == 3) {
-                
                 $timeout(function () {
                     refreshCalendar($scope.jsonData.MyEvents);
                 });
             }
+        }, function (error) {            
+            $scope.status = 'Unable to load Align data: ' + error.data;
         })
     }
     //----------------------------function to get Event Data as Json-----------------------------------------------//
     $scope.getEventData = function () {
-        //$http.get('../StaticDataFiles/EventData.json').then(function (response) {
-        $http.get('https://raw.githubusercontent.com/off2on/Align2k17Dev/master/StaticDataFiles/EventData.json').then(function (response) {
+        dataFactory.getAlignData('EventData').then(function (response) {        
             $scope.evtForm = response.data;
             var momentDate = moment($scope.evtForm.evtDt + ' ' + $scope.evtForm.evtTime);
             $scope.obj.date = $scope.obj.time = momentDate.toDate();
 
             $scope.obj.picture = $scope.evtForm.evtImgUrl;
+        }, function (error) {            
+            $scope.status = 'Unable to load Event data: ' + error.data;
         })
     }
 
@@ -395,6 +401,17 @@
         }
     }
 
+
+    //------------------------logout----------------------------------------------//
+    $scope.logout = function () {
+        $state.go('login');
+    }
+
+    $scope.redirectToHome = function () {
+        $scope.leftNavId = 0;
+        $state.go('home.dashboard');
+    }
+
     //---------------------------------Events to run on DOM ready---------------------------------------//
     $transitions.onStart({}, function (trans) {
         $scope.progressbar.start();
@@ -402,19 +419,20 @@
 
     $rootScope.$on('$viewContentLoaded', function () {
         var route = $state.$current.name;
-        route = route.substr(5, route.length);
-        for (var i = 0; i < $scope.navigation.home.length; i++) {
-            if ($scope.navigation.home[i].tile == route) {
-                $scope.leftNavId = $scope.navigation.home[i].id;
-                break;
-            }
-            else {
-                $scope.leftNavId = 0;
+        if (route == "home") {
+            $state.go("home.dashboard");
+        }
+        else
+        {
+            route = route.substr(5, route.length);
+            for (var i = 0; i < $scope.navigation.home.length; i++) {
+                if ($scope.navigation.home[i].tile == route) {
+                    $scope.leftNavId = $scope.navigation.home[i].id;
+                    break;
+                }                
             }
         }
-        if ($scope.leftNavId == 0) {
-            //$state.go("home.dashboard");
-        }
+     
         $timeout(function () {
             $scope.endProgress();
         }, 0);

@@ -1,4 +1,4 @@
-﻿alignApp.controller('loginController', function ($scope, $location, $state) {
+﻿alignApp.controller('loginController', function ($scope, $location, $state, dataFactory) {
 
     //define scope variables
     $scope.initialise = function () {
@@ -14,7 +14,12 @@
     //function to be called on form submit
     $scope.submitLoginForm = function () {        
         if ($scope.LoginForm.$valid) {
-            console.log($scope.login);
+            //dataFactory.postLoginData('login', $scope.login).then(function (response) {
+            //    console.log(response.data);
+            //    $state.go('home.dashboard');
+            //}, function (error) {
+            //    $scope.status = "User Authentication Failed" + error.data;
+            //});
             $state.go('home.dashboard');
         }                
     }

@@ -66,6 +66,12 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
         
     }
 
+    var homeLogOutState = {
+        name: 'home.logout',
+        url: '/logout',
+        templateUrl: "_PartialViews/LogOut.html",
+
+    }
 
     var otherwiseState = {
         name: 'otherwise',
@@ -76,8 +82,7 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.when("", "/login");
 
-
-    $stateProvider.state(loginState);
+    
     $stateProvider.state(signUpState);
     $stateProvider.state(homeState);
     $stateProvider.state(homeLiveState);
@@ -86,7 +91,8 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state(homeMyEventsState);
     $stateProvider.state(homeReviewsState);
     $stateProvider.state(homePastEventsState);    
-    
+    $stateProvider.state(loginState);
+    $stateProvider.state(homeLogOutState);
     $stateProvider.state(otherwiseState);
 
 });

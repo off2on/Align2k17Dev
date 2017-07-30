@@ -54,17 +54,15 @@
         </div>
         <div class="col-sm-1 col-md-1 col-lg-1 signUpFormField">
             <div class="form-group form-group-custom">
-                <label for="city">State*</label>
-                <!--<input type="text" id="State"
-                       ng-model="user.State" class="form-control inputField" name="State"
-                       required>-->
-                <select class="form-control inputField" style="padding-right: 0px;" ng-change="setSelectedIndex($index)" ng-options="state as state.alpha2 for state in statesUSA track by state.alpha2" ng-model="signUpForm.companyInfo.selectedState"></select>
+                <label for="city">State*</label>                              
+                <select class="form-control inputField" style="padding-right: 0px;" ng-change="setSelectedIndex($index)" ng-init="signUpForm.companyInfo.selectedState=statesUSA[0]" ng-options="state as state.alpha2 for state in statesUSA track by state.alpha2" ng-model="signUpForm.companyInfo.selectedState"></select>
             </div>
         </div>
 
         <div class="col-sm-2 col-md-2 col-lg-2 signUpFormField">
             <div class="form-group form-group-custom">
                 <label for="zipCode">Zip Code*</label>
+                
                 <input type="number" id="zipCode"
                        ng-model="signUpForm.companyInfo.zipCode" ng-maxlength="5" ng-minlength="5" class="form-control inputField" name="zipCode"
                        required>
