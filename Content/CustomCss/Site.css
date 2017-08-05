@@ -187,6 +187,13 @@ input:-ms-input-placeholder {
     line-height:47px;
 }
 
+.tooltip-inner{
+    background-color:#ffc00e;
+}
+.tooltip-arrow{
+    border-right-color:#ffc00e !important;
+}
+
 /*******************SignUp********************/
 
 @media only screen and (max-width: 767px) {
