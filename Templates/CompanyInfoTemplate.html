@@ -19,7 +19,9 @@
                 </address>
 
                 <br />
-                <button ng-click="editMode()" class="btn btn-login btn-edit">{{btntext}}</button>
+                <button ng-click="editMode()" class="btn btn-login btn-edit">
+                    <span class="glyphicon glyphicon-edit"><span class="btn-glyphicon"> {{btntext}}</span></span>
+                </button>
 
             </div>
 
@@ -35,7 +37,9 @@
                 <p>Building Address</p>
                 <input type="text" ng-model="address" class="form-control inputField inputField-dashboard" name="companyAdr" />
                 <br />
-                <button ng-click="editMode()" class="btn btn-login btn-edit">{{btntext}}</button>
+                <button ng-click="editMode()" class="btn btn-login btn-edit">
+                    <span class="glyphicon glyphicon-saved"><span class="btn-glyphicon"> {{btntext}}</span></span>
+                </button>
 
             </div>
 
