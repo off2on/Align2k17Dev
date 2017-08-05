@@ -1,7 +1,12 @@
 ﻿
 var alignApp = angular.module('alignApp', ['jcs-autoValidate', 'ngSanitize', 'ngRoute', 'ngAnimate', 'ui.mask', 'ui.bootstrap', 'ngFileUpload', 'ui.calendar', 'ngDialog', 'ngProgress', 'multipleSelect', 'ui.router', 'ngStorage']);
 
-alignApp.config(function ($stateProvider, $urlRouterProvider) {
+alignApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+
+    //$locationProvider.html5Mode({
+    //    enabled: true,
+    //}).hashPrefix('!');
+
     var loginState = {
         name: 'login',
         url: '/login',
@@ -75,7 +80,7 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
 
     var otherwiseState = {
         name: 'otherwise',
-        url: '',
+        url: '/',
         templateUrl: "Login.html",
         controller: "loginController"        
     }
@@ -93,8 +98,7 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state(loginState);
     $stateProvider.state(homeLogOutState);
     $stateProvider.state(forgotPwdState);
-    $stateProvider.state(otherwiseState);
-
+    $stateProvider.state(otherwiseState);    
 });
 
 

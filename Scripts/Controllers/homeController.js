@@ -29,32 +29,38 @@
             {
                 "id": 1,
                 "name": "Live",
-                "tile": "live"
+                "tile": "live",
+                "tooltip":"Live"
             },
             {
                 "id": 2,
                 "name": "Event+",
-                "tile": "event"
+                "tile": "event",
+                "tooltip": "Create a new event"
             },
             {
                 "id": 3,
                 "name": "My Events",
-                "tile": "myevents"
+                "tile": "myevents",
+                "tooltip": "See your event calender"
             },
              {
                  "id": 4,
                  "name": "Reviews/ Ratings",
-                 "tile": "reviews"
+                 "tile": "reviews",
+                 "tooltip": "See event reviews/ratings"
              },
             {
                 "id": 5,
                 "name": "Past Events",
-                "tile": "pastevents"
+                "tile": "pastevents",
+                "tooltip":"See past events"
             },
             {
                 "id": 6,
                 "name": "Log Out",
-                "tile": "logout"
+                "tile": "logout",
+                "tooltip": "Logout from here"
             }           
             ]
         };
@@ -465,7 +471,8 @@ function NavigationDirective() {
             nav: '@nav',
             id: '@id',
             name: '@name',            
-            selectedTile:'@selectedTile'
+            selectedTile: '@selectedTile',
+            tooltip:'@tooltip'
         },        
         templateUrl: 'Templates/Navigation.html',
         link: function (scope, elem, attr) {            

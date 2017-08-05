@@ -1,6 +1,7 @@
 ﻿<div class="panel-default">
     <div class="panel-body">
-        <img class="img-responsive" ui-sref=".dashboard" ng-click="setLeftNavId(0)" style="height: 100px; cursor: pointer; float: left;" width="300" height="100" src="../Images/Align_Logo.PNG" />
+        <img class="img-responsive" ui-sref=".dashboard" uib-tooltip="Go to Dashboard" tooltip-placement="right"
+             tooltip-append-to-body="true" ng-click="setLeftNavId(0)" style="height: 100px; cursor: pointer; float: left;" width="300" height="100" src="../Images/Align_Logo.PNG" />
         <div style="float: right; font-size: large;">
             <div style="margin-right: 5px; pointer-events: none; background-color: #ffc00e; border-color: #ffc00e; " class="btn btn-info glyphicon glyphicon-user">
                 <span style="font-family: 'Open Sans'">Hi, {{userName}}</span>
@@ -28,7 +29,12 @@
             <div class="panel panel-default" style="border:0px">                
                 <div class="panel-body">
                     <div ng-repeat="navtile in navigation.home">
-                        <navigation nav="{{navtile.tile}}" id="{{navtile.id}}" name="{{navtile.name}}" selected-tile="{{leftNavId}}"></navigation>
+                        <navigation nav="{{navtile.tile}}"
+                                    id="{{navtile.id}}"                                    
+                                    tooltip="{{navtile.tooltip}}"                                    
+                                    name="{{navtile.name}}"
+                                    selected-tile="{{leftNavId}}">
+                        </navigation>
                     </div>
                 </div>
             </div>
