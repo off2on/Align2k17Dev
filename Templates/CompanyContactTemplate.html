@@ -17,24 +17,31 @@
     </button>
     </div>
 
-<div class="panel-info" style="margin-top: 20px; word-wrap: break-word;" ng-show="edit">
-    <p>Name</p>
-    <input type="text" ng-model="name" class="form-control inputField inputField-dashboard" name="name{{type}}" />
-
-    <p>Email</p>
-    <input type="text" ng-model="mail" class="form-control inputField inputField-dashboard" name="mail{{type}}" />
-
-    <p>Phone</p>
-    <input type="text" ui-mask="999-999-9999" id="phoneP" ui-mask-placeholder-char="_"
-           ng-model="phone" class="form-control inputField inputField-dashboard" name="phone{{type}}"
-           required required-err-type="phoneMask" mask-err-type="phoneMask">    
-
-    <p>Fax</p>
-    <input type="text" ui-mask="999-999-9999" id="faxP" ui-mask-placeholder-char="_"
-           ng-model="fax" class="form-control inputField inputField-dashboard" name="fax{{type}}"
-           required required-err-type="phoneMask" mask-err-type="phoneMask">
-
-    <button ng-click="editMode()" class="btn btn-login btn-edit" style="position: inherit; margin-top: 10px;">
-        <span class="glyphicon glyphicon-saved"><span class="btn-glyphicon"> {{btntext}}</span></span>
-    </button>    
+<div class="panel-info" style="margin-top: 20px; word-wrap: break-word;" ng-if="edit">
+    <form class="form" ng-submit-force="true" name="dashboardContact" novalidate="novalidate">
+        <div class="form-group form-group-custom">
+            <label for="name{{type}}" style="font-weight:normal">Name</label>
+            <input type="text" ng-model="name" class="form-control inputField inputField-dashboard" name="name{{type}}" required />
+        </div>
+        <div class="form-group form-group-custom">
+            <label for="name{{type}}" style="font-weight:normal">Email</label>
+            <input type="text" ng-model="mail" class="form-control inputField inputField-dashboard" name="mail{{type}}" required />
+        </div>
+        <div class="form-group form-group-custom">
+            <label for="name{{type}}" style="font-weight:normal">Phone</label>
+            <input type="text" ui-mask="999-999-9999" id="phoneP" ui-mask-placeholder-char="_"
+                   ng-model="phone" class="form-control inputField inputField-dashboard" name="phone{{type}}"
+                   required required-err-type="phoneMask" mask-err-type="phoneMask">
+        </div>
+        <div class="form-group form-group-custom">
+            <label for="name{{type}}" style="font-weight:normal">Fax</label>
+            <input type="text" ui-mask="999-999-9999" id="faxP" ui-mask-placeholder-char="_"
+                   ng-model="fax" class="form-control inputField inputField-dashboard" name="fax{{type}}"
+                   required required-err-type="faxMask" mask-err-type="phoneMask">
+        </div>
+                    <button ng-click="editMode()" class="btn btn-login btn-edit" style="position: inherit; margin-top: 10px;">
+                        <span class="glyphicon glyphicon-saved"><span class="btn-glyphicon"> {{btntext}}</span></span>
+                    </button>
+</form>
+        
 </div>

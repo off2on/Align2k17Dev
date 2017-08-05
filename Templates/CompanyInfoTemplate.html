@@ -25,23 +25,28 @@
 
             </div>
 
-            <div class="panel-info" style="margin-top: 20px;" ng-show="edit">
-                <p>Company Name</p>
-
-                <input type="text" ng-model="name" class="form-control inputField inputField-dashboard" name="companyName" />
-                <br />
-                <p>Building Name</p>
-
-                <input type="text" ng-model="building" class="form-control inputField inputField-dashboard" name="companyBdg" />
-                <br />
-                <p>Building Address</p>
-                <input type="text" ng-model="address" class="form-control inputField inputField-dashboard" name="companyAdr" />
-                <br />
-                <button ng-click="editMode()" class="btn btn-login btn-edit">
-                    <span class="glyphicon glyphicon-saved"><span class="btn-glyphicon"> {{btntext}}</span></span>
-                </button>
-
-            </div>
+            <div class="panel-info" style="margin-top: 20px;" ng-if="edit">
+                <form class="form" ng-submit-force="true" name="dashboardInfo" novalidate="novalidate">
+                    <div class="form-group form-group-custom">
+                        <label for="companyName" style="font-weight:normal">Company Name</label>
+                        <input type="text" ng-model="name" class="form-control inputField inputField-dashboard" name="companyName" required />
+                    </div>
+                        <br />
+                    <div class="form-group form-group-custom">
+                        <label for="companyBdg" style="font-weight:normal">Building Name</label>
+                        <input type="text" ng-model="building" class="form-control inputField inputField-dashboard" name="companyBdg" required />                        
+                    </div>
+                    <br />
+                    <div class="form-group form-group-custom">
+                        <label for="companyAdr" style="font-weight:normal">Building Address</label>
+                        <input type="text" ng-model="address" class="form-control inputField inputField-dashboard" name="companyAdr" required />
+                    </div>
+                                <br />
+                                <button ng-click="editMode()" class="btn btn-login btn-edit">
+                                    <span class="glyphicon glyphicon-saved"><span class="btn-glyphicon"> {{btntext}}</span></span>
+                                </button>
+</form>
+</div>
 
 
         </div>
