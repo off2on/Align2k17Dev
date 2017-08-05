@@ -11,78 +11,88 @@ alignApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider)
         name: 'login',
         url: '/login',
         templateUrl: "Login.html",
-        controller: "loginController"
+        controller: "loginController",
+        data: { pageTitle: 'Login' }
     }
 
     var signUpState = {
         name: 'signup',
         url: '/signup',
         templateUrl: "SignUp.html",
-        controller: "signUpController"
+        controller: "signUpController",
+        data: { pageTitle: 'Sign Up' }
     }    
 
     var homeState = {
         name: 'home',
         url: '/home',        
         templateUrl: "Home.html",
-        controller: "homeController"
+        controller: "homeController",
+        data: { pageTitle: 'Home' }
     }
 
     var homeDashboardState = {
         name: 'home.dashboard',
         url: '/dashboard',
         templateUrl: "Templates/Dashboard.html",
+        data: { pageTitle: 'Dashboard' }
     }
 
     var homeLiveState = {
         name: 'home.live',
         url: '/live',
         templateUrl: "Templates/Live.html",
+        data: { pageTitle: 'Live' }
     }
 
     var homeEventPlusState = {
         name: 'home.event',
         url: '/event',
         templateUrl: "Templates/Event.html",
+        data: { pageTitle: 'Event' }
     }
 
     var homeMyEventsState = {
         name: 'home.myevents',
         url: '/myevents',
         templateUrl: "Templates/MyEvents.html",
-        
+        data: { pageTitle: 'My Events' }
     }
 
     var homeReviewsState = {
         name: 'home.reviews',
         url: '/reviews',
         templateUrl: "Templates/ReviewsRatings.html",
-        
+        data: { pageTitle: 'Reviews/Ratings' }
     }
 
     var homePastEventsState = {
         name: 'home.pastevents',
         url: '/pastevents',
         templateUrl: "Templates/PastEvents.html",
+        data: { pageTitle: 'Past Events' }
     }
 
     var homeLogOutState = {
         name: 'home.logout',
         url: '/logout',
         templateUrl: "Templates/LogOut.html",
+        data: { pageTitle: 'Logout' }
     }
 
     var forgotPwdState = {
         name: 'forgotpwd',
         url: '/passwordrecovery',
         templateUrl: "ForgotPassword.html",
+        data: { pageTitle: 'Forgot Password' }
     }
 
     var otherwiseState = {
         name: 'otherwise',
         url: '/',
         templateUrl: "Login.html",
-        controller: "loginController"        
+        controller: "loginController",
+        data: { pageTitle: 'Login' }
     }
 
     $urlRouterProvider.when("", "/login");
@@ -139,7 +149,9 @@ alignApp.run([
 ]);
 
 alignApp
-  .run(function ($rootScope, $state, authFactory, $transitions, $localStorage) {
+  .run(function ($rootScope, $state, $stateParams, authFactory, $transitions, $localStorage) {
+      $rootScope.$state = $state;
+      $rootScope.$stateParams = $stateParams;
       $transitions.onStart({}, function (trans) {
           var route = trans.to();
           if (route.name != "signup" && route.name != "forgotpwd") {
