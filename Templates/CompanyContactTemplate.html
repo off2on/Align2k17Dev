@@ -7,7 +7,7 @@
     <h4>{{mail}}</h4>
 
     <p>Phone</p>
-    <h4>{{phone}}</h4>
+    <h4>{{phone | limitTo:3:0}}-{{phone | limitTo:3:3}}-{{phone | limitTo:4:6}}</h4>
 
     <p>Fax</p>
     <h4>{{fax}}</h4>
@@ -25,7 +25,9 @@
     <input type="text" ng-model="mail" class="form-control inputField inputField-dashboard" name="mail{{type}}" />
 
     <p>Phone</p>
-    <input type="text" ng-model="phone" class="form-control inputField inputField-dashboard" name="phone{{type}}" />
+    <input type="text" ui-mask="999-999-9999" id="phoneP" ui-mask-placeholder-char="_"
+           ng-model="phone" class="form-control inputField inputField-dashboard" name="phone{{type}}"
+           required required-err-type="phoneMask" mask-err-type="phoneMask">    
 
     <p>Fax</p>
     <input type="text" ng-model="fax" class="form-control inputField inputField-dashboard" name="fax{{type}}" />

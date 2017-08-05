@@ -9,14 +9,14 @@
 			"primary": {
 				"name": "Mr. John Snow",
 				"mail": "johnsnow@evo.com",
-				"phone": "267-123-2344",
-				"fax": "215-123-1233"
+				"phone": "2671232344",
+				"fax": "2151231233"
 			},
 			"secondary": {
 				"name": "Mr. John Snow",
 				"mail": "johnsnow@evo.com",
-				"phone": "267-123-2344",
-				"fax": "215-123-1233"
+				"phone": "2671232344",
+				"fax": "2151231233"
 			}
 		},
 		"account": {
@@ -26,13 +26,10 @@
 			"msg": "Your subscription will automatically renew on 4/5/17 and you’ll be charged $3000.00 +tax",
 			"visa": 1234
 		}
-
-
 	},
 
 	"live": {
 		"all": [
-
 			{
 				"Id": 1,
 				"name": "Ashish Sharma",
