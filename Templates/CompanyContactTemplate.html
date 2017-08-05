@@ -10,7 +10,7 @@
     <h4>{{phone | limitTo:3:0}}-{{phone | limitTo:3:3}}-{{phone | limitTo:4:6}}</h4>
 
     <p>Fax</p>
-    <h4>{{fax}}</h4>
+    <h4>{{fax | limitTo:3:0}}-{{fax | limitTo:3:3}}-{{fax | limitTo:4:6}}</h4>
 
     <button ng-click="editMode()" class="btn btn-login btn-edit" style="position:inherit">
         <span class="glyphicon glyphicon-edit"><span class="btn-glyphicon"> {{btntext}}</span></span>
@@ -30,7 +30,9 @@
            required required-err-type="phoneMask" mask-err-type="phoneMask">    
 
     <p>Fax</p>
-    <input type="text" ng-model="fax" class="form-control inputField inputField-dashboard" name="fax{{type}}" />
+    <input type="text" ui-mask="999-999-9999" id="faxP" ui-mask-placeholder-char="_"
+           ng-model="fax" class="form-control inputField inputField-dashboard" name="fax{{type}}"
+           required required-err-type="phoneMask" mask-err-type="phoneMask">
 
     <button ng-click="editMode()" class="btn btn-login btn-edit" style="position: inherit; margin-top: 10px;">
         <span class="glyphicon glyphicon-saved"><span class="btn-glyphicon"> {{btntext}}</span></span>
