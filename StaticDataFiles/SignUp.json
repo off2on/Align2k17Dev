@@ -1,0 +1,26 @@
+﻿{
+	"companyInfo": {
+		"companyName": "ABC Company",
+		"address": "DLF",
+		"buildingName": "Tower C",
+		"address2": " Cyber City",
+		"city": "Gurgaon",
+		"selectedState":{ "name": "Alabama", "alpha2": "AL" },
+		"zipCode": 12201
+	},
+	"companyContact": {
+		"prim": {
+			"firstN": "John",
+			"lastN": "Doe",
+			"mail": "john.doe@abc.com",
+			"phone": "9998887777",
+			"title": "",
+			"fax": ""
+		},
+		"sec": {}
+	},
+	"companyAccount": {
+		"mail": "john.doe@abc.com",
+		"pwd": "Start@123"
+	}
+}
