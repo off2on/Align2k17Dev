@@ -8,7 +8,14 @@
     }
 
     //initialise scope variables
-    $scope.initialise();
+    if (authFactory.isAuthed())
+    {
+        $state.go('home.dashboard');
+    }
+    else {
+        $scope.initialise();
+    }
+    
 
     $scope.login = {};
 
@@ -28,7 +35,8 @@
             if (authFactory.isAuthed()) {
                 $scope.authSuccess = true;
                 $scope.$storage = $localStorage.$default({
-                    userName: $scope.login.userName
+                    userName: $scope.login.userName,
+                    authenticated : true
                 });
                 //$scope.loggingIn = false;
                 $state.go('home.dashboard');

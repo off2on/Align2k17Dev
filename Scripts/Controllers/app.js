@@ -26,45 +26,45 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
     var homeDashboardState = {
         name: 'home.dashboard',
         url: '/dashboard',
-        templateUrl: "_PartialViews/Dashboard.html",
+        templateUrl: "Templates/Dashboard.html",
     }
 
     var homeLiveState = {
         name: 'home.live',
         url: '/live',
-        templateUrl: "_PartialViews/Live.html",
+        templateUrl: "Templates/Live.html",
     }
 
     var homeEventPlusState = {
         name: 'home.event',
         url: '/event',
-        templateUrl: "_PartialViews/Event.html",
+        templateUrl: "Templates/Event.html",
     }
 
     var homeMyEventsState = {
         name: 'home.myevents',
         url: '/myevents',
-        templateUrl: "_PartialViews/MyEvents.html",
+        templateUrl: "Templates/MyEvents.html",
         
     }
 
     var homeReviewsState = {
         name: 'home.reviews',
         url: '/reviews',
-        templateUrl: "_PartialViews/ReviewsRatings.html",
+        templateUrl: "Templates/ReviewsRatings.html",
         
     }
 
     var homePastEventsState = {
         name: 'home.pastevents',
         url: '/pastevents',
-        templateUrl: "_PartialViews/PastEvents.html",
+        templateUrl: "Templates/PastEvents.html",
     }
 
     var homeLogOutState = {
         name: 'home.logout',
         url: '/logout',
-        templateUrl: "_PartialViews/LogOut.html",
+        templateUrl: "Templates/LogOut.html",
     }
 
     var forgotPwdState = {
@@ -75,7 +75,7 @@ alignApp.config(function ($stateProvider, $urlRouterProvider) {
 
     var otherwiseState = {
         name: 'otherwise',
-        url: '/',
+        url: '',
         templateUrl: "Login.html",
         controller: "loginController"        
     }
@@ -132,43 +132,33 @@ alignApp.run([
         function (bootstrap3ElementModifier) {
             bootstrap3ElementModifier.enableValidationStateIcons(true);
         }
-
 ]);
 
 alignApp
-  .run(function ($rootScope, $state, authFactory, $transitions) {
+  .run(function ($rootScope, $state, authFactory, $transitions, $localStorage) {
       $transitions.onStart({}, function (trans) {
           var route = trans.to();
           if (route.name != "signup" && route.name != "forgotpwd") {
-              if (!authFactory.isAuthed()) {
+              if (!$localStorage.authenticated) {
                   $state.go('login');
               }
           }
-          
       });
   });
-
-
-
 
 alignApp.controller("pageLoadController", function ($scope, $location, $rootScope, ngProgressFactory) {
     $scope.pageLoadComplete = false;
     $scope.headerCenter = true;
-
     $scope.progressbar = ngProgressFactory.createInstance();
-
     $scope.startProgress = function () {
         //$event.preventDefault();
-
         $scope.progressbar.start();
     }
-
     //$scope.startProgress();
 
     angular.element(function () {
         $scope.pageLoadComplete = true;
-        //$scope.progressbar.complete();
-        
+        //$scope.progressbar.complete();        
     });
 
     $scope.path = $location.path();
@@ -183,16 +173,6 @@ alignApp.controller("pageLoadController", function ($scope, $location, $rootScop
             $scope.headerCenter = true;
         }
     });
-
-
-        //if ($scope.path == '/SignUp' || $scope.path == '/') {
-        //    $scope.headerCenter = true;
-        //}
-        //else {
-            
-        //}
-
-   
 });
 
 function ConfirmPasswordValidatorDirective(defaultErrorMessageResolver) {

@@ -190,7 +190,7 @@
             }, 1500);
             
             //console.log('file ' + resp.config.data.evtPicture.name + 'is uploaded successfully. Response: ' + resp.data);
-            //ngDialog.open({ template: '_PartialViews/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
+            //ngDialog.open({ template: 'Templates/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
         }, function (resp) {
             // handle error
             
@@ -255,7 +255,7 @@
 
         $scope.selectedEvent = date;
 
-        ngDialog.open({ template: '_PartialViews/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
+        ngDialog.open({ template: 'Templates/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
     }
 
     $scope.dt = new Date();
@@ -407,6 +407,7 @@
     //------------------------logout----------------------------------------------//
     $scope.logout = function () {
         delete $localStorage.userName;
+        delete $localStorage.authenticated;
         authFactory.setAuth();
         $state.go('login');
     }
@@ -466,7 +467,7 @@ function NavigationDirective() {
             name: '@name',            
             selectedTile:'@selectedTile'
         },        
-        templateUrl: '_PartialViews/Navigation.html',
+        templateUrl: 'Templates/Navigation.html',
         link: function (scope, elem, attr) {            
             $('.left-menu-nav').on('click', function () {
                 if ($('#leftNavBtn').is(":visible")) {
@@ -490,7 +491,7 @@ function CompanyInfoDirective() {
             btntext: '@btntext',
             edit:'=edit',
         },
-        templateUrl: '_PartialViews/CompanyInfoTemplate.html',
+        templateUrl: 'Templates/CompanyInfoTemplate.html',
         link: function (scope, attr, elem) {
             scope.editMode = function (tile) {
                 if (scope.edit) {
@@ -518,7 +519,7 @@ function CompanyContactDirective() {
             btntext: '@btntext',
             edit: '=edit',
         },
-        templateUrl: '_PartialViews/CompanyContactTemplate.html',
+        templateUrl: 'Templates/CompanyContactTemplate.html',
         link: function (scope, attr, elem) {
             scope.editMode = function (tile) {
                 if (scope.edit) {
@@ -555,7 +556,7 @@ function ReviewsRatingsDirective() {
             designation: '@designation',
             imgUrl: '@imgUrl',
         },
-        templateUrl: '_PartialViews/ReviewTemplate.html',
+        templateUrl: 'Templates/ReviewTemplate.html',
         
     };
 };
@@ -570,7 +571,7 @@ function PastEventsDirective() {
             eventPlaceAddress: '@eventPlaceAddress',
             eventImgUrl: '@eventImgUrl',
         },
-        templateUrl: '_PartialViews/PastEventTemplate.html',
+        templateUrl: 'Templates/PastEventTemplate.html',
         
     }
 }
@@ -583,7 +584,7 @@ function LiveAllDirective() {
             liveAllName: '@liveAllName',
             liveAllDesignation: '@liveAllDesignation'
         },
-        templateUrl: '_PartialViews/LiveAllTemplate.html',
+        templateUrl: 'Templates/LiveAllTemplate.html',
     }
 }
 
@@ -598,7 +599,7 @@ function LiveAlignDirective() {
             liveAlignedToName: '@liveAlignedToName',
             liveAlignedToDesignation: '@liveAlignedToDesignation'
         },
-        templateUrl: '_PartialViews/LiveAlignTemplate.html',
+        templateUrl: 'Templates/LiveAlignTemplate.html',
     }
 }
 
@@ -609,7 +610,7 @@ function EventReviewsRatingsDirective() {
             eventName: '@eventName',
             eventDateTime: '@eventDateTime',            
         },
-        templateUrl: '_PartialViews/EventReviewTemplate.html',
+        templateUrl: 'Templates/EventReviewTemplate.html',
     }
 }
 
