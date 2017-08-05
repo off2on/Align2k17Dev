@@ -35,10 +35,6 @@
                        required>
             </div>
         </div>
-
-
-
-
     </div>
     <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -55,7 +51,7 @@
         <div class="col-sm-1 col-md-1 col-lg-1 signUpFormField">
             <div class="form-group form-group-custom">
                 <label for="city">State*</label>                              
-                <select class="form-control inputField" style="padding-right: 0px;" ng-change="setSelectedIndex($index)" ng-init="signUpForm.companyInfo.selectedState=statesUSA[0]" ng-options="state as state.alpha2 for state in statesUSA track by state.alpha2" ng-model="signUpForm.companyInfo.selectedState"></select>
+                <select class="form-control inputField" style="padding-right: 0px;" ng-change="setSelectedIndex($index)" ng-init="companyInfo.selectedState=statesUSA[0]" ng-options="state as state.alpha2 for state in statesUSA track by state.alpha2" ng-model="signUpForm.companyInfo.selectedState"></select>
             </div>
         </div>
 
@@ -74,7 +70,7 @@
         <div class="col-sm-2 col-md-2 col-lg-2">
             <div class="form-group ">
                 <!--<button type="submit" ng-click="setWizStep(2)" class="btn btn-login">Next</button>-->
-                <button type="submit" ng-click="submitsignUpForm.companyInfoSignUpForm();" class="btn btn-login">Next</button>
+                <button type="submit" class="btn btn-login">Next</button>
             </div>
         </div>
     </div>

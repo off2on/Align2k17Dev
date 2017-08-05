@@ -1,34 +1,14 @@
-﻿alignApp.controller('signUpController', function ($scope,$location) {
+﻿alignApp.controller('signUpController', function ($scope, $location,$state,$timeout, dataFactory) {
    
-    //define scope variables
-    $scope.initialise = function () {
-        $scope.wizStep = 1;
-        $scope.contactType = 0;
 
-        $scope.signUpForm = {
-            "companyInfo": {},
-            "companyContact":{
-                "prim": {},
-                "sec": {}
-            },
-            "companyAccount": {}
-        };
-
-        $scope.companyInfo = {};
-
-        $scope.companyContact = {
-            "prim": {},
-            "sec": {}
-        };
-
-        $scope.companyAccount = {};
-        
-        $scope.companyInfo.selectedState = $scope.statesUSA[0];
-        $scope.$emit('adjustHeader', 0);
-        var IsFormValid1 = false;
-        var IsFormValid2 = false;
-        var IsFormValid3 = false;
-        $scope.contactFlag = 0;
+    //------------------------------function to get Json Data for Align-------------------------------------------//
+    $scope.getSignUpData = function () {
+        dataFactory.getAlignData('SignUp').then(function (response) {
+            $scope.signUpForm = response.data;
+            $scope.initialise();
+        }, function (error) {
+            $scope.status = 'Unable to load signup data: ' + error.data;
+        })
     }
 
     $scope.statesUSA = [
@@ -85,8 +65,27 @@
 { "name": "Wyoming", "alpha2": "WY" }
     ]
 
+    //define scope variables
+    $scope.initialise = function () {
+        $scope.signUpBtnText = "Sign Up";
+        $scope.signUpBtnDisabled = false;
+        $scope.wizStep = 1;
+        $scope.contactType = 0; 
+        $scope.user = {};
+        $scope.companyInfo = {};
+        $scope.user.confirmPassword = "Start@123";       
+        
+        $scope.companyInfo.selectedState = $scope.statesUSA[0];
+        $scope.$emit('adjustHeader', 0);
+        var IsFormValid1 = false;
+        var IsFormValid2 = false;
+        var IsFormValid3 = false;
+        $scope.contactFlag = 0;
+        console.log($scope.signUpForm);
+    }    
+
     //initialise scope variables
-    $scope.initialise();
+    
 
     //$scope.pageLoadCompleteSignUp = false;
     //angular.element(function () {        
@@ -133,10 +132,8 @@
         var IsFormValid1 = $scope.CompanyInfoSignUpForm.$valid;
         if (IsFormValid1) {
             $scope.wizStep = 2;
-            console.log($scope.companyInfo);
-
+            //console.log($scope.companyInfo);
         }
-
     }
 
     $scope.submitCompanyContactSignUpForm = function () {
@@ -145,30 +142,34 @@
             $scope.wizStep = 3;
             console.log($scope.companyContact);
         }
-
     }
 
     $scope.submitCompanyAccountSignUpForm = function () {
         var IsFormValid3 = $scope.CompanyInfoSignUpForm.$valid && $scope.CompanyContactSignUpForm.$valid && $scope.CompanyAccountSignUpForm.$valid;
         if (IsFormValid3) {
-            console.log($scope.signUpForm);
-            //$location.url('/');
+            $scope.signUpBtnDisabled = true;
+            $scope.progressbar.start();
+            $scope.signUpBtnText = "Signing In"
+            $timeout(function () {
+                $scope.signUpBtnText = "Successful. Redirecting...";
+                //$scope.signUpBtnDisabled = false;
+                $scope.progressbar.complete();
+                $timeout(function () {
+                    $state.go('login');
+                },1500)                
+            }, 1000);
         }
-
     }
 
     $scope.startProgress = function () {
-        //$event.preventDefault();
-
         $scope.progressbar.start();
     }
 
     $scope.startProgress();
 
-    angular.element(function () {
-        
+    angular.element(function () {        
         $scope.progressbar.complete();
-
+        $scope.getSignUpData();       
     });   
 
 

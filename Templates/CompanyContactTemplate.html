@@ -12,8 +12,10 @@
     <p>Fax</p>
     <h4>{{fax}}</h4>
 
-    <button class="btn btn-login btn-edit" ng-click="editMode()" style="position:inherit">{{btntext}}</button>
-</div>
+    <button ng-click="editMode()" class="btn btn-login btn-edit" style="position:inherit">
+        <span class="glyphicon glyphicon-edit"><span class="btn-glyphicon"> {{btntext}}</span></span>
+    </button>
+    </div>
 
 <div class="panel-info" style="margin-top: 20px; word-wrap: break-word;" ng-show="edit">
     <p>Name</p>
@@ -28,5 +30,7 @@
     <p>Fax</p>
     <input type="text" ng-model="fax" class="form-control inputField inputField-dashboard" name="fax{{type}}" />
 
-    <button class="btn btn-login btn-edit" ng-click="editMode()" style="position: inherit; margin-top: 10px;">{{btntext}}</button>
+    <button ng-click="editMode()" class="btn btn-login btn-edit" style="position: inherit; margin-top: 10px;">
+        <span class="glyphicon glyphicon-saved"><span class="btn-glyphicon"> {{btntext}}</span></span>
+    </button>    
 </div>
