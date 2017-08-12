@@ -90,9 +90,9 @@ alignApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider)
     var otherwiseState = {
         name: 'otherwise',
         url: '/',
-        templateUrl: "Home.html",
-        controller: "homeController",
-        data: { pageTitle: 'Home' }
+        templateUrl: "Login.html",
+        controller: "loginController",
+        data: { pageTitle: 'Login' }
     }
 
     $urlRouterProvider.when("", "/login");
