@@ -90,9 +90,9 @@ alignApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider)
     var otherwiseState = {
         name: 'otherwise',
         url: '/',
-        templateUrl: "Login.html",
-        controller: "loginController",
-        data: { pageTitle: 'Login' }
+        templateUrl: "Home.html",
+        controller: "homeController",
+        data: { pageTitle: 'Home' }
     }
 
     $urlRouterProvider.when("", "/login");
@@ -155,7 +155,7 @@ alignApp
       $transitions.onStart({}, function (trans) {
           debugger;
           var route = trans.to();
-          if (route.name != "signup" && route.name != "forgotpwd") {
+          if (route.name != "signup" && route.name != "forgotpwd" && route.name !="login") {
               if (!$localStorage.authenticated) {
                   $state.go('login');
               }              
