@@ -159,6 +159,9 @@ alignApp
               if (!$localStorage.authenticated) {
                   $state.go('login');
               }
+              else {
+                  $state.go('home');
+              }
           }
       });
   });
