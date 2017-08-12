@@ -160,7 +160,7 @@ alignApp
                   $state.go('login');
               }
               else {
-                  $state.go('home');
+                  $state.go(route.name);
               }
           }
       });
