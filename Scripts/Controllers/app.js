@@ -158,10 +158,7 @@ alignApp
           if (route.name != "signup" && route.name != "forgotpwd") {
               if (!$localStorage.authenticated) {
                   $state.go('login');
-              }
-              else {
-                  $state.go(route.name);
-              }
+              }              
           }
       });
   });
