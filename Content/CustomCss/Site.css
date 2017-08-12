@@ -192,6 +192,7 @@ input:-ms-input-placeholder {
 }
 .tooltip-arrow{
     border-right-color:#ffc00e !important;
+    border-bottom-color:#ffc00e !important;
 }
 
 /*******************SignUp********************/
