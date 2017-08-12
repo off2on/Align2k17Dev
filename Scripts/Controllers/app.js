@@ -153,6 +153,7 @@ alignApp
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
       $transitions.onStart({}, function (trans) {
+          debugger;
           var route = trans.to();
           if (route.name != "signup" && route.name != "forgotpwd") {
               if (!$localStorage.authenticated) {
