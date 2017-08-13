@@ -172,19 +172,24 @@
         }
     })
 
+    function isObject(obj) {
+        return obj === Object(obj);
+    };
+
     //-----------------------------function to upload picture to server-----------------------//
-    $scope.uploadPic = function (file) {       
+    $scope.uploadPic = function (file) {
+        if (isObject(file)) {
+            $scope.evtForm.evtImgUrl = "";
+        }        
         $scope.progressbar.start();
         $scope.evtBtnDisabled = true;
         $scope.createBtnText = "Saving...";
         file.upload = Upload.upload({
-            url: 'http://alignwebapi.apphb.com/api/upload',
-            //url: 'http://localhost:44456/api/upload',
+            //url: 'http://alignwebapi.apphb.com/api/upload',
+            url: 'http://localhost:44456/api/upload',
             method: 'POST',
             data: { evtData: angular.toJson($scope.evtForm),evtPicture: file },
-        });
-
-        file.upload.then(function (resp) {
+        }).then(function (resp) {
             // file is uploaded successfully
             $timeout(function () {
                 $scope.endProgress();
@@ -199,13 +204,18 @@
             //ngDialog.open({ template: 'Templates/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
         }, function (resp) {
             // handle error
-            
+            $timeout(function () {
+                $scope.endProgress();
+                $scope.createBtnText = "Service Unavailable...";
+            }, 1000);
+            $timeout(function () {
+                $scope.createBtnText = "Create";
+                $scope.evtBtnDisabled = false;
+            }, 2500);
         }, function (evt) {
             // progress notify
             //console.log('progress: ' + parseInt(100.0 * evt.loaded / evt.total) + '% file :' + evt.config.data.file.name);
         });
-
-        
 
         //file.upload = Upload.http({
         //    url: 'http://localhost:44456/api/upload',
