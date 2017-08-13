@@ -147,7 +147,7 @@
         if ($scope.category.name != undefined && $scope.category.name!="")
         {
             Object.keys($scope.categoryList).forEach(function (key) {
-                if ($scope.categoryList[key].name == $scope.category.name) {
+                if ($scope.categoryList[key].name.toUpperCase() == $scope.category.name.toUpperCase()) {
                     categoryExists = true;
                 }
             });
@@ -356,7 +356,7 @@
     $scope.initialiseFunctions();
 
     //------------------------------------Function to be called when clicked on edit existing event----------------------//
-    $scope.editEvent = function (id) {        
+    $scope.editEvent = function (id) {
         $state.go('home.event');
         ngDialog.close();
     }

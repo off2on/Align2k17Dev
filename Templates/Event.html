@@ -23,7 +23,7 @@
                         <div class="form-group form-item-container" style="overflow:hidden">
                             <input type="text" ng-model="category.name" placeholder="Input Category to add" disable-valid-styling="true" disable-invalid-styling="true" class="form-control input-new-category" name="newCategory">
                             <!--<div class="btn-add-category" ng-click="addCategory()">+</div>-->
-                            <button style="border: 0px;" ng-disabled="addCatgryDis" ng-class="btnAddCategory" class="glyphicon glyphicon-plus-sign" ng-click="addCategory()"></button>
+                            <div style="border: 0px;" ng-disabled="addCatgryDis" ng-class="btnAddCategory" class="glyphicon glyphicon-plus-sign" ng-click="addCategory()"></div>
                         </div>                        
                     </div>                    
 
@@ -46,7 +46,6 @@
                 <div class="col-sm-12 col-md-12 col-lg-12 signUpFormField">
                     <div class="form-group form-group-custom" style="width:91%">
                         <label for="date">Date*</label>
-
                         <input type="text" id="date" uib-datepicker-popup="{{format}}" ng-change="datetimeChanged('date')" is-open="popup1.opened"
                                ng-model="obj.date" readonly class="form-control inputField" name="date"
                                datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats"
@@ -54,16 +53,12 @@
                         <span class="input-group-btn input-btn-date">
                             <button type="button" class="btn btn-default btn-date" ng-click="openDatePicker()"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
-
                     </div>
-
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12 signUpFormField">
                     <div class="form-group form-group-custom">
                         <label for="time" class="label-time">Time*</label>
-
-                        <div uib-timepicker arrowkeys="true" ng-required="true" id="time" ng-model="obj.time" ng-change="datetimeChanged('time')" hour-step="1" minute-step="15" second-step="0" show-meridian="true"></div>
-                        
+                        <div uib-timepicker arrowkeys="true" ng-required="true" id="time" ng-model="obj.time" ng-change="datetimeChanged('time')" hour-step="1" minute-step="15" second-step="0" show-meridian="true"></div>                        
                     </div>
                     <span ng-show="!obj.time" class="help-block has-error error-msg">Invalid Time Input</span>
                 </div>
@@ -77,7 +72,7 @@
                         <button ngf-select="" ngf-drop="" ng-model="obj.picture" ngf-model-invalid="errorFile"
                                 ngf-multiple="multiple" ngf-pattern="'image/*'" ng-required="true" name="uploadPicture"
                                 ngf-enable-firefox-paste="true" ngf-drop-available="true" ngf-select="checkImg($file)"
-                                ngf-fix-orientation="true" ngf-max-files="1" ngf-max-size="2MB" ngf-default-src="obj.defaultPicture"
+                                ngf-fix-orientation="true" ngf-max-files="1" ngf-max-size="2MB" ngf-default-src="obj.picture"
                                 ngf-run-all-validations="true" ngf-allow-dir="true" class="drop-image form-control inputField">
                             <img class="img-responsive img-event" ngf-background="obj.picture" ngf-src=" !obj.picture.$error && obj.picture">
                             <span class="glyphicon glyphicon-upload glyphicon-large"></span>
