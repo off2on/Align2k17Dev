@@ -190,8 +190,10 @@ input:-ms-input-placeholder {
 .tooltip-inner{
     background-color:#ffc00e;
 }
-.tooltip-arrow{
-    border-right-color:#ffc00e !important;
+.tooltip.right .tooltip-arrow{
+    border-right-color:#ffc00e !important;    
+}
+.tooltip.bottom .tooltip-arrow{
     border-bottom-color:#ffc00e !important;
 }
 
@@ -1187,9 +1189,6 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
   width: 50%;
 }
 }
-
-
-
 
 /*****************footer*********************/
 
