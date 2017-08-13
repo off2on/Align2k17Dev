@@ -178,6 +178,7 @@
 
     //-----------------------------function to upload picture to server-----------------------//
     $scope.uploadPic = function (file) {
+        $('#date').addClass('event-has-success');
         if (isObject(file)) {
             $scope.evtForm.evtImgUrl = "";
         }        
@@ -195,11 +196,9 @@
                 $scope.endProgress();
                 $scope.createBtnText = "Saved Successfully...";                
             }, 1000);
-
             $timeout(function () {
                 $state.reload();                
             }, 1500);
-            
             //console.log('file ' + resp.config.data.evtPicture.name + 'is uploaded successfully. Response: ' + resp.data);
             //ngDialog.open({ template: 'Templates/EventInfo.html', className: 'ngdialog-theme-default', scope: $scope });
         }, function (resp) {
