@@ -688,9 +688,10 @@ a.btn.btn-link,.btn-link:hover, .btn-link:focus
 {
     border-radius: 0px;
     background-color: #e3e3e3;
-    height: 50px;
+    height: auto;
     padding-bottom: 6px;
     overflow:auto;
+    max-height:120px;
 }
 
 .form-item-container .list-inline li span
