@@ -186,8 +186,8 @@
         $scope.evtBtnDisabled = true;
         $scope.createBtnText = "Saving...";
         file.upload = Upload.upload({
-            //url: 'http://alignwebapi.apphb.com/api/upload',
-            url: 'http://localhost:44456/api/upload',
+            url: 'http://alignwebapi.apphb.com/api/upload',
+            //url: 'http://localhost:44456/api/upload',
             method: 'POST',
             data: { evtData: angular.toJson($scope.evtForm),evtPicture: file },
         }).then(function (resp) {
